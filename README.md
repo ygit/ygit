@@ -1,6 +1,7 @@
 ### Hi there 👋
+![](https://komarev.com/ghpvc/?username=ygit&color=green)
 
-Yogesh is an iOS Frameworks Engineer with more than 6 years of experience. He has built some widely used consumer Apps & B2B SDKs at companies like CleverTap, WebEngage & Haptik. He is very active in the Open Source Community & has worked to build a flourishing iOS / Swift India Developer Community. You can easily chat with him about Italian football, Tolkien's Middle Earth & the origins of Laniakea Supercluster.
+Yogesh is an iOS Frameworks Engineer with more than 7 years of experience. He has built some widely used consumer Apps & B2B SDKs at companies like CleverTap, WebEngage & Haptik. He is very active in the Open Source Community & has worked to build a flourishing iOS / Swift India Developer Community. You can easily chat with him about Italian football, Tolkien's Middle Earth & the origins of Laniakea Supercluster.
 
 
 <!--
