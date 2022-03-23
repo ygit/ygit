@@ -5,7 +5,7 @@
 
 - 💬 Ask me about anything [here](https://github.com/ygit/ygit/issues)
 
-Yogesh is an iOS Frameworks Engineer currently building [Live Video Conferencing SDK](http://github.com/100mslive/). He is very active in the Open Source Community & has worked to build a flourishing iOS / Swift India Developer Community. He has built some widely used consumer Apps & B2B SDKs at companies like CleverTap, WebEngage & Haptik.  You can easily chat with him about Italian football, Tolkien's Middle Earth & the origins of Laniakea Supercluster.
+I'm an iOS Frameworks Engineer currently building [Live Video Conferencing SDK](http://github.com/100mslive/). I have built some widely used consumer Apps & B2B SDKs at companies like CleverTap, WebEngage & Haptik. I'm quite active in the Open Source Community & have built a flourishing iOS / Swift India Developer Community.
 
 [![Yogesh's GitHub stats](https://github-readme-stats.vercel.app/api?username=ygit&show_icons=true&count_private=true&theme=gruvbox)](https://github.com/ygit)
 
