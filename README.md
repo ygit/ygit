@@ -1,4 +1,4 @@
-### Hi there 👋
+<!-- ### Hi there 👋
 ![Profile View Count](https://komarev.com/ghpvc/?username=ygit&color=green)
 
 - 🍎 iOS Frameworks Engineer at [100ms](https://www.100ms.live/)
@@ -10,7 +10,7 @@ I'm an iOS Frameworks Engineer currently building [Live Video Conferencing SDK](
 [![Yogesh's GitHub stats](https://github-readme-stats.vercel.app/api?username=ygit&show_icons=true&count_private=true&theme=gruvbox)](https://github.com/ygit)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ygit&theme=gruvbox)](https://github.com/ygit)
-
+ -->
 <!--
 **ygit/ygit** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
