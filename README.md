@@ -76,7 +76,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
           <img src="https://img.shields.io/github/forks/ygit/swiftui?style=for-the-badge&color=blue" alt="Forks"/>
         </a>
         <br/><br/>
-        <em>The 100ms iOS SDK is a set of tools for adding real-time audio, video, and live streaming capabilities to native iOS applications. It is available via Swift Package Manager (SPM) or Cocoapods and offers both a core SDK for custom UI and a prebuilt RoomKit for a drop-in conferencing experience. </em>
+        <em>The 100ms iOS SDK is a set of tools for adding real-time audio, video, and live streaming capabilities to native iOS applications. It offers both a core SDK for custom UI and a prebuilt RoomKit for a drop-in conferencing experience.</em>
       </p>
     </td>
     <td width="50%" valign="top">
