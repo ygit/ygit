@@ -69,7 +69,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3 align="center">Awesome SwiftUI</h3>
+      <h3 align="center">100ms iOS SDK</h3>
       <p align="center">
         <a href="https://github.com/ygit/swiftui">
           <img src="https://img.shields.io/github/stars/ygit/swiftui?style=for-the-badge&color=yellow" alt="Stars"/>
@@ -80,7 +80,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3 align="center">100ms iOS SDK</h3>
+      <h3 align="center">Awesome SwiftUI</h3>
       <p align="center">
         <a href="https://github.com/100mslive/100ms-ios-sdk">
           <img src="https://img.shields.io/github/stars/100mslive/100ms-ios-sdk?style=for-the-badge&color=yellow" alt="Stars"/>
