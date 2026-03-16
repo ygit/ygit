@@ -18,7 +18,7 @@
 
 ## 🧑‍💻 About Me
 
-I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and cross-platform mobile. Currently at **[100ms](https://www.100ms.live/)**, where I build and maintain live video & audio SDKs for **iOS, Flutter, and React Native** — powering real-time communication for thousands of developers worldwide.
+I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and cross-platform mobile. Currently at **[100ms](https://www.100ms.live/)**, where I build and maintain live video & audio SDKs for **iOS, Flutter, and React Native** which powers real-time communication for thousands of developers worldwide.
 
 I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.
 
