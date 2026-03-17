@@ -18,7 +18,8 @@
 
 ## 🧑‍💻 About Me
 
-I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and cross-platform mobile. Currently at **[100ms](https://www.100ms.live/)**, where I build and maintain live video & audio SDKs for **iOS, Flutter, and React Native** which powers real-time communication for thousands of developers worldwide.
+I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at **[100ms](https://www.100ms.live/)**, where I built and maintain live video streaming & conferencing SDKs for **iOS, Flutter, and React Native** which powers real-time communication for thousands of developers worldwide.
+I have also built production grade popular Mobile SDKs at my previous companies like CleverTap, WebEngage & Jio-Haptik.
 
 I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.
 
@@ -26,9 +27,10 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 
 ## 🔭 What I'm Currently Working On
 
-- 🛠️ &nbsp; Building & shipping **live video/audio conferencing & streaming SDKs** at [100ms](https://www.100ms.live/) across iOS, Android, Flutter & React Native
+- 🤖 &nbsp; Building production **voice AI agents for healthcare** at [100ms](https://www.100ms.ai/)  powering automated patient outreach, appointment scheduling, and clinical triage over phone calls.
+- 🛠️ &nbsp; Built **live video/audio conferencing & streaming SDKs** at [100ms](https://www.100ms.live/) across iOS, Android, Flutter & React Native
 - 🍎 &nbsp; Built **[Awesome SwiftUI](https://github.com/ygit/swiftui)** — 1,300+ ⭐ resource collection
-- 🎤 &nbsp; Organising meetups & workshops through **[Swift Mumbai](https://swiftmumbai.in/)**, **[Swift Bengaluru](https://www.linkedin.com/company/swiftbengaluru/)** & **[Swift Bharat](https://www.swiftbharat.org/)**
+- 🎤 &nbsp; Organising meetups & workshops through **[Swift Mumbai](https://swiftmumbai.in/)**, **[Swift Bengaluru](https://www.linkedin.com/company/swiftbengaluru/)** & **[Swift Bharat](https://www.swiftbharat.org/)** - Apple platforms developers communities
 
 ---
 
@@ -39,8 +41,8 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 │                                                                          │
 │  2021 – Present    100ms                                                 │
 │                    iOS Frameworks Engineer / RN & Flutter EM             │
-│                    → Building live video SDKs powering real-time apps    │
-│                    → Leading Flutter & React Native SDK development      │
+│                    → Building Voice AI Agents for Healthcare             │
+│                    → Built live video SDKs powering real-time apps       │
 │                                                                          │
 │  2020 – 2021       CleverTap                                             │
 │                    Lead iOS Engineer                                     │
@@ -55,7 +57,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 │                    → Built commercial iOS SDKs for B2B clients           │
 │                    → Real-time chat with MQTT, Core Data architecture    │
 │                                                                          │
-│  2014 – 2016       Inspeero Technologies / Panasonic                     │
+│  2014 – 2016       Panasonic / Inspeero Technologies                     │
 │                    iOS Developer                                         │
 │                    → Electrocompaniet Remote iOS app (showcased at CES)  │
 │                                                                          │
@@ -71,9 +73,9 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
     <td width="50%" valign="top">
       <h3 align="center">100ms iOS SDK</h3>
       <p align="center">
-        <a href="https://github.com/ygit/swiftui">
-          <img src="https://img.shields.io/github/stars/ygit/swiftui?style=for-the-badge&color=yellow" alt="Stars"/>
-          <img src="https://img.shields.io/github/forks/ygit/swiftui?style=for-the-badge&color=blue" alt="Forks"/>
+        <a href="https://github.com/100mslive/100ms-ios-sdk">
+          <img src="https://img.shields.io/github/stars/100mslive/100ms-ios-sdk?style=for-the-badge&color=yellow" alt="Stars"/>
+          <img src="https://img.shields.io/github/forks/100mslive/100ms-ios-sdk?style=for-the-badge&color=blue" alt="Forks"/>
         </a>
         <br/><br/>
         <em>The 100ms iOS SDK is a set of tools for adding real-time audio, video, and live streaming capabilities to native iOS applications. It offers both a core SDK for custom UI and a prebuilt RoomKit for a drop-in conferencing experience.</em>
@@ -82,13 +84,12 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
     <td width="50%" valign="top">
       <h3 align="center">Awesome SwiftUI</h3>
       <p align="center">
-        <a href="https://github.com/100mslive/100ms-ios-sdk">
-          <img src="https://img.shields.io/github/stars/100mslive/100ms-ios-sdk?style=for-the-badge&color=yellow" alt="Stars"/>
-          <img src="https://img.shields.io/github/forks/100mslive/100ms-ios-sdk?style=for-the-badge&color=blue" alt="Forks"/>
-        </a>
-        <br/><br/>
-        <em>A community-built SwiftUI chat message UI kit — built collaboratively by the Swift Mumbai developer community.</em>
-      </p>
+      <a href="https://github.com/ygit/swiftui">
+          <img src="https://img.shields.io/github/stars/ygit/swiftui?style=for-the-badge&color=yellow" alt="Stars"/>
+          <img src="https://img.shields.io/github/forks/ygit/swiftui?style=for-the-badge&color=blue" alt="Forks"/>
+      </a>
+      <br/><br/>
+      <em>A collaborative, community-driven list of awesome SwiftUI resources — tutorials, libraries, videos, and tools. One of the top SwiftUI collections on GitHub.</em>
     </td>
   </tr>
   <tr>
@@ -127,15 +128,43 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 
 ![Objective--C](https://img.shields.io/badge/Objective--C-438EFF?style=for-the-badge&logo=apple&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Go](https://img.shields.io/badge/Go-007D9C?style=for-the-badge&logo=go&logoColor=white)
 
-**Real-Time & Infrastructure**
+**Real-Time**
 
 ![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)
 ![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=eclipsemosquitto&logoColor=white)
-![HLS](https://img.shields.io/badge/HLS_Streaming-FA8072?style=for-the-badge&logoColor=white)
+![HLS](https://img.shields.io/badge/HLS_Streaming-FA8072?style=for-the-badge&logo=apple&logoColor=white)
+
+**Frameworks**
+
+![SwiftUI](https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![gRPC](https://img.shields.io/badge/gRPC-244C5A?style=for-the-badge&logo=google&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
+**AI & Voice**
+
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+![ElevenLabs](https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white)
+![Deepgram](https://img.shields.io/badge/Deepgram-13EF93?style=for-the-badge&logo=deepgram&logoColor=black)
+![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+
+**Infrastructure**
+
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 
 ---
 
@@ -143,7 +172,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 
 I believe great software is built by strong communities. Here's how I give back:
 
-🍎 **[Swift Mumbai](https://swiftmumbai.in/)** — Organiser of Mumbai's Apple developer community. Hosted meetups at **BookMyShow, Dream11, Eros Now, Directi, Haptik, WeWork** and more. Built a network of 2,000+ iOS developers.
+🍎 **[Swift Mumbai](https://swiftmumbai.in/)** — Originator of Mumbai's Apple developer community. Hosted meetups at **BookMyShow, Dream11, Jio-Haptik, Eros Now, Directi, WeWork** and more. Built a network of 2,000+ iOS developers.
 
 🇮🇳 **[Swift Bharat Conference](https://www.swiftbharat.org/)** — Host & Speaker at India's premier Swift conferences, sharing my journey from doodles to production SDKs.
 
@@ -153,8 +182,6 @@ I believe great software is built by strong communities. Here's how I give back:
 
 <div align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ygit&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true&rank_icon=github" alt="GitHub Stats"/>
-    
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ygit&layout=compact&theme=default&hide_border=true&langs_count=8" alt="Top Languages"/>
 </div>
 
 <div align="center">
@@ -182,5 +209,5 @@ I believe great software is built by strong communities. Here's how I give back:
 ---
 
 <div align="center">
-  <em>"Build apps, build SDKs, build communities, build things that outlast you."</em>
+  <em>"Build apps, build communities, build things that outlast you."</em>
 </div>
