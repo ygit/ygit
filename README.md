@@ -18,7 +18,7 @@
 
 ## 🧑‍💻 About Me
 
-I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at **[100ms](https://www.100ms.live/)**, where I built and maintain live video streaming & conferencing SDKs for **iOS, Flutter, and React Native** which powers real-time communication for thousands of developers worldwide.
+I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at **[100ms AI](https://www.100ms.ai/)**, I'm building AI Voice Agents for Healthcare. Previously at **[100ms Live](https://www.100ms.live/)**, I built live video conferencing & streaming SDKs for **iOS, Flutter, and React Native** powering real-time communication for thousands of developers worldwide.
 I have also built production grade popular Mobile SDKs at my previous companies like CleverTap, WebEngage & Jio-Haptik.
 
 I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.
@@ -27,7 +27,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 
 ## 🔭 What I'm Currently Working On
 
-- 🤖 &nbsp; Building production **voice AI agents for healthcare** at [100ms](https://www.100ms.ai/)  powering automated patient outreach, appointment scheduling, and clinical triage over phone calls.
+- 🤖 &nbsp; Building production **voice AI agents for healthcare** at [100ms AI](https://www.100ms.ai/)  powering automated patient outreach, appointment scheduling, and clinical triage over phone calls.
 - 🛠️ &nbsp; Built **live video/audio conferencing & streaming SDKs** at [100ms](https://www.100ms.live/) across iOS, Android, Flutter & React Native
 - 🍎 &nbsp; Built **[Awesome SwiftUI](https://github.com/ygit/swiftui)** — 1,300+ ⭐ resource collection
 - 🎤 &nbsp; Organising meetups & workshops through **[Swift Mumbai](https://swiftmumbai.in/)**, **[Swift Bengaluru](https://www.linkedin.com/company/swiftbengaluru/)** & **[Swift Bharat](https://www.swiftbharat.org/)** - Apple platforms developers communities
@@ -138,14 +138,21 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 ![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)
 ![MQTT](https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=eclipsemosquitto&logoColor=white)
 ![HLS](https://img.shields.io/badge/HLS_Streaming-FA8072?style=for-the-badge&logo=apple&logoColor=white)
+![RTMP](https://img.shields.io/badge/RTMP-FF0000?style=for-the-badge&logo=adobeflash&logoColor=white)
 
-**Frameworks**
 
+**Mobile Frameworks**
+
+![UIKit](https://img.shields.io/badge/UIKit-2396F3?style=for-the-badge&logo=apple&logoColor=white)
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![gRPC](https://img.shields.io/badge/gRPC-244C5A?style=for-the-badge&logo=google&logoColor=white)
+
+**Backend Frameworks**
+
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-2F4F4F?style=for-the-badge&logo=uvicorn&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 **AI & Voice**
 
@@ -153,18 +160,27 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 ![Google Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
 ![ElevenLabs](https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white)
 ![Deepgram](https://img.shields.io/badge/Deepgram-13EF93?style=for-the-badge&logo=deepgram&logoColor=black)
-![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=for-the-badge&logo=twilio&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+
+**Observability**
+
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-000000?style=for-the-badge&logo=opentelemetry&logoColor=white)
+![New Relic](https://img.shields.io/badge/New_Relic-1CE783?style=for-the-badge&logo=newrelic&logoColor=white)
+![Langfuse](https://img.shields.io/badge/Langfuse-000000?style=for-the-badge&logo=langfuse&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
 **Infrastructure**
 
 ![Kafka](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white)
+![Temporal](https://img.shields.io/badge/Temporal-000000?style=for-the-badge&logo=temporal&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
 ![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
 
 ---
 
