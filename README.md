@@ -52,7 +52,7 @@ I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most 
 │                    Lead: Mobile Technology (iOS)                         │
 │                    → Multi-channel user engagement, iOS SDK development  │
 │                                                                          │
-│  2017 – 2018       Haptik                                                │
+│  2017 – 2018       Jio-Haptik                                                │
 │                    iOS Engineer                                          │
 │                    → Built commercial iOS SDKs for B2B clients           │
 │                    → Real-time chat with MQTT, Core Data architecture    │
