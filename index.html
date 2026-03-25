@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yogesh Singh — Software Engineer</title>
+  <meta name="description" content="Software Engineer E5 with 12+ years of experience building products across the Apple ecosystem, mobile SDKs, and AI voice agents.">
+  <meta name="author" content="Yogesh Singh">
+  <meta property="og:title" content="Yogesh Singh — Software Engineer">
+  <meta property="og:description" content="Software Engineer building AI Voice Agents for Healthcare at 100ms. 12+ years across iOS, Flutter, React Native.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yogeshsingh.space">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@_yogeshsingh">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f6f8fa;
+      --text: #1f2328;
+      --text-muted: #636c76;
+      --accent: #0969da;
+      --border: #d1d9e0;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --bg-alt: #161b22;
+        --text: #e6edf3;
+        --text-muted: #8b949e;
+        --accent: #58a6ff;
+        --border: #30363d;
+        --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .header .typing-svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .social-links img { height: 30px; }
+
+    /* ---- Sections ---- */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    p, li {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .about p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .about p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* ---- Current Work ---- */
+    .current-work ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .current-work li {
+      padding: 0.4rem 0;
+      padding-left: 2rem;
+      text-indent: -1.6rem;
+    }
+
+    /* ---- Career ---- */
+    .career-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* ---- Projects Grid ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .project-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card .badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-card .badges img { height: 24px; }
+
+    .project-card em {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    /* ---- Tech Stack ---- */
+    .tech-category {
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .tech-category h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge-row img { height: 28px; }
+
+    /* ---- Community ---- */
+    .community p {
+      margin-bottom: 0.75rem;
+      line-height: 1.75;
+    }
+
+    /* ---- Stats ---- */
+    .stats {
+      text-align: center;
+    }
+
+    .stats img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    /* ---- Achievements ---- */
+    .achievements {
+      text-align: center;
+    }
+
+    .achievements p {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- Footer ---- */
+    .footer-quote {
+      text-align: center;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="https://github.com/ygit">
+        <img class="typing-svg" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=0969DA&center=true&vCenter=true&multiline=true&repeat=true&width=780&height=100&lines=Hey%2C+I'm+Yogesh+Singh+%F0%9F%91%8B;Software+Engineer+%C2%B7+SDK+Builder+%C2%B7+Community" alt="Hey, I'm Yogesh Singh - Software Engineer, SDK Builder, Community" />
+      </a>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/yogeshsingh2810"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+        <a href="https://twitter.com/_yogeshsingh"><img src="https://img.shields.io/badge/@__yogeshsingh-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)"></a>
+        <a href="https://github.com/ygit"><img src="https://img.shields.io/badge/GitHub-ygit-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+      </div>
+    </header>
+
+    <hr class="divider">
+
+    <!-- ABOUT -->
+    <section class="about">
+      <h2>About Me</h2>
+      <p>I'm a <strong>Software Engineer E5</strong> based in <strong>India</strong> with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at <strong><a href="https://www.100ms.ai/">100ms AI</a></strong>, I'm building AI Voice Agents for Healthcare. Previously at <strong><a href="https://www.100ms.live/">100ms Live</a></strong>, I built live video conferencing &amp; streaming SDKs for <strong>iOS, Flutter, and React Native</strong> powering real-time communication for thousands of developers worldwide.</p>
+      <p>I have also built production grade popular Mobile SDKs at my previous companies like CleverTap, WebEngage &amp; Jio-Haptik.</p>
+      <p>I also started <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong>, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CURRENT WORK -->
+    <section class="current-work">
+      <h2>What I'm Currently Working On</h2>
+      <ul>
+        <li>&#x1F916;&nbsp; Building production <strong>voice AI agents for healthcare</strong> at <a href="https://www.100ms.ai/">100ms AI</a> &mdash; powering automated patient outreach, appointment scheduling, and clinical triage over phone calls.</li>
+        <li>&#x1F6E0;&#xFE0F;&nbsp; Built <strong>live video/audio conferencing &amp; streaming SDKs</strong> at <a href="https://www.100ms.live/">100ms</a> across iOS, Android, Flutter &amp; React Native</li>
+        <li>&#x1F34E;&nbsp; Built <strong><a href="https://github.com/ygit/swiftui">Awesome SwiftUI</a></strong> &mdash; 1,300+ star resource collection</li>
+        <li>&#x1F3A4;&nbsp; Organising meetups &amp; workshops through <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong>, <strong><a href="https://www.linkedin.com/company/swiftbengaluru/">Swift Bengaluru</a></strong> &amp; <strong><a href="https://www.swiftbharat.org/">Swift Bharat</a></strong> &mdash; Apple platforms developers communities</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAREER -->
+    <section>
+      <h2>Career Journey</h2>
+      <div class="career-box">2021 &ndash; Present    <strong>100ms</strong>
+                    iOS Frameworks Engineer / RN &amp; Flutter EM
+                    &rarr; Building Voice AI Agents for Healthcare
+                    &rarr; Built live video SDKs powering real-time apps
+
+2020 &ndash; 2021       <strong>CleverTap</strong>
+                    Lead iOS Engineer
+                    &rarr; Customer engagement platform, mobile SDK work
+
+2018 &ndash; 2020       <strong>WebEngage</strong>
+                    Lead: Mobile Technology (iOS)
+                    &rarr; Multi-channel user engagement, iOS SDK development
+
+2017 &ndash; 2018       <strong>Jio-Haptik</strong>
+                    iOS Engineer
+                    &rarr; Built commercial iOS SDKs for B2B clients
+                    &rarr; Real-time chat with MQTT, Core Data architecture
+
+2014 &ndash; 2016       <strong>Panasonic / Inspeero Technologies</strong>
+                    iOS Developer
+                    &rarr; Electrocompaniet Remote iOS app (showcased at CES)</div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- PROJECTS -->
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>100ms iOS SDK</h3>
+          <div class="badges">
+            <a href="https://github.com/100mslive/100ms-ios-sdk"><img src="https://img.shields.io/github/stars/100mslive/100ms-ios-sdk?style=for-the-badge&color=yellow" alt="Stars"></a>
+            <a href="https://github.com/100mslive/100ms-ios-sdk"><img src="https://img.shields.io/github/forks/100mslive/100ms-ios-sdk?style=for-the-badge&color=blue" alt="Forks"></a>
+          </div>
+          <em>The 100ms iOS SDK for adding real-time audio, video, and live streaming to native iOS apps. Offers both a core SDK and a prebuilt RoomKit for drop-in conferencing.</em>
+        </div>
+        <div class="project-card">
+          <h3>Awesome SwiftUI</h3>
+          <div class="badges">
+            <a href="https://github.com/ygit/swiftui"><img src="https://img.shields.io/github/stars/ygit/swiftui?style=for-the-badge&color=yellow" alt="Stars"></a>
+            <a href="https://github.com/ygit/swiftui"><img src="https://img.shields.io/github/forks/ygit/swiftui?style=for-the-badge&color=blue" alt="Forks"></a>
+          </div>
+          <em>A collaborative, community-driven list of awesome SwiftUI resources &mdash; tutorials, libraries, videos, and tools. One of the top SwiftUI collections on GitHub.</em>
+        </div>
+        <div class="project-card">
+          <h3>100ms Flutter SDK</h3>
+          <div class="badges">
+            <a href="https://github.com/100mslive/100ms-flutter"><img src="https://img.shields.io/github/stars/100mslive/100ms-flutter?style=for-the-badge&color=yellow" alt="Stars"></a>
+            <a href="https://github.com/100mslive/100ms-flutter"><img src="https://img.shields.io/github/forks/100mslive/100ms-flutter?style=for-the-badge&color=blue" alt="Forks"></a>
+          </div>
+          <em>Flutter SDK for live video conferencing and interactive live streaming. Published on pub.dev, with apps on App Store &amp; Play Store.</em>
+        </div>
+        <div class="project-card">
+          <h3>100ms React Native SDK</h3>
+          <div class="badges">
+            <a href="https://github.com/100mslive/100ms-react-native"><img src="https://img.shields.io/github/stars/100mslive/100ms-react-native?style=for-the-badge&color=yellow" alt="Stars"></a>
+            <a href="https://github.com/100mslive/100ms-react-native"><img src="https://img.shields.io/github/forks/100mslive/100ms-react-native?style=for-the-badge&color=blue" alt="Forks"></a>
+          </div>
+          <em>React Native SDK for 100ms &mdash; enabling live video conferencing &amp; streaming in cross-platform mobile apps.</em>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- TECH STACK -->
+    <section>
+      <h2>Tech Stack</h2>
+
+      <div class="tech-category">
+        <h3>Languages</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/Objective--C-438EFF?style=for-the-badge&logo=apple&logoColor=white" alt="Objective-C">
+          <img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white" alt="Swift">
+          <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin">
+          <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+          <img src="https://img.shields.io/badge/Go-007D9C?style=for-the-badge&logo=go&logoColor=white" alt="Go">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Real-Time</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white" alt="WebRTC">
+          <img src="https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=eclipsemosquitto&logoColor=white" alt="MQTT">
+          <img src="https://img.shields.io/badge/HLS_Streaming-FA8072?style=for-the-badge&logo=apple&logoColor=white" alt="HLS">
+          <img src="https://img.shields.io/badge/RTMP-FF0000?style=for-the-badge&logo=adobeflash&logoColor=white" alt="RTMP">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Mobile Frameworks</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/UIKit-2396F3?style=for-the-badge&logo=apple&logoColor=white" alt="UIKit">
+          <img src="https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white" alt="SwiftUI">
+          <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
+          <img src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Native">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Backend Frameworks</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+          <img src="https://img.shields.io/badge/Uvicorn-2F4F4F?style=for-the-badge&logo=uvicorn&logoColor=white" alt="Uvicorn">
+          <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="Pytest">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>AI &amp; Voice</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI">
+          <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini">
+          <img src="https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white" alt="ElevenLabs">
+          <img src="https://img.shields.io/badge/Deepgram-13EF93?style=for-the-badge&logo=deepgram&logoColor=black" alt="Deepgram">
+          <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Observability</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/OpenTelemetry-000000?style=for-the-badge&logo=opentelemetry&logoColor=white" alt="OpenTelemetry">
+          <img src="https://img.shields.io/badge/New_Relic-1CE783?style=for-the-badge&logo=newrelic&logoColor=white" alt="New Relic">
+          <img src="https://img.shields.io/badge/Langfuse-000000?style=for-the-badge&logo=langfuse&logoColor=white" alt="Langfuse">
+          <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" alt="Prometheus">
+          <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Infrastructure</h3>
+        <div class="badge-row">
+          <img src="https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" alt="Kafka">
+          <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+          <img src="https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
+          <img src="https://img.shields.io/badge/Temporal-000000?style=for-the-badge&logo=temporal&logoColor=white" alt="Temporal">
+          <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+          <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes">
+          <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
+          <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="GCP">
+          <img src="https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white" alt="Argo CD">
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- COMMUNITY -->
+    <section class="community">
+      <h2>Community &amp; Speaking</h2>
+      <p>I believe great software is built by strong communities. Here's how I give back:</p>
+      <p>&#x1F34E; <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong> &mdash; Originator of Mumbai's Apple developer community. Hosted meetups at <strong>BookMyShow, Dream11, Jio-Haptik, Eros Now, Directi, WeWork</strong> and more. Built a network of 2,000+ iOS developers.</p>
+      <p>&#x1F1EE;&#x1F1F3; <strong><a href="https://www.swiftbharat.org/">Swift Bharat Conference</a></strong> &mdash; Host &amp; Speaker at India's premier Swift conferences, sharing my journey from doodles to production SDKs.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- GITHUB STATS -->
+    <section class="stats">
+      <h2>GitHub Stats</h2>
+      <div>
+        <img src="https://github-readme-stats.vercel.app/api?username=ygit&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true&rank_icon=github" alt="GitHub Stats">
+      </div>
+      <div>
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=ygit&theme=default&hide_border=true" alt="GitHub Streak">
+      </div>
+      <div>
+        <img src="https://github-profile-trophy.vercel.app/?username=ygit&theme=flat&no-frame=true&no-bg=true&column=7&margin-w=10" alt="GitHub Trophies">
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ACHIEVEMENTS -->
+    <section class="achievements">
+      <h2>Achievements &amp; Recognition</h2>
+      <p>&#x1F396; <strong>Arctic Code Vault Contributor</strong> &mdash; Code preserved in GitHub's Arctic Vault for 1,000 years</p>
+      <p>&#x2B50; <strong>1,300+ Stars</strong> on Awesome SwiftUI &mdash; One of the top SwiftUI resource repositories globally</p>
+      <p>&#x1F525; <strong>Pair Extraordinaire x4 &middot; Pull Shark x4 &middot; Starstruck x3</strong> &mdash; GitHub Achievements</p>
+    </section>
+
+    <hr class="divider">
+
+    <footer class="footer-quote">
+      "Build apps, build communities, build things that outlast you."
+    </footer>
+
+  </div>
+</body>
+</html>
