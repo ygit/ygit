@@ -18,7 +18,9 @@
 
 ## 🧑‍💻 About Me
 
-I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at **[100ms AI](https://www.100ms.ai/)**, I'm building AI Voice Agents for Healthcare. Previously at **[100ms Live](https://www.100ms.live/)**, I built live video conferencing & streaming SDKs for **iOS, Flutter, and React Native** powering real-time communication for thousands of developers worldwide.
+I'm a **Software Engineer E5** based in **India** 🇮🇳 with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at **[100ms AI](https://www.100ms.ai/)**, I'm building AI Voice Agents for Healthcare. 
+
+Previously at **[100ms Live](https://www.100ms.live/)**, I built live video conferencing & streaming SDKs for **iOS, Flutter, and React Native** powering real-time communication for thousands of developers worldwide.
 I have also built production grade popular Mobile SDKs at my previous companies like CleverTap, WebEngage & Jio-Haptik.
 
 I also started **[Swift Mumbai](https://swiftmumbai.in/)**, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.
