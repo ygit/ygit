@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Consistent decisions across systems — Yogesh Singh
+  </title>
+  <meta content="Keeping Python and TypeScript business rules aligned across agents, backend services, and review interfaces." name="description"/>
+  <link href="https://yogeshsingh.space/work/shared-decision-engine/" rel="canonical"/>
+  <meta content="Consistent decisions across systems — Yogesh Singh" property="og:title"/>
+  <meta content="Keeping Python and TypeScript business rules aligned across agents, backend services, and review interfaces." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/shared-decision-engine/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      Consistent decisions across systems
+     </h1>
+     <p class="intro">
+      Keeping Python and TypeScript business rules aligned across agents, backend services, and review interfaces.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       Engineering at 100ms
+      </p>
+      <p>
+       <b>
+        Focus
+       </b>
+       Python · TypeScript · Contract testing
+      </p>
+      <p>
+       <b>
+        Scope
+       </b>
+       Selected contributions; conceptual descriptions.
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       The problem
+      </h2>
+      <p>
+       A call can be evaluated during a live conversation and later recomputed from its stored output. Those paths need consistent interpretations of required fields, plan types, and completion criteria.
+      </p>
+      <h2>
+       My contribution
+      </h2>
+      <p>
+       I extend a shared decision engine with Python and TypeScript implementations, update common scenario datasets, and integrate releases into downstream applications. My work includes plan-dependent requirements and derived benefits logic.
+      </p>
+      <h2>
+       The engineering contract
+      </h2>
+      <div class="diagram">
+       <ol>
+        <li>
+         A written manifest describes the intended business behavior.
+        </li>
+        <li>
+         Python and TypeScript implementations follow the same contract.
+        </li>
+        <li>
+         A common scenario corpus records expected outcomes.
+        </li>
+        <li>
+         Both runtimes are checked against those scenarios.
+        </li>
+        <li>
+         Consumers adopt the versioned engine.
+        </li>
+       </ol>
+      </div>
+      <h2>
+       Key tradeoffs
+      </h2>
+      <p>
+       <strong>
+        Share the meaning across languages.
+       </strong>
+       Applications can retain their existing runtimes while using equivalent decision rules. That makes cross-language tests a first-class part of the work.
+      </p>
+      <p>
+       <strong>
+        Make conditional requirements visible.
+       </strong>
+       Fields may be required for one plan or workflow and irrelevant for another. A written contract helps reviewers reason about the intended behavior before inspecting implementation details.
+      </p>
+      <h2>
+       Validation
+      </h2>
+      <p>
+       I add scenarios for the changed rules and update both implementations. Regression cases exercise conditional requirements and derived values, including interactions between coverage, plan type, and coordination of benefits.
+      </p>
+      <h2>
+       What this work enables
+      </h2>
+      <p>
+       Changes can be reviewed as a business contract, checked across runtimes, and consumed through versioned packages. The shared corpus provides an explicit record of expected decisions.
+      </p>
+      <blockquote>
+       <p>
+        A decision should stay consistent as it moves between applications.
+       </p>
+      </blockquote>
+      <p class="note">
+       This overview uses no patient data or production transcripts.
+      </p>
+      <h2>
+       What is actually shared
+      </h2>
+      <p>
+       The implementations are separate
+       <strong>
+        Python and TypeScript
+       </strong>
+       packages. They consume a common JSON scenario corpus describing inputs and expected decisions. Python tests and the JavaScript test suite exercise the same cases, so a rule change can be checked across both languages.
+      </p>
+      <p>
+       The engine supports evaluation from live context and from stored structured output. That boundary matters: nested output shapes must be interpreted consistently with the values used during a call.
+      </p>
+      <h2>
+       Changing a rule
+      </h2>
+      <p>
+       My workflow is to update the written behavior contract, implement the rule in both runtimes, and add cases that expose the changed condition. Examples include requirements that depend on the plan type and derived values that must not override representative-confirmed information.
+      </p>
+      <p>
+       This is where
+       <strong>
+        scenario tests, typed data, and package versioning
+       </strong>
+       become part of product correctness. Downstream applications can adopt the updated package while keeping the rule changes reviewable.
+      </p>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer></script>
+ </body>
+</html>

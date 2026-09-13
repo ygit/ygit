@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Replaying and evaluating agent failures — Yogesh Singh
+  </title>
+  <meta content="Connecting conversation failures to reproducible checks and PHI-aware review tools." name="description"/>
+  <link href="https://yogeshsingh.space/work/agent-evaluation/" rel="canonical"/>
+  <meta content="Replaying and evaluating agent failures — Yogesh Singh" property="og:title"/>
+  <meta content="Connecting conversation failures to reproducible checks and PHI-aware review tools." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/agent-evaluation/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      Replaying and evaluating agent failures
+     </h1>
+     <p class="intro">
+      Connecting conversation failures to reproducible checks and PHI-aware review tools.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       Engineering at 100ms
+      </p>
+      <p>
+       <b>
+        Focus
+       </b>
+       Replay tooling · Evaluation · Privacy
+      </p>
+      <p>
+       <b>
+        Scope
+       </b>
+       Selected contributions; conceptual descriptions.
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       The problem
+      </h2>
+      <p>
+       When a voice call produces an unexpected outcome, the cause can sit in the conversation, extracted state, or downstream decision rules. Looking only at the final result leaves much of that context hidden.
+      </p>
+      <h2>
+       My contribution
+      </h2>
+      <p>
+       I built tooling to grade a real call against a local decision-engine build before deployment. I also work on regression coverage, case-summary behavior, missing-data evaluation cases, and PHI-redacted transcript access for audit tooling.
+      </p>
+      <h2>
+       A useful debugging loop
+      </h2>
+      <div class="diagram">
+       <ol>
+        <li>
+         Identify the unexpected behavior.
+        </li>
+        <li>
+         Compare the stored output with the conversation context.
+        </li>
+        <li>
+         Evaluate the proposed decision-engine behavior locally.
+        </li>
+        <li>
+         Inspect required fields and the rule that decided the outcome.
+        </li>
+        <li>
+         Add a focused regression case.
+        </li>
+       </ol>
+      </div>
+      <h2>
+       Evaluation across layers
+      </h2>
+      <p>
+       Unit and scenario tests help pin deterministic behavior. Prompt and conversation evaluations address model-dependent behavior. Cekura and Langfuse are part of the broader toolkit I work with for agent testing, prompt workflows, and tracing.
+      </p>
+      <h2>
+       Privacy is part of debugging
+      </h2>
+      <p>
+       Healthcare transcripts can contain protected health information. I have implemented redacted transcript access for audit tooling so reviews can retain useful context while limiting exposure of sensitive details.
+      </p>
+      <h2>
+       What this work enables
+      </h2>
+      <p>
+       Engine changes can be examined against prior calls before deployment, and missing-data cases can be represented explicitly in evaluation datasets. Failures become inputs to a repeatable engineering process.
+      </p>
+      <blockquote>
+       <p>
+        A good debugging tool explains why the result happened.
+       </p>
+      </blockquote>
+      <p class="note">
+       This overview uses no patient data or production transcripts.
+      </p>
+      <h2>
+       Different checks answer different questions
+      </h2>
+      <ul>
+       <li>
+        <strong>
+         Unit and scenario tests:
+        </strong>
+        does a known input produce the expected deterministic decision?
+       </li>
+       <li>
+        <strong>
+         Prompt-render tests:
+        </strong>
+        does the model receive the intended question and condition?
+       </li>
+       <li>
+        <strong>
+         Extraction regressions:
+        </strong>
+        does an answer populate the right field without inventing unsupported information?
+       </li>
+       <li>
+        <strong>
+         Conversation evaluations:
+        </strong>
+        does the agent’s next response behave as intended across representative scenarios?
+       </li>
+      </ul>
+      <p>
+       I work with
+       <strong>
+        pytest, Cekura, and Langfuse
+       </strong>
+       across these layers. Repeated model evaluations matter because a single response does not establish how consistently a prompt behaves.
+      </p>
+      <h2>
+       Operational signals and sensitive data
+      </h2>
+      <p>
+       The surrounding toolkit includes
+       <strong>
+        Grafana and Prometheus
+       </strong>
+       for metrics,
+       <strong>
+        OpenTelemetry and New Relic
+       </strong>
+       for diagnostics, and
+       <strong>
+        BigQuery
+       </strong>
+       for audit analysis. These help narrow a failure before looking at conversation-level evidence.
+      </p>
+      <p>
+       My PHI-redacted transcript work provides a separate review surface for sensitive conversations. It is a specific engineering control, not a claim that every log or integration is automatically free of sensitive information.
+      </p>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer></script>
+ </body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 510" role="img" aria-labelledby="title desc">
+<title id="title">Voice-agent conversation flow</title><desc id="desc">Conversation context feeds extraction and decision rules. Updated context determines the next question. Prompt, extraction, and scenario tests validate the loop.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#67e8ce"/></marker></defs>
+<rect width="340" height="510" rx="6" fill="#142238"/>
+<g font-family="Arial,sans-serif"><text x="20" y="30" fill="#91b7c5" font-size="14">VOICE AGENT · CONCEPTUAL</text>
+<g fill="#192e46" stroke="#4b617a"><rect x="20" y="50" width="300" height="105" rx="5"/><rect x="20" y="182" width="300" height="105" rx="5"/><rect x="20" y="314" width="300" height="105" rx="5"/></g>
+<g fill="#e7eef9" font-size="23"><text x="38" y="84">Conversation</text><text x="38" y="216">Extraction</text><text x="38" y="348">Decision rules</text></g>
+<g fill="#b5c6db" font-size="18"><text x="38" y="114">Prompt + turn history</text><text x="38" y="139">Question selection</text><text x="38" y="246">Structured fields</text><text x="38" y="271">Unknown vs confirmed</text><text x="38" y="378">Required information</text><text x="38" y="403">Continue or complete</text></g>
+<g stroke="#67e8ce" fill="none" stroke-width="1.5" marker-end="url(#arrow)"><path d="M170 156 V176"/><path d="M170 288 V308"/></g>
+<text x="20" y="451" fill="#8cf0d8" font-size="17">Updated context → next question</text><text x="20" y="479" fill="#b5c6db" font-size="15">Prompt, extraction &amp; scenario tests</text></g></svg>

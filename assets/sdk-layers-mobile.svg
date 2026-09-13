@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 424" role="img" aria-labelledby="title desc">
+<title id="title">Communication SDK boundaries</title><desc id="desc">A conceptual view of the application, SDK interface, and media and platform concerns, stacked for a small screen.</desc>
+<rect width="340" height="424" rx="6" fill="#142238"/>
+<g font-family="Arial,sans-serif"><text x="20" y="30" fill="#91b7c5" font-size="14">SDK · CONCEPTUAL BOUNDARIES</text>
+<g stroke="#526c84"><rect x="20" y="52" width="300" height="100" rx="5" fill="#203f57"/><rect x="20" y="176" width="300" height="100" rx="5" fill="#275363"/><rect x="20" y="300" width="300" height="100" rx="5" fill="#203f57"/></g>
+<g fill="#e7eef9" font-size="23"><text x="38" y="86">Application</text><text x="38" y="210">SDK interface</text><text x="38" y="334">Media &amp; platform</text></g>
+<g fill="#c4d5e5" font-size="18"><text x="38" y="117">iOS · Flutter · React Native</text><text x="38" y="241">APIs · callbacks · session state</text><text x="38" y="365">Audio / video · network</text><text x="38" y="390">Application lifecycle</text></g>
+<g stroke="#8ba6bb" stroke-width="1.5"><path d="M170 153 V175"/><path d="M170 277 V299"/></g></g></svg>

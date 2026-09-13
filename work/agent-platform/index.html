@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   AI Agent Platform — Yogesh Singh
+  </title>
+  <meta content="Core contribution across shared schemas, Python and Go services, Temporal, React dashboards, and Kubernetes deployment in the 100ms AI agent platform." name="description"/>
+  <link href="https://yogeshsingh.space/work/agent-platform/" rel="canonical"/>
+  <meta content="AI Agent Platform — Yogesh Singh" property="og:title"/>
+  <meta content="Core contribution across shared schemas, Python and Go services, Temporal, React dashboards, and Kubernetes deployment in the 100ms AI agent platform." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/agent-platform/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      The platform
+      <br/>
+      around the agent
+     </h1>
+     <p class="intro">
+      Shared contracts, application services, and deployment infrastructure that connect a voice conversation to a business workflow.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       100ms AI agent platform
+      </p>
+      <p>
+       <b>
+        My role
+       </b>
+       Core contributor
+      </p>
+      <p>
+       <b>
+        Focus
+       </b>
+       Integration across conversation logic, schemas, services, evaluation, and operations.
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       A voice agent is part of a larger system
+      </h2>
+      <p>
+       I’m a core contributor to the AI agent platform at 100ms. My work spans the conversation application and the services around it: shared schemas, case processing, backend integration, evaluation, and production operations.
+      </p>
+      <p>
+       The boundaries are important. A correct conversation can still produce an unusable outcome if a generated model, backend field, dashboard, or completion rule interprets the result differently.
+      </p>
+      <h2>
+       Shared schemas and generated models
+      </h2>
+      <p>
+       <strong>
+        Protocol Buffers and Buf
+       </strong>
+       provide the schema foundation. Definitions include field types and enums, with annotations for UI rendering, validation, and AI extraction. The generation pipeline produces
+       <strong>
+        Go and TypeScript bindings, JSON Schema, and Pydantic models
+       </strong>
+       .
+      </p>
+      <p>
+       I work on field definitions and extraction guidance within these shared contracts. A schema change can affect what the agent extracts, how a form displays a field, and how an output is validated, so its consumers have to move together.
+      </p>
+      <h2>
+       Python services and Go workflows
+      </h2>
+      <p>
+       The conversation and case-processing applications use
+       <strong>
+        Python, FastAPI, asyncio, and Pydantic
+       </strong>
+       . Case-processing services prepare inputs, submit calls to the scheduler, generate summaries, and integrate with the case-management backend through
+       <strong>
+        gRPC
+       </strong>
+       .
+      </p>
+      <p>
+       The backend uses
+       <strong>
+        Go
+       </strong>
+       , HTTP/gRPC APIs,
+       <strong>
+        MongoDB
+       </strong>
+       , and
+       <strong>
+        Redis
+       </strong>
+       .
+       <strong>
+        Temporal
+       </strong>
+       coordinates workflows and activities, with task queues, retries, signals, and queries. Booking tools can invoke those workflows and consume an explicit result.
+      </p>
+      <p>
+       <strong>
+        Stedi
+       </strong>
+       provides payer search and insurance eligibility integration. LLM-based summaries use
+       <strong>
+        OpenAI
+       </strong>
+       with
+       <strong>
+        Langfuse
+       </strong>
+       tracing and prompt management.
+      </p>
+      <h2>
+       Interfaces for the people reviewing the work
+      </h2>
+      <p>
+       The web dashboard uses
+       <strong>
+        React and TypeScript
+       </strong>
+       , with
+       <strong>
+        TanStack Query
+       </strong>
+       for server state,
+       <strong>
+        React Hook Form and Zod
+       </strong>
+       for forms and validation, and
+       <strong>
+        Radix UI
+       </strong>
+       primitives. Shared field definitions connect these interfaces to agent extraction and output data.
+      </p>
+      <p>
+       The goal is consistency: reviewers and applications should be looking at compatible representations of the information collected during a call.
+      </p>
+      <h2>
+       Deployment and runtime configuration
+      </h2>
+      <p>
+       Applications are packaged with
+       <strong>
+        Docker
+       </strong>
+       and deployed to
+       <strong>
+        GCP/GKE
+       </strong>
+       .
+       <strong>
+        Helm
+       </strong>
+       templates describe Kubernetes workloads;
+       <strong>
+        Argo CD
+       </strong>
+       syncs the deployment configuration from Git.
+       <strong>
+        Terraform and Terragrunt
+       </strong>
+       define infrastructure.
+      </p>
+      <p>
+       The deployment setup includes workload health and resource configuration, scheduled jobs, metrics discovery, and
+       <strong>
+        Vault
+       </strong>
+       integration for secrets. I have also worked on operational cleanup behavior, including preserving in-flight call directories and making job failures visible.
+      </p>
+      <p>
+       Configuration is not identical in every service. The voice application uses
+       <strong>
+        Unleash
+       </strong>
+       , while case-processing services also use the backend’s
+       <strong>
+        ConfigStore
+       </strong>
+       . Naming those boundaries matters when investigating which setting actually controlled a call.
+      </p>
+      <h2>
+       Observability and access controls
+      </h2>
+      <p>
+       The stack uses
+       <strong>
+        Prometheus
+       </strong>
+       instrumentation,
+       <strong>
+        Grafana
+       </strong>
+       ,
+       <strong>
+        VictoriaMetrics/VictoriaLogs
+       </strong>
+       ,
+       <strong>
+        OpenTelemetry
+       </strong>
+       , and
+       <strong>
+        New Relic
+       </strong>
+       .
+       <strong>
+        BigQuery
+       </strong>
+       supports audit analysis. These provide different views of the same system: operational metrics, logs, traces, and call-quality data.
+      </p>
+      <p>
+       The surrounding platform includes
+       <strong>
+        Auth0
+       </strong>
+       authentication,
+       <strong>
+        Casbin
+       </strong>
+       role-based authorization, and
+       <strong>
+        Vault
+       </strong>
+       secrets management. My privacy-related work includes PHI-redacted transcript access for audit tooling.
+      </p>
+      <h2>
+       How I approach changes across these layers
+      </h2>
+      <p>
+       I trace a change from the field or conversation rule through its consumers, then check the relevant boundaries: generated models, extraction behavior, shared decision scenarios, backend outputs, and deployment configuration. The task is to make the pieces agree, and to keep enough evidence to explain a failure when they do not.
+      </p>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer></script>
+ </body>
+</html>

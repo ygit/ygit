@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Real-Time iOS &amp; Mobile SDKs — Yogesh Singh
+  </title>
+  <meta content="Yogesh Singh’s work on iOS, Flutter, and React Native communication SDKs at 100ms, with public examples and talks." name="description"/>
+  <link href="https://yogeshsingh.space/work/realtime-mobile-sdks/" rel="canonical"/>
+  <meta content="Real-Time iOS &amp; Mobile SDKs — Yogesh Singh" property="og:title"/>
+  <meta content="Yogesh Singh’s work on iOS, Flutter, and React Native communication SDKs at 100ms, with public examples and talks." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/realtime-mobile-sdks/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      Real-time iOS
+      <br/>
+      &amp; mobile SDKs
+     </h1>
+     <p class="intro">
+      Communication software that other developers embed in their applications.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       100ms communication SDKs
+      </p>
+      <p>
+       <b>
+        My role
+       </b>
+       iOS frameworks engineering; React Native / Flutter engineering management
+      </p>
+      <p>
+       <b>
+        Tools &amp; platforms
+       </b>
+       Swift · iOS · WebRTC · Flutter · React Native
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       My work at 100ms
+      </h2>
+      <p>
+       Before moving into healthcare voice AI, I built live audio/video and streaming SDKs for
+       <strong>
+        iOS, Flutter, and React Native
+       </strong>
+       . My responsibilities included iOS frameworks engineering and engineering management for React Native and Flutter.
+      </p>
+      <picture>
+       <source media="(max-width: 600px)" srcset="/assets/sdk-layers-mobile.svg"/>
+       <img alt="Conceptual application, SDK, and media/platform boundaries." class="plate" height="270" src="/assets/sdk-layers.svg" width="760"/>
+      </picture>
+      <h2>
+       The developer-facing boundary
+      </h2>
+      <p>
+       A communication SDK exposes operations such as joining a session and changing local media state, then reports events back to the application. Developers need an API they can integrate into their own navigation, state handling, and UI.
+      </p>
+      <p>
+       The public 100ms iOS quickstart demonstrates this boundary: install the SDK, configure camera and microphone permissions, join using a configuration, and handle updates. It supports distribution through
+       <strong>
+        Swift Package Manager and CocoaPods
+       </strong>
+       . These are public product capabilities; the links below show the current integration examples.
+      </p>
+      <h2>
+       Across native and cross-platform applications
+      </h2>
+      <p>
+       The application surfaces differ across
+       <strong>
+        Swift, Flutter, and React Native
+       </strong>
+       , while users expect a coherent audio/video experience. My engineering and management work spanned these SDK surfaces. The useful questions are concrete: what state does the application receive, how does it react to an event, and how does the integration fit the application lifecycle?
+      </p>
+      <h2>
+       Operating SDKs at CleverTap and WebEngage
+      </h2>
+      <p>
+       At
+       <strong>
+        CleverTap
+       </strong>
+       and
+       <strong>
+        WebEngage
+       </strong>
+       , I built, deployed, and monitored iOS SDKs integrated into large-scale applications around the world. The work continued after a release: monitoring SDK behavior and working with the engineers integrating it into their products.
+      </p>
+      <p>
+       I collaborated with cross-platform teams and supported different iOS configurations and mobile applications spanning
+       <strong>
+        iOS, Android, React Native, and Flutter
+       </strong>
+       . My core responsibility was the iOS SDK; the surrounding integration work required understanding how it behaved inside those different application setups.
+      </p>
+      <p>
+       This adds an operational dimension to framework engineering: the API needs to be usable, the release needs to reach integrators, and failures need enough diagnostic context for teams to investigate together.
+      </p>
+      <h2>
+       Related experience at Haptik
+      </h2>
+      <p>
+       My earlier work included commercial iOS frameworks,
+       <strong>
+        MQTT messaging, Core Data migration, and background processing
+       </strong>
+       . I discussed that work in public talks on building commercial frameworks and using MQTT for real-time chat.
+      </p>
+      <p>
+       That history connects SDK engineering with my current voice-AI work: both require careful handling of state, asynchronous events, and data passed between components.
+      </p>
+      <h2>
+       Explore the public work
+      </h2>
+      <ul>
+       <li>
+        <a href="https://github.com/100mslive/100ms-ios-sdk">
+         100ms iOS SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/100mslive/100ms-flutter">
+         100ms Flutter SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/100mslive/100ms-react-native">
+         100ms React Native SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://www.100ms.live/docs/ios/v2/quickstart/quickstart">
+         100ms iOS quickstart
+        </a>
+       </li>
+       <li>
+        <a href="https://www.youtube.com/watch?v=NqG5Io3LHnI">
+         Building Commercial Frameworks — talk
+        </a>
+       </li>
+       <li>
+        <a href="https://www.youtube.com/watch?v=jusArrC88JM">
+         Using MQTT in Real-Time Chat Applications — talk
+        </a>
+       </li>
+      </ul>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script defer="" src="/spotlight.js">
+  </script>
+ </body>
+</html>

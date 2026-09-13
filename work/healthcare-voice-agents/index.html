@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Healthcare voice agents — Yogesh Singh
+  </title>
+  <meta content="Turning complex benefits-verification requirements into dependable conversations and structured outcomes." name="description"/>
+  <link href="https://yogeshsingh.space/work/healthcare-voice-agents/" rel="canonical"/>
+  <meta content="Healthcare voice agents — Yogesh Singh" property="og:title"/>
+  <meta content="Turning complex benefits-verification requirements into dependable conversations and structured outcomes." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/healthcare-voice-agents/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      Healthcare voice agents
+     </h1>
+     <p class="intro">
+      Turning complex benefits-verification requirements into dependable conversations and structured outcomes.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       Engineering at 100ms
+      </p>
+      <p>
+       <b>
+        Focus
+       </b>
+       Conversation design · Python · LLMs
+      </p>
+      <p>
+       <b>
+        Scope
+       </b>
+       Selected contributions; conceptual descriptions.
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       The problem
+      </h2>
+      <p>
+       A useful healthcare voice agent needs to do more than hold a conversation. It needs to ask the right questions for the plan, handle incomplete or corrected answers, and turn what the representative actually confirmed into a usable result.
+      </p>
+      <h2>
+       My contribution
+      </h2>
+      <p>
+       At 100ms, I develop and harden healthcare conversation workflows, including medical and pharmacy benefits verification. My work connects prompt behavior, extracted fields, topic-completion rules, and downstream decision logic.
+      </p>
+      <div class="diagram">
+       <p class="eyebrow">
+        Conceptual workflow
+       </p>
+       <ol>
+        <li>
+         Choose questions from the workflow and known context.
+        </li>
+        <li>
+         Capture the representative’s response.
+        </li>
+        <li>
+         Extract structured information and preserve confirmation state.
+        </li>
+        <li>
+         Evaluate the remaining questions and completion criteria.
+        </li>
+        <li>
+         Produce an output that downstream systems can interpret.
+        </li>
+       </ol>
+      </div>
+      <h2>
+       Decisions that matter
+      </h2>
+      <p>
+       <strong>
+        Keep unknown information explicit.
+       </strong>
+       An unanswered question, a negative answer, and an affirmative answer are different states. Collapsing them can retire a question too early or send a call down the wrong path.
+      </p>
+      <p>
+       <strong>
+        Let confirmed information guide the workflow.
+       </strong>
+       Supplied case data can differ from what a representative confirms. I have worked on gates that require that confirmation before applying plan-specific behavior.
+      </p>
+      <p>
+       <strong>
+        Keep prompts and business rules aligned.
+       </strong>
+       If a workflow stops asking a question, the downstream engine must understand when that field is no longer required.
+      </p>
+      <h2>
+       How I validate changes
+      </h2>
+      <p>
+       My changes include prompt-render checks, extraction and workflow regressions, and scenario tests for shared decision logic. Cases cover plan-specific behavior, ambiguous answers, missing information, and resumed calls.
+      </p>
+      <h2>
+       What this work enables
+      </h2>
+      <p>
+       Explicit rules for when to ask, when to stop, and what counts as confirmed information—supported by regression coverage across the conversation and output layers.
+      </p>
+      <blockquote>
+       <p>
+        The conversation and the resulting data need to tell the same story.
+       </p>
+      </blockquote>
+      <p class="note">
+       This overview uses no patient data or production transcripts.
+      </p>
+      <h2>
+       The software behind the conversation
+      </h2>
+      <p>
+       The application stack uses
+       <strong>
+        Python, FastAPI, and asyncio
+       </strong>
+       for services and asynchronous I/O.
+       <strong>
+        Jinja2
+       </strong>
+       renders prompt templates;
+       <strong>
+        Pydantic
+       </strong>
+       defines typed data structures. Model calls use services including
+       <strong>
+        OpenAI and Gemini
+       </strong>
+       , with structured extraction feeding the conversation state.
+      </p>
+      <p>
+       Telephony and speech sit around this logic:
+       <strong>
+        Twilio
+       </strong>
+       connects calls,
+       <strong>
+        Deepgram
+       </strong>
+       recognizes speech, and
+       <strong>
+        ElevenLabs or Cartesia
+       </strong>
+       generates audio. My case-study focus here is conversation and data behavior within that larger system.
+      </p>
+      <h2>
+       A concrete state problem
+      </h2>
+      <p>
+       In a synthetic example, a coverage field can be absent, explicitly negative, or affirmative. Treating absence as
+       <code>
+        false
+       </code>
+       can move the agent past an unanswered question. The ask condition and the output rule must preserve the same distinction.
+      </p>
+      <p>
+       A second problem appears when an answer is available in the transcript before extraction has committed the field. Regression coverage needs to check the next conversational step, not only the final output.
+      </p>
+      <h2>
+       From tools to backend operations
+      </h2>
+      <p>
+       Booking tools in the stack use the
+       <strong>
+        Temporal Python client
+       </strong>
+       to start workflows and await their results. Other services communicate through
+       <strong>
+        gRPC and Protocol Buffers
+       </strong>
+       . This connects an agent’s tool call to a typed operation with an explicit result, rather than relying on conversational text as the system of record.
+      </p>
+      <h2>
+       Rollout and investigation
+      </h2>
+      <p>
+       <strong>
+        Unleash
+       </strong>
+       controls feature rollout.
+       <strong>
+        Langfuse
+       </strong>
+       supports LLM tracing and prompt workflows;
+       <strong>
+        Cekura
+       </strong>
+       exercises conversation behavior. Services run in a broader
+       <strong>
+        Docker, GCP/GKE, and Kubernetes
+       </strong>
+       environment, with
+       <strong>
+        Prometheus, Grafana, and OpenTelemetry
+       </strong>
+       supporting operational investigation.
+      </p>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer></script>
+ </body>
+</html>
