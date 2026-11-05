@@ -41,7 +41,7 @@
       Reliable data. Useful products.
      </p>
      <p class="location">
-      Building at 100ms · Based in India
+      Building at 100ms · Mumbai, India
      </p>
      <nav aria-label="Page sections" class="section-nav">
 <a href="#about" aria-current="location">About</a>
@@ -105,36 +105,63 @@
      <p>My contributions span the conversation a person hears, the structured record it produces, and the tests that check its behavior. These three project areas bring the work together; the detailed case studies explain individual decisions and results.</p>
      <article class="flagship" aria-labelledby="home-voice-workflows">
       <p class="eyebrow">01 / Conversation design · Agent state · Rollout</p>
-      <h3 id="home-voice-workflows"><a href="/work/#voice-workflows">Healthcare voice workflows <span aria-hidden="true">↗</span></a></h3>
+      <h3 id="home-voice-workflows">
+<a href="/work/#voice-workflows">Healthcare voice workflows <span aria-hidden="true">↗</span>
+</a>
+</h3>
       <p class="flagship-intro">Help a benefits-verification agent follow the payer’s actual process, recover from a non-covered answer, and carry the right context into the next call.</p>
       <dl class="flagship-facts">
-       <div><dt>My contribution</dt><dd>I implemented recovery routes, state-dependent questions, scoped retry initialization, and program-specific applicability within the 100ms voice-agent platform.</dd></div>
+       <div>
+<dt>My contribution</dt>
+<dd>I implemented recovery routes, state-dependent questions, scoped retry initialization, and program-specific applicability within the 100ms voice-agent platform.</dd>
+</div>
 
-       <div><dt>Evidence</dt><dd>Shared workflow scenarios and schema checks, with focused prompt and audio testing on specific revisions. Verification limits are documented in the supporting case studies.</dd></div>
+       <div>
+<dt>Evidence</dt>
+<dd>Shared workflow scenarios and schema checks, with focused prompt and audio testing on specific revisions. Verification limits are documented in the supporting case studies.</dd>
+</div>
       </dl>
 
       <a class="text-link" href="/work/#voice-workflows">Explore this project ↗</a>
      </article>
      <article class="flagship" aria-labelledby="home-reliable-data">
       <p class="eyebrow">02 / Structured extraction · Grounding · Python / TypeScript</p>
-      <h3 id="home-reliable-data"><a href="/work/#reliable-data">Reliable extraction and decision systems <span aria-hidden="true">↗</span></a></h3>
+      <h3 id="home-reliable-data">
+<a href="/work/#reliable-data">Reliable extraction and decision systems <span aria-hidden="true">↗</span>
+</a>
+</h3>
       <p class="flagship-intro">Make the saved record preserve what was actually confirmed—and keep its meaning stable as different services process it.</p>
       <dl class="flagship-facts">
-       <div><dt>My contribution</dt><dd>I added route-aware field cleanup, corrected unsupported coverage inference, and maintained equivalent decision behavior across the live agent and Python/TypeScript engines.</dd></div>
+       <div>
+<dt>My contribution</dt>
+<dd>I added route-aware field cleanup, corrected unsupported coverage inference, and maintained equivalent decision behavior across the live agent and Python/TypeScript engines.</dd>
+</div>
 
-       <div><dt>Evidence</dt><dd>In a historical offline replay of 1,346 calls, the extraction correction cleared 163 copied values across 33 calls, with no disposition-code changes in that sample.</dd></div>
+       <div>
+<dt>Evidence</dt>
+<dd>In a historical offline replay of 1,346 calls, the extraction correction cleared 163 copied values across 33 calls, with no disposition-code changes in that sample.</dd>
+</div>
       </dl>
 
       <a class="text-link" href="/work/#reliable-data">Explore this project ↗</a>
      </article>
      <article class="flagship" aria-labelledby="home-evaluation-tooling">
       <p class="eyebrow">03 / Replay · Prompt regressions · Ablation</p>
-      <h3 id="home-evaluation-tooling"><a href="/work/#evaluation-tooling">Agent evaluation tooling <span aria-hidden="true">↗</span></a></h3>
+      <h3 id="home-evaluation-tooling">
+<a href="/work/#evaluation-tooling">Agent evaluation tooling <span aria-hidden="true">↗</span>
+</a>
+</h3>
       <p class="flagship-intro">Turn an observed agent failure into a reproducible test, then establish which changes are necessary to fix it.</p>
       <dl class="flagship-facts">
-       <div><dt>My contribution</dt><dd>I built local call-replay tooling and strengthened regression coverage across rendered prompts, model responses, extraction lag, resumed context, and grading.</dd></div>
+       <div>
+<dt>My contribution</dt>
+<dd>I built local call-replay tooling and strengthened regression coverage across rendered prompts, model responses, extraction lag, resumed context, and grading.</dd>
+</div>
 
-       <div><dt>Evidence</dt><dd>Selected historical prompt replays recorded 0/240 inappropriate appeal asks on the fix versus 32/120 on the baseline. These are test runs, not a production success rate.</dd></div>
+       <div>
+<dt>Evidence</dt>
+<dd>Selected historical prompt replays recorded 0/240 inappropriate appeal asks on the fix versus 32/120 on the baseline. These are test runs, not a production success rate.</dd>
+</div>
       </dl>
 
       <a class="text-link" href="/work/#evaluation-tooling">Explore this project ↗</a>
@@ -162,7 +189,8 @@
         <summary>Workflows, agents, and bounded autonomy</summary>
         <div class="concept-body">
          <p>A workflow fixes the sequence in code; an agent can choose its next step from the current context. Many useful systems combine both: let a model interpret an ambiguous answer, then let explicit rules decide whether a required fact is missing or an action is permitted.</p>
-         <p><strong>The design question:</strong> which decisions benefit from model judgment, and which need a stable contract? For a verification flow, wording can be flexible while field ownership, completion requirements, and stop conditions remain explicit.</p>
+         <p>
+<strong>The design question:</strong> which decisions benefit from model judgment, and which need a stable contract? For a verification flow, wording can be flexible while field ownership, completion requirements, and stop conditions remain explicit.</p>
          <a class="source-link" href="https://www.anthropic.com/research/building-effective-agents">Reference: Anthropic on workflows and agents ↗</a>
         </div>
        </details>
@@ -170,8 +198,10 @@
         <summary>Context engineering, retrieval, and memory</summary>
         <div class="concept-body">
          <p>Context engineering is the work of choosing what the model should see at a particular step: instructions, recent dialogue, retrieved material, tool results, and current state. A longer history is not automatically a better one; stale or conflicting facts can change the next decision.</p>
-         <p><strong>Retrieval-augmented generation (RAG)</strong> supplies relevant source material. <strong>Conversation memory</strong> carries facts across turns or attempts. Neither establishes that a fact is current or applicable. A useful design records where a value came from, when it was confirmed, and what can supersede it.</p>
-         <p><strong>Example:</strong> a plan name from yesterday’s call should not silently satisfy today’s identity check. That is a freshness and attribution problem even when retrieval returns the right document.</p>
+         <p>
+<strong>Retrieval-augmented generation (RAG)</strong> supplies relevant source material. <strong>Conversation memory</strong> carries facts across turns or attempts. Neither establishes that a fact is current or applicable. A useful design records where a value came from, when it was confirmed, and what can supersede it.</p>
+         <p>
+<strong>Example:</strong> a plan name from yesterday’s call should not silently satisfy today’s identity check. That is a freshness and attribution problem even when retrieval returns the right document.</p>
          <a class="source-link" href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">Reference: context engineering ↗</a>
         </div>
        </details>
@@ -179,7 +209,8 @@
         <summary>Tool calling, MCP, and reliable actions</summary>
         <div class="concept-body">
          <p>A tool call turns a model decision into an operation on another system. Its contract should explain the inputs, result, errors, and side effects. The Model Context Protocol (MCP) standardizes discovery and exchange of tools, resources, and prompts; the application still owns its business rules and execution policy.</p>
-         <p><strong>The design question:</strong> what happens if a request times out after the operation succeeded? Retrying a read and retrying a booking are different. A booking tool needs a way to identify the same intended operation and reconcile its status before creating another booking.</p>
+         <p>
+<strong>The design question:</strong> what happens if a request times out after the operation succeeded? Retrying a read and retrying a booking are different. A booking tool needs a way to identify the same intended operation and reconcile its status before creating another booking.</p>
          <p>Permissions, argument validation, timeouts, and required approvals belong at the execution boundary. A fluent model response is not evidence that the external action completed.</p>
          <a class="source-link" href="https://modelcontextprotocol.io/docs/learn/architecture">Reference: MCP architecture ↗</a>
         </div>
@@ -189,7 +220,8 @@
         <div class="concept-body">
          <p>Separate agents can help when subtasks have distinct context or can be investigated independently. They also introduce coordination, additional model calls, and a need to reconcile conflicting results.</p>
          <p>I would first make the single-agent baseline measurable. Then I would ask what the proposed split improves: task quality, isolation, or elapsed time. Each worker needs a bounded assignment and an explicit output contract; the final synthesis still needs verification.</p>
-         <p><strong>Useful test:</strong> does the added agent find evidence or complete work the simpler system consistently misses, after accounting for latency and cost?</p>
+         <p>
+<strong>Useful test:</strong> does the added agent find evidence or complete work the simpler system consistently misses, after accounting for latency and cost?</p>
         </div>
        </details>
        <details class="concept">
@@ -201,7 +233,8 @@
         </div>
        </details>
       </div>
-      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/stateful-retries/">fresh evidence across repeated calls</a> and <a href="/work/shared-decision-engine/">shared decision contracts</a>.</p>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/stateful-retries/">fresh evidence across repeated calls</a> and <a href="/work/shared-decision-engine/">shared decision contracts</a>.</p>
      </article>
 
      <article class="topic-group" id="voice-ai" aria-labelledby="voice-ai-heading">
@@ -209,8 +242,22 @@
       <h3 id="voice-ai-heading">The conversation has a clock.</h3>
       <p>In voice, correctness includes when the agent speaks, what it heard, and whether it can recover from an interruption. A delayed answer, a premature response, or a stale state update can change the entire call—even when the generated sentence looks reasonable in a transcript.</p>
       <figure class="voice-paths">
-       <div><span>Conversation</span><ol><li>Listen</li><li>Choose a response</li><li>Speak</li></ol></div>
-       <div><span>Background state</span><ol><li>Read evidence</li><li>Extract &amp; validate</li><li>Update state</li></ol></div>
+       <div>
+<span>Conversation</span>
+<ol>
+<li>Listen</li>
+<li>Choose a response</li>
+<li>Speak</li>
+</ol>
+</div>
+       <div>
+<span>Background state</span>
+<ol>
+<li>Read evidence</li>
+<li>Extract &amp; validate</li>
+<li>Update state</li>
+</ol>
+</div>
        <figcaption>Conceptual paths in a cascaded voice system. Speaking and extraction can overlap; the next response may see an earlier state.</figcaption>
       </figure>
       <div class="concept-list">
@@ -226,8 +273,10 @@
         <summary>Turn detection, endpointing, and interruptions</summary>
         <div class="concept-body">
          <p>Voice activity detection (VAD) helps identify speech and silence. Deciding that a person has finished a thought is a separate problem: a pause may mean they are looking up a date or spelling an identifier. Endpointing and semantic turn detection influence when the agent responds.</p>
-         <p><strong>Barge-in</strong> means the person starts speaking during the agent’s response. Good interruption handling must consider queued audio and conversation history: words generated but never heard should not be treated as delivered. Backchannels such as “mm-hmm” also need different handling from a correction.</p>
-         <p><strong>Trade-off:</strong> respond quickly enough to feel engaged without repeatedly cutting off the caller.</p>
+         <p>
+<strong>Barge-in</strong> means the person starts speaking during the agent’s response. Good interruption handling must consider queued audio and conversation history: words generated but never heard should not be treated as delivered. Backchannels such as “mm-hmm” also need different handling from a correction.</p>
+         <p>
+<strong>Trade-off:</strong> respond quickly enough to feel engaged without repeatedly cutting off the caller.</p>
          <a class="source-link" href="https://docs.livekit.io/agents/logic/turns/">Reference: turn detection and interruptions ↗</a>
         </div>
        </details>
@@ -236,7 +285,8 @@
         <div class="concept-body">
          <p>Model time-to-first-token is only one part of a voice response. The caller experiences the interval from finishing their turn to hearing useful audio. Transcription delay, end-of-turn detection, model generation, tool calls, synthesis, and playback can all contribute.</p>
          <p>I would measure median and tail latency, then inspect stage-level traces to find the bottleneck. Streaming can overlap stages, so adding every component’s full duration can misrepresent the critical path.</p>
-         <p><strong>A useful optimization question:</strong> did the caller get a correct, relevant response sooner, or did the system merely start an acknowledgement sooner?</p>
+         <p>
+<strong>A useful optimization question:</strong> did the caller get a correct, relevant response sooner, or did the system merely start an acknowledgement sooner?</p>
          <a class="source-link" href="https://docs.livekit.io/reference/agents/session-traces/">Reference: voice latency stages and traces ↗</a>
         </div>
        </details>
@@ -244,7 +294,8 @@
         <summary>Foreground conversation and background extraction</summary>
         <div class="concept-body">
          <p>The conversational model and the extractor do different jobs. One chooses what to say next; the other turns the conversation into structured state. If extraction runs asynchronously, the next prompt can render before the latest answer has landed.</p>
-         <p><strong>Synthetic example:</strong> a representative says, “No exception request was filed.” The transcript contains that answer, but the state still says Unknown. A test that immediately seeds the final field skips the timing condition that could trigger an unnecessary appeal question.</p>
+         <p>
+<strong>Synthetic example:</strong> a representative says, “No exception request was filed.” The transcript contains that answer, but the state still says Unknown. A test that immediately seeds the final field skips the timing condition that could trigger an unnecessary appeal question.</p>
          <p>I test the intermediate state as well as the final record. Question gates, completion rules, and retry summaries need to agree about what is known at that point.</p>
         </div>
        </details>
@@ -253,11 +304,13 @@
         <div class="concept-body">
          <p>A phone call can move between an automated menu, hold music, a representative, and another department. These are different operating states. Menu prompts should not automatically become human-confirmed benefit facts, and a transfer may require fresh identification.</p>
          <p>A recovery design needs to say what survives a disconnect, what must be reconfirmed, and which unanswered questions remain. A human handoff should preserve the reason for escalation and useful context without claiming an uncompleted action succeeded.</p>
-         <p><strong>Test beyond the happy path:</strong> silence, repeated prompts, background speech, spelling corrections, partial answers, and a transfer after useful information has already been collected.</p>
+         <p>
+<strong>Test beyond the happy path:</strong> silence, repeated prompts, background speech, spelling corrections, partial answers, and a transfer after useful information has already been collected.</p>
         </div>
        </details>
       </div>
-      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/healthcare-voice-agents/">recovery routes in healthcare voice workflows</a> and <a href="/work/agent-evaluation/">tests that reproduce extraction lag</a>.</p>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/healthcare-voice-agents/">recovery routes in healthcare voice workflows</a> and <a href="/work/agent-evaluation/">tests that reproduce extraction lag</a>.</p>
      </article>
 
      <article class="topic-group" id="applied-ai" aria-labelledby="applied-ai-heading">
@@ -270,7 +323,8 @@
         <div class="concept-body">
          <p>A schema can constrain field names, types, and allowed values. It cannot by itself establish that the answer is supported by the source. A valid date can belong to the wrong plan; a valid status can describe a different request.</p>
          <p>I think about three checks: <strong>representation</strong>—is the output well formed; <strong>support</strong>—what evidence backs the value; and <strong>consistency</strong>—do related fields agree? Derived values need the same scrutiny because ordinary application code can also introduce an unsupported conclusion.</p>
-         <p><strong>Synthetic example:</strong> copying a prior-authorization reference into an exception record can pass type validation while inventing a second request.</p>
+         <p>
+<strong>Synthetic example:</strong> copying a prior-authorization reference into an exception record can pass type validation while inventing a second request.</p>
          <a class="source-link" href="https://developers.openai.com/api/docs/guides/structured-outputs">Reference: structured model outputs ↗</a>
         </div>
        </details>
@@ -279,7 +333,8 @@
         <div class="concept-body">
          <p>Start with a specific behavior to measure and a dataset that includes normal cases, edge cases, and known failures. Keep holdout cases separate from examples used while tuning. For stochastic responses, repeated runs reveal variation that a single pass can hide.</p>
          <p>Different layers answer different questions: deterministic tests check rules; prompt tests check model behavior; extraction tests check field attribution; full-flow tests check orchestration. Human review helps calibrate automated or model-based grading.</p>
-         <p><strong>Ablation</strong> removes one part of a proposed fix to see whether the result depends on it. I also look for false passes: an empty answer or a test that never reaches the failing branch should not establish success.</p>
+         <p>
+<strong>Ablation</strong> removes one part of a proposed fix to see whether the result depends on it. I also look for false passes: an empty answer or a test that never reaches the failing branch should not establish success.</p>
          <a class="source-link" href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Reference: evaluation design and continuous testing ↗</a>
         </div>
        </details>
@@ -303,12 +358,14 @@
         <summary>From a customer workflow to a product that earns trust</summary>
         <div class="concept-body">
          <p>Before choosing an agent architecture, map the user’s actual process: the inputs they have, the decisions they make, the systems they touch, and the exceptions that send work back to a person. The most valuable automation may be a narrow, well-integrated step.</p>
-         <p><strong>Questions I would bring to discovery:</strong> What does a correct completed task look like? Which mistakes are recoverable? Who reviews uncertainty? What happens when an integration is unavailable? How will the team distinguish saved time from work shifted into cleanup?</p>
+         <p>
+<strong>Questions I would bring to discovery:</strong> What does a correct completed task look like? Which mistakes are recoverable? Who reviews uncertainty? What happens when an integration is unavailable? How will the team distinguish saved time from work shifted into cleanup?</p>
          <p>For a forward-deployed or product engineering role, that translation—from operating constraints to interfaces, acceptance criteria, and a feedback loop—is as important as the model call.</p>
         </div>
        </details>
       </div>
-      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/structured-extraction/">semantic extraction fixes</a>, <a href="/work/grounded-output/">evidence-preserving validation</a>, and <a href="/work/controlled-rollout/">compatible rollout policies</a>.</p>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/structured-extraction/">semantic extraction fixes</a>, <a href="/work/grounded-output/">evidence-preserving validation</a>, and <a href="/work/controlled-rollout/">compatible rollout policies</a>.</p>
      </article>
     </section>
 
@@ -333,200 +390,94 @@
      </div>
     </section>
     <section id="experience">
-     <h2 class="section-label">
-      Experience
-     </h2>
-     <article class="experience">
-      <div class="period">
-       2021–Present
-      </div>
-      <div>
-       <h3>
-        <a href="https://www.100ms.ai/">
-         100ms ↗
-        </a>
-       </h3>
-       <p class="job-role">
-        Voice AI · Previously iOS frameworks and React Native / Flutter engineering management
-       </p>
-       <p>
-        As a core contributor to the AI agent platform, I work across conversation behavior, shared data contracts, backend integration, and production operations.
-       </p>
-       <ul>
-        <li>
-         Keep prompts, extracted fields, and completion rules aligned when answers are missing, corrected, or delayed.
-        </li>
-        <li>
-         Extend shared Python and TypeScript decision logic, with common scenarios to check both implementations.
-        </li>
-        <li>
-         Build call-replay and review tooling; work on case summaries, missing-data evaluations, and PHI-redacted transcript access.
-        </li>
-        <li>
-         Connect schema changes, generated models, case-processing services, and application releases across the platform.
-        </li>
-       </ul>
-       <p>
-        Earlier at 100ms, I built live audio/video and streaming SDKs for iOS, Flutter, and React Native.
-       </p>
-       <div class="tags">
-        <span>
-         Python
-        </span>
-        <span>
-         FastAPI
-        </span>
-        <span>
-         Pydantic
-        </span>
-        <span>
-         TypeScript
-        </span>
-        <span>
-         Swift
-        </span>
-        <span>
-         LLM evaluation
-        </span>
-       </div>
-      </div>
-     </article>
-     <article class="experience">
-      <div class="period">
-       2020–2021
-      </div>
-      <div>
-       <h3>
-        CleverTap
-       </h3>
-       <p class="job-role">
-        Lead iOS Engineer
-       </p>
-       <p>
-        Built, deployed, and monitored an iOS SDK integrated into large-scale applications worldwide. Worked directly with engineers and cross-platform teams supporting different iOS application setups and products spanning iOS, Android, React Native, and Flutter.
-       </p>
-       <div class="tags">
-        <span>
-         iOS
-        </span>
-        <span>
-         Mobile SDKs
-        </span>
-        <span>
-         Customer engagement
-        </span>
-        <span>
-         SDK releases
-        </span>
-        <span>
-         Monitoring
-        </span>
-        <span>
-         Integration support
-        </span>
-       </div>
-      </div>
-     </article>
-     <article class="experience">
-      <div class="period">
-       2018–2020
-      </div>
-      <div>
-       <h3>
-        WebEngage
-       </h3>
-       <p class="job-role">
-        Lead, Mobile Technology (iOS)
-       </p>
-       <p>
-        Worked on the delivery and operation of an iOS customer-engagement SDK: building releases, deploying updates, monitoring behavior, and helping engineering teams integrate it into varied mobile and cross-platform setups.
-       </p>
-       <div class="tags">
-        <span>
-         iOS
-        </span>
-        <span>
-         SDK development
-        </span>
-        <span>
-         Mobile technology
-        </span>
-        <span>
-         SDK releases
-        </span>
-        <span>
-         Monitoring
-        </span>
-        <span>
-         Integration support
-        </span>
-       </div>
-      </div>
-     </article>
-     <article class="experience">
-      <div class="period">
-       2017–2018
-      </div>
-      <div>
-       <h3>
-        Haptik
-       </h3>
-       <p class="job-role">
-        iOS Engineer
-       </p>
-       <p>
-        Worked on commercial iOS frameworks and real-time chat, including MQTT messaging, Core Data migration, and background processing. Shared lessons from this work in talks on commercial frameworks and messaging systems.
-       </p>
-       <div class="tags">
-        <span>
-         MQTT
-        </span>
-        <span>
-         Core Data
-        </span>
-        <span>
-         iOS frameworks
-        </span>
-        <span>
-         Background processing
-        </span>
-       </div>
-       <a class="text-link" href="https://www.youtube.com/watch?v=NqG5Io3LHnI">
-        Building Commercial Frameworks — talk ↗
-       </a>
-      </div>
-     </article>
-     <article class="experience">
-      <div class="period">
-       2014–2016
-      </div>
-      <div>
-       <h3>
-        Panasonic / Inspeero Technologies
-       </h3>
-       <p class="job-role">
-        iOS Developer
-       </p>
-       <p>
-        Connected-device iOS application work, including the Electrocompaniet Remote app. My work included Core Data with multiple persistent stores, multi-device synchronization using GCD, and custom gesture and drawing interactions.
-       </p>
-       <div class="tags">
-        <span>
-         Core Data
-        </span>
-        <span>
-         GCD
-        </span>
-        <span>
-         UIKit
-        </span>
-        <span>
-         Connected devices
-        </span>
-       </div>
-      </div>
-     </article>
-    </section>
+<h2 class="section-label">Experience</h2>
+<article class="experience">
+<div class="period">Feb 2021–Present</div>
+<div>
+<h3>
+<a href="https://www.100ms.ai/">100ms ↗</a>
+</h3>
+<p class="job-role">Software Engineer E5 · Voice AI; previously iOS frameworks and cross-platform engineering management</p>
+<p>I work across production voice-agent behavior, shared schemas, backend integration, evaluation, and operations. My contributions connect what an agent asks to what the system extracts, saves, and grades.</p>
+<p>I also set up AI-assisted engineering workflows: shared skills and instructions for Claude Code and Codex, review automation, release workflows, and PHI guards for coding sessions.</p>
+<p>Earlier, I built the WebRTC-based iOS SDK in a two-person team, then started the Flutter and React Native SDKs while managing three engineers and contributing across iOS and Android.</p>
+<div class="tags">
+<span>Voice AI</span>
+<span>Python</span>
+<span>TypeScript</span>
+<span>Evaluation</span>
+<span>WebRTC</span>
+<span>Engineering leadership</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Mar 2020–Feb 2021</div>
+<div>
+<h3>CleverTap</h3>
+<p class="job-role">Lead iOS Engineer</p>
+<p>Built the iOS geofencing module from scratch using Apple’s Core Location framework. Introduced unit and behavioral tests with Quick, Nimble, and OCMock, and led Bitrise and CodeBeat integration.</p>
+<p>Added features to native and hybrid SDKs, built demonstration apps, and supported engineers integrating the SDKs into their products.</p>
+<div class="tags">
+<span>Core Location</span>
+<span>Geofencing</span>
+<span>SDK testing</span>
+<span>Flutter</span>
+<span>React Native</span>
+<span>Unity</span>
+</div>
+<a class="text-link" href="https://github.com/CleverTap/clevertap-geofence-ios">Explore the geofencing SDK ↗</a>
+</div>
+</article>
+<article class="experience">
+<div class="period">Sep 2018–Mar 2020</div>
+<div>
+<h3>WebEngage</h3>
+<p class="job-role">Lead, Mobile Technology (iOS)</p>
+<p>Built asynchronous SDK initialization using Grand Central Dispatch and the “Doctor” app for debugging SDK behavior. Standardized native and hybrid integration documentation and built demo apps covering the SDK APIs.</p>
+<p>Automated SDK deployment with Fastlane and Bitrise, alongside release delivery, monitoring, and integration support.</p>
+<div class="tags">
+<span>SDK diagnostics</span>
+<span>GCD</span>
+<span>Developer experience</span>
+<span>Fastlane</span>
+<span>Bitrise</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Feb 2016–Sep 2018</div>
+<div>
+<h3>Haptik</h3>
+<p class="job-role">iOS Engineer · Team leadership</p>
+<p>Led the iOS team working on the consumer app and commercial SDK. Built the SDK from scratch and made the original app a client of it, with shared MVVM architecture, Core Data persistence, and MQTT messaging.</p>
+<p>Built configurable chat components and reusable networking, and led integrations for payments, cab booking, analytics, referrals, and deep linking.</p>
+<div class="tags">
+<span>SDK architecture</span>
+<span>MVVM</span>
+<span>Core Data</span>
+<span>MQTT</span>
+<span>Product integrations</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Jul 2014–Feb 2016</div>
+<div>
+<h3>Inspeero Technologies</h3>
+<p class="job-role">iOS Developer</p>
+<p>Built music-player and connected-device applications, including Electrocompaniet Remote. Implemented multi-context Core Data and background library synchronization using GCD, alongside device communication and custom interactions.</p>
+<div class="tags">
+<span>Connected devices</span>
+<span>Core Data</span>
+<span>Background sync</span>
+<span>GCD</span>
+<span>UIKit</span>
+</div>
+</div>
+</article>
+<a class="text-link" href="/work/realtime-mobile-sdks/">SDK architecture, diagnostics &amp; integration work ↗</a>
+</section>
     <section id="stack">
 <h2 class="section-label">Technical toolkit</h2>
 <p>The tools behind the work. The <a href="/work/agent-platform/">platform overview</a> explains how the surrounding services fit together.</p>

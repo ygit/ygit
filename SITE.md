@@ -36,3 +36,7 @@ The homepage includes 15 native HTML disclosures across agent architecture, voic
 ## Flagship project organization
 
 The homepage and work index group the detailed stories under healthcare voice workflows, reliable extraction and decision systems, and agent evaluation tooling. These are connected areas of contribution within the 100ms platform, not claims of sole ownership of three separate products. The work index retains links to all nine case studies, including platform and SDK work. Every case study begins with an accessible definition-list summary of the problem, contribution, key decision, and outcome/evidence. Historical measurements retain their sample and verification limits.
+
+## Résumé-backed career detail
+
+The owner supplied a one-page current résumé and a February 2021 résumé. The portfolio uses their concrete SDK, integration, leadership, development-tooling, and speaking details. The timeline now uses February 2016 for Haptik’s start and separates Inspeero employment from the earlier Panasonic apprenticeship. Private contact details and the original PDF files are not published. Product-scale claims are not represented as measured personal impact.
