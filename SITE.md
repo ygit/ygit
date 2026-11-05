@@ -13,7 +13,7 @@ Run `python3 -m http.server 8080 --bind 127.0.0.1` from this repository.
 - `spotlight.js`: subtle pointer-following background glow. Disabled for touch/coarse pointers and reduced motion; hides on pointer exit, keyboard navigation, or loss of focus.
 - `navigation.js`: progressive enhancement that highlights the visible homepage section. All links work without JavaScript.
 - `assets/*.svg`: conceptual diagrams, not exact production architecture. `<picture>` selects vertical diagrams at widths up to 600px so labels stay readable on phones.
-- `work/*/index.html`: nine engineering case studies: six AI stories, shared decision logic, platform context, and iOS/mobile SDKs.
+- `work/*/index.html`: eleven engineering case studies: eight AI stories, shared decision logic, platform context, and iOS/mobile SDKs.
 - `about/`, `speaking/`, `writing/`: detailed career, community, talks, and draft engineering notes.
 - `tests/test_site.py`: standard-library checks for routes, navigation targets, metadata, and image accessibility. Run `python3 -m unittest discover -s tests -v` and `node --test tests/*.test.cjs`.
 
@@ -35,8 +35,12 @@ The homepage includes 15 native HTML disclosures across agent architecture, voic
 
 ## Flagship project organization
 
-The homepage and work index group the detailed stories under healthcare voice workflows, reliable extraction and decision systems, and agent evaluation tooling. These are connected areas of contribution within the 100ms platform, not claims of sole ownership of three separate products. The work index retains links to all nine case studies, including platform and SDK work. Every case study begins with an accessible definition-list summary of the problem, contribution, key decision, and outcome/evidence. Historical measurements retain their sample and verification limits.
+The homepage and work index group the detailed stories under healthcare voice workflows, reliable extraction and decision systems, and agent evaluation tooling. These are connected areas of contribution within the 100ms platform, not claims of sole ownership of three separate products. The work index retains links to all eleven case studies, including platform and SDK work. Every case study begins with an accessible definition-list summary of the problem, contribution, key decision, and outcome/evidence. Historical measurements retain their sample and verification limits.
 
 ## Résumé-backed career detail
 
 The owner supplied a one-page current résumé and a February 2021 résumé. The portfolio uses their concrete SDK, integration, leadership, development-tooling, and speaking details. The timeline now uses February 2016 for Haptik’s start and separates Inspeero employment from the earlier Panasonic apprenticeship. Private contact details and the original PDF files are not published. Product-scale claims are not represented as measured personal impact.
+
+## Repository-verified project scope and education
+
+The medical-fax and patient-scheduling pages were checked against local source and contribution history. The fax story credits service, review, scoring, and workflow integration work. The scheduling story credits agent-side behavior and coordination; the Temporal/Playwright EHR executor is described as wider platform context. No reduction in manual review, booking success rate, or current deployment state is inferred. Education uses B.E. in Computer Engineering, with the owner-confirmed Xavier Institute of Engineering, Mahim, and the résumé’s University of Mumbai / 2010–2014 dates.

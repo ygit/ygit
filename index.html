@@ -109,11 +109,11 @@
 <a href="/work/#voice-workflows">Healthcare voice workflows <span aria-hidden="true">↗</span>
 </a>
 </h3>
-      <p class="flagship-intro">Help a benefits-verification agent follow the payer’s actual process, recover from a non-covered answer, and carry the right context into the next call.</p>
+      <p class="flagship-intro">Connect healthcare conversations to explicit workflows: benefits verification, patient scheduling, recovery routes, and handoffs.</p>
       <dl class="flagship-facts">
        <div>
 <dt>My contribution</dt>
-<dd>I implemented recovery routes, state-dependent questions, scoped retry initialization, and program-specific applicability within the 100ms voice-agent platform.</dd>
+<dd>I implemented benefits-verification recovery routes and retry behavior, plus patient-scheduling eligibility gates, handoffs, booking-tool coordination, and generated notes.</dd>
 </div>
 
        <div>
@@ -130,16 +130,16 @@
 <a href="/work/#reliable-data">Reliable extraction and decision systems <span aria-hidden="true">↗</span>
 </a>
 </h3>
-      <p class="flagship-intro">Make the saved record preserve what was actually confirmed—and keep its meaning stable as different services process it.</p>
+      <p class="flagship-intro">Turn conversations and medical documents into structured records, with evidence-aware validation and inspectable model disagreement.</p>
       <dl class="flagship-facts">
        <div>
 <dt>My contribution</dt>
-<dd>I added route-aware field cleanup, corrected unsupported coverage inference, and maintained equivalent decision behavior across the live agent and Python/TypeScript engines.</dd>
+<dd>I built a Go fax-extraction service with independent model review, and implemented benefits-field cleanup and evidence-preserving decision logic across Python and TypeScript.</dd>
 </div>
 
        <div>
 <dt>Evidence</dt>
-<dd>In a historical offline replay of 1,346 calls, the extraction correction cleared 163 copied values across 33 calls, with no disposition-code changes in that sample.</dd>
+<dd>For benefits-call cleanup, a historical offline replay of 1,346 calls cleared 163 copied values across 33 calls, with no disposition-code changes. The fax project has separate implementation and test evidence.</dd>
 </div>
       </dl>
 
@@ -399,6 +399,7 @@
 </h3>
 <p class="job-role">Software Engineer E5 · Voice AI; previously iOS frameworks and cross-platform engineering management</p>
 <p>I work across production voice-agent behavior, shared schemas, backend integration, evaluation, and operations. My contributions connect what an agent asks to what the system extracts, saves, and grades.</p>
+<p>My scheduling work included eligibility gates, handoffs, booking-tool coordination, and generated visit notes. I also built a Go fax-extraction service and added independent model review and confidence handling.</p>
 <p>I also set up AI-assisted engineering workflows: shared skills and instructions for Claude Code and Codex, review automation, release workflows, and PHI guards for coding sessions.</p>
 <p>Earlier, I built the WebRTC-based iOS SDK in a two-person team, then started the Flutter and React Native SDKs while managing three engineers and contributing across iOS and Android.</p>
 <div class="tags">

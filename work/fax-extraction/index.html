@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Medical-fax extraction with independent model review — Yogesh Singh</title>
+  <meta content="Built a Go extraction service and added cross-model review, confidence handling, and Temporal integration for medical-referral documents." name="description"/>
+  <link href="https://yogeshsingh.space/work/fax-extraction/" rel="canonical"/>
+  <meta content="Medical-fax extraction with independent model review — Yogesh Singh" property="og:title"/>
+  <meta content="Built a Go extraction service and added cross-model review, confidence handling, and Temporal integration for medical-referral documents." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/fax-extraction/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Engineering contribution</p>
+<h1>Medical-fax extraction with independent model review</h1>
+<p class="intro">Built a Go extraction service and added cross-model review, confidence handling, and Temporal integration for medical-referral documents.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+<h2 id="case-summary-heading">At a glance</h2>
+<dl>
+<div>
+<dt>Problem</dt>
+<dd>Scanned referral documents need structured fields, while ambiguous or conflicting model output needs to remain visible.</dd>
+</div>
+<div>
+<dt>My contribution</dt>
+<dd>Go extraction service, OCR and model integration, independent review, confidence normalization, and workflow-level diagnostics.</dd>
+</div>
+<div>
+<dt>Key decision</dt>
+<dd>Give the reviewer source evidence and extracted fields without the extractor’s confidence, then preserve disagreement explicitly.</dd>
+</div>
+<div>
+<dt>Outcome &amp; evidence</dt>
+<dd>Implemented extraction and review behavior with contract, helper, and workflow tests. Source history establishes the contribution; production accuracy and manual-review savings are not quantified here.</dd>
+</div>
+</dl>
+</section>
+<div class="article-grid">
+<aside>
+<p>
+<b>Focus</b>Document AI · Go · Temporal · Cross-model review</p>
+<p>
+<b>My scope</b>Extraction service, review integration, confidence logic, and focused tests.</p>
+<p>
+<b>Evidence</b>Implementation and contribution history reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>Referral faxes combine scanned text, document layout, demographic fields, and clinical context. Producing valid JSON is only the first step: a system also needs to distinguish what the document says from what a model inferred, and expose uncertainty before downstream processing relies on it.</p>
+<h2>What I built</h2>
+<p>I implemented a Go-based fax extraction service with OCR and model-based field extraction, integrated with Temporal activities. I later added a reviewer using a different model provider, confidence handling, review diagnostics, and tests around the service and workflow boundaries.</p>
+<p>The pipeline used layout-preserving OCR from LLMWhisperer and supported OpenAI and Gemini extraction paths. My review work included Gemini integration through Vertex AI and calibration changes to make uncertainty explicit in the reviewer’s response.</p>
+<div class="diagram">
+<p class="eyebrow">Conceptual pipeline</p>
+<ol>
+<li>Read the fax and preserve its layout during OCR.</li>
+<li>Extract typed fields and model-reported confidence.</li>
+<li>Review the source text and extracted fields with another model.</li>
+<li>Normalize scores and preserve disagreement and uncertainty reasons.</li>
+<li>Return structured results and separate review diagnostics to the workflow.</li>
+</ol>
+</div>
+<h2>Engineering decisions</h2>
+<h3>Reduce anchoring in the review.</h3>
+<p>The reviewer sees the original OCR text and extracted fields, with confidence scores and derived fields removed. It makes its own determination about the document before reporting agreement. This gives it a different task from simply approving the first model’s answer.</p>
+<h3>Do not average away a weak signal.</h3>
+<p>I combined extractor and reviewer confidence using a harmonic mean and capped the combined score when important determinations disagreed. The implementation also normalizes confidence representations and records uncertainty reasons. These are decision signals from models, not calibrated probabilities of correctness.</p>
+<h3>Keep review status separate from extraction output.</h3>
+<p>A review can complete, fail, or be skipped. Those states remain explicit, including when configured failure handling allows extraction to continue. Detailed diagnostics are stored separately from the main extracted fields, so a missing review is not silently presented as agreement.</p>
+<h3>Account for workflow compatibility.</h3>
+<p>The extraction service sits inside a long-running Temporal workflow. My changes included workflow integration and version-gated behavior so new confidence handling could coexist with existing execution histories.</p>
+<h2>Validation and result</h2>
+<p>The implementation includes reviewer-contract tests that inspect the actual request payload, tests for score normalization and combination, and activity/workflow tests for review outcomes. The contract checks specifically verify that extractor confidence and selected derived fields are absent from the reviewer input.</p>
+<p>This work produced an extraction pipeline with independently generated review signals and inspectable disagreement. It does not establish a production accuracy rate or a measured reduction in human review; those require a labeled dataset and operational measurements beyond the implementation evidence.</p>
+<blockquote>
+<p>Independent review is useful when it can disagree for a reason—and the system preserves that reason.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Related work</span>
+<a href="/work/structured-extraction/">Preserving meaning in conversational extraction ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

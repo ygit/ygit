@@ -68,9 +68,9 @@
      <article class="flagship" id="voice-workflows" aria-labelledby="work-voice-workflows">
       <p class="eyebrow">01 / Conversation design · Agent state · Rollout</p>
       <h2 id="work-voice-workflows"><a href="/work/healthcare-voice-agents/">Healthcare voice workflows <span aria-hidden="true">↗</span></a></h2>
-      <p class="flagship-intro">Help a benefits-verification agent follow the payer’s actual process, recover from a non-covered answer, and carry the right context into the next call.</p>
+      <p class="flagship-intro">Connect healthcare conversations to explicit workflows: benefits verification, patient scheduling, recovery routes, and handoffs.</p>
       <dl class="flagship-facts">
-       <div><dt>My contribution</dt><dd>I implemented recovery routes, state-dependent questions, scoped retry initialization, and program-specific applicability within the 100ms voice-agent platform.</dd></div>
+       <div><dt>My contribution</dt><dd>I implemented benefits-verification recovery routes and retry behavior, plus patient-scheduling eligibility gates, handoffs, booking-tool coordination, and generated notes.</dd></div>
        <div><dt>Key decision</dt><dd>Keep the conversation, extracted fields, completion rules, and resumed-call state aligned around the same workflow.</dd></div>
        <div><dt>Evidence</dt><dd>Shared workflow scenarios and schema checks, with focused prompt and audio testing on specific revisions. Verification limits are documented in the supporting case studies.</dd></div>
       </dl>
@@ -78,6 +78,7 @@
        <div class="supporting-studies">
         <h3>Supporting case studies</h3>
         <ul>        <li><a href="/work/healthcare-voice-agents/">Recovery routes &amp; conversation design <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/patient-scheduling/">Patient scheduling &amp; booking coordination <span aria-hidden="true">↗</span></a></li>
         <li><a href="/work/stateful-retries/">Fresh evidence across repeated calls <span aria-hidden="true">↗</span></a></li>
         <li><a href="/work/controlled-rollout/">Program rollout &amp; compatibility <span aria-hidden="true">↗</span></a></li></ul>
        </div>
@@ -85,21 +86,22 @@
      </article>
      <article class="flagship" id="reliable-data" aria-labelledby="work-reliable-data">
       <p class="eyebrow">02 / Structured extraction · Grounding · Python / TypeScript</p>
-      <h2 id="work-reliable-data"><a href="/work/structured-extraction/">Reliable extraction and decision systems <span aria-hidden="true">↗</span></a></h2>
-      <p class="flagship-intro">Make the saved record preserve what was actually confirmed—and keep its meaning stable as different services process it.</p>
+      <h2 id="work-reliable-data"><a href="/work/fax-extraction/">Reliable extraction and decision systems <span aria-hidden="true">↗</span></a></h2>
+      <p class="flagship-intro">Turn conversations and medical documents into structured records, with evidence-aware validation and inspectable model disagreement.</p>
       <dl class="flagship-facts">
-       <div><dt>My contribution</dt><dd>I added route-aware field cleanup, corrected unsupported coverage inference, and maintained equivalent decision behavior across the live agent and Python/TypeScript engines.</dd></div>
+       <div><dt>My contribution</dt><dd>I built a Go fax-extraction service with independent model review, and implemented benefits-field cleanup and evidence-preserving decision logic across Python and TypeScript.</dd></div>
        <div><dt>Key decision</dt><dd>Validate relationships and evidence as well as field types; test the same saved output through repeated processing.</dd></div>
-       <div><dt>Evidence</dt><dd>In a historical offline replay of 1,346 calls, the extraction correction cleared 163 copied values across 33 calls, with no disposition-code changes in that sample.</dd></div>
+       <div><dt>Evidence</dt><dd>For benefits-call cleanup, a historical offline replay of 1,346 calls cleared 163 copied values across 33 calls, with no disposition-code changes. The fax project has separate implementation and test evidence.</dd></div>
       </dl>
 
        <div class="supporting-studies">
         <h3>Supporting case studies</h3>
-        <ul>        <li><a href="/work/structured-extraction/">Preserving field ownership <span aria-hidden="true">↗</span></a></li>
+        <ul>        <li><a href="/work/fax-extraction/">Medical-fax extraction &amp; independent review <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/structured-extraction/">Preserving field ownership <span aria-hidden="true">↗</span></a></li>
         <li><a href="/work/grounded-output/">Preventing unsupported conclusions <span aria-hidden="true">↗</span></a></li>
         <li><a href="/work/shared-decision-engine/">One contract across two runtimes <span aria-hidden="true">↗</span></a></li></ul>
        </div>
-      <a class="text-link" href="/work/structured-extraction/">Read the main case study ↗</a>
+      <a class="text-link" href="/work/fax-extraction/">Read the main case study ↗</a>
      </article>
      <article class="flagship" id="evaluation-tooling" aria-labelledby="work-evaluation-tooling">
       <p class="eyebrow">03 / Replay · Prompt regressions · Ablation</p>
