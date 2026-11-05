@@ -8,7 +8,7 @@ Run `python3 -m http.server 8080 --bind 127.0.0.1` from this repository.
 
 ## Editing
 
-- `index.html`: AI-first midnight portfolio, selected project evidence, working approach, career history, toolkit, community, and hiring contact.
+- `index.html`: AI-first midnight portfolio, three flagship project areas, working approach, career history, toolkit, community, and hiring contact.
 - `styles.css`: shared dark palette; sticky desktop identity column and mobile single-column layout. Desktop content is capped at 1440px. The identity rail compacts below 850px height and scrolls naturally with the page at 650px height or below.
 - `spotlight.js`: subtle pointer-following background glow. Disabled for touch/coarse pointers and reduced motion; hides on pointer exit, keyboard navigation, or loss of focus.
 - `navigation.js`: progressive enhancement that highlights the visible homepage section. All links work without JavaScript.
@@ -32,3 +32,7 @@ The six AI stories use the owner-supplied AI Engineering Fieldguide as the conte
 ## AI engineering notes
 
 The homepage includes 15 native HTML disclosures across agent architecture, voice AI, and applied AI. Introductory paragraphs and project connections stay visible; detailed explanations use keyboard-accessible `details`/`summary` elements and require no JavaScript. General design concepts and hypothetical examples are distinct from the shipped-contribution case studies. Relevant concepts link to primary documentation from Anthropic, LiveKit, OpenAI, and MCP. `writing/index.html` also links to the new section.
+
+## Flagship project organization
+
+The homepage and work index group the detailed stories under healthcare voice workflows, reliable extraction and decision systems, and agent evaluation tooling. These are connected areas of contribution within the 100ms platform, not claims of sole ownership of three separate products. The work index retains links to all nine case studies, including platform and SDK work. Every case study begins with an accessible definition-list summary of the problem, contribution, key decision, and outcome/evidence. Historical measurements retain their sample and verification limits.

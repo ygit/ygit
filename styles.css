@@ -278,3 +278,31 @@ tbody th { font-weight: 500; }
   .identity { position: static; height: auto; }
   .concept::details-content { display: block; content-visibility: visible; }
 }
+
+/* Project overviews connect individual changes to the system they improve. */
+.flagship { padding: 30px 0; border-top: 1px solid var(--line); scroll-margin-top: 36px; }
+.flagship > .eyebrow { font-size: 10px; margin-bottom: 12px; }
+.flagship > h2, .flagship > h3 { font-size: 27px; line-height: 1.3; margin-bottom: 16px; }
+.flagship > h2 a, .flagship > h3 a { text-decoration: none; }
+.flagship .flagship-intro { color: var(--ink); font-size: 15px; line-height: 1.7; }
+.flagship-facts { display: grid; gap: 17px; margin: 23px 0 7px; }
+.flagship-facts > div { display: grid; grid-template-columns: 105px minmax(0, 1fr); gap: 18px; }
+.flagship-facts dt { color: var(--green); font: 10px/1.8 var(--mono); padding-top: 2px; }
+.flagship-facts dd { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; }
+.flagship-index { max-width: 920px; }
+.flagship-index .flagship { padding: 38px 0; }
+.supporting-studies { margin-top: 26px; }
+.supporting-studies h3 { font-size: 13px; margin-bottom: 12px; }
+.supporting-studies ul { display: grid; gap: 11px; padding-left: 18px; margin: 0; font-size: 14px; color: var(--muted); }
+.case-summary { padding: 25px 28px; margin: 0 0 40px; background: #132137; border: 1px solid #344760; border-radius: 5px; }
+.case-summary h2 { color: var(--green); font: 11px/1.7 var(--mono); letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 22px; }
+.case-summary dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; margin: 0; }
+.case-summary dt { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.case-summary dd { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; }
+@media (max-width: 600px) {
+  .flagship > h2, .flagship > h3 { font-size: 24px; }
+  .flagship-facts > div { grid-template-columns: 1fr; gap: 5px; }
+  .flagship-index .flagship { padding: 28px 0; }
+  .case-summary { padding: 20px; margin-bottom: 30px; }
+  .case-summary dl { grid-template-columns: 1fr; gap: 18px; }
+}

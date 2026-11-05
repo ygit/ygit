@@ -50,7 +50,16 @@
 <h1>From production failure to regression coverage</h1>
 <p class="intro">Turned an unnecessary appeal question into a repeatable regression across prompt rendering, model responses, saved state, and grading.</p>
 </div>
-<div class="article-grid">
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>An agent could ask about an appeal after learning the underlying exception request had never been filed.</dd></div>
+       <div><dt>My contribution</dt><dd>Shared eligibility fixes, local call-replay tooling, repeated prompt regressions, and component ablations.</dd></div>
+       <div><dt>Key decision</dt><dd>Reproduce extraction lag and require the test to reach the failing branch while still making useful progress.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Selected historical prompt replays: 0/240 inappropriate asks on the fix versus 32/120 on the baseline. These are repeated test scenarios; final audio and Cekura verification limits remain below.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
 <aside>
 <p>
 <b>Context</b>Healthcare AI at 100ms</p>

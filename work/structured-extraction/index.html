@@ -50,7 +50,16 @@
 <h1>Structured extraction that preserves meaning</h1>
 <p class="intro">Added route-aware validation to stop prior-authorization details from appearing as a separately confirmed exception request.</p>
 </div>
-<div class="article-grid">
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>Schema-valid output could copy prior-authorization details into a separate exception record.</dd></div>
+       <div><dt>My contribution</dt><dd>Route-aware cleanup integrated into live-agent hooks and Python/TypeScript grading, with focused regressions.</dd></div>
+       <div><dt>Key decision</dt><dd>Detect a narrowly defined copy pattern while preserving evidence of a legitimate separate exception.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Historical offline replay: 163 values cleared across 33 of 1,346 calls, with zero disposition-code changes in that sample. This is replay evidence, not a production improvement rate.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
 <aside>
 <p>
 <b>Context</b>Healthcare AI at 100ms</p>

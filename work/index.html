@@ -56,117 +56,73 @@
       to dependable outcome.
      </h1>
      <p class="intro">
-      A closer look at the problems I work on, the decisions behind the implementation, and how I validate behavior.
+      Three connected project areas, supported by detailed case studies of my contributions at 100ms. Explore the workflow, data, and evaluation decisions, then follow the evidence behind each one.
      </p>
     </div>
-    <div class="full">
-     <div class="cards">
-<article class="card">
-<span class="num">01 / 100ms · AI engineering</span>
-<h2>Voice agents for complex healthcare workflows</h2>
-<p>Built recovery paths for benefits-verification calls, keeping the next question, extracted answer, and completion rule in sync.</p>
-<div class="tags">Conversation design · Workflow engineering</div>
-<a href="/work/healthcare-voice-agents/">Explore conversation design ↗</a>
-</article>
-<article class="card">
-<span class="num">02 / 100ms · AI engineering</span>
-<h2>Structured extraction that preserves meaning</h2>
-<p>Added route-aware validation to stop prior-authorization details from appearing as a separately confirmed exception request.</p>
-<div class="tags">LLM extraction · Data correctness</div>
-<a href="/work/structured-extraction/">Explore llm extraction ↗</a>
-</article>
-<article class="card">
-<span class="num">03 / 100ms · AI engineering</span>
-<h2>Preventing unsupported coverage conclusions</h2>
-<p>Traced a false coverage conclusion through deterministic rules and persistence, then fixed the second-pass failure across two runtimes.</p>
-<div class="tags">Evidence validation · Idempotent processing</div>
-<a href="/work/grounded-output/">Explore evidence validation ↗</a>
-</article>
-<article class="card">
-<span class="num">04 / 100ms · AI engineering</span>
-<h2>From production failure to regression coverage</h2>
-<p>Turned an unnecessary appeal question into a repeatable regression across prompt rendering, model responses, saved state, and grading.</p>
-<div class="tags">LLM evaluation · Replay · Ablation</div>
-<a href="/work/agent-evaluation/">Explore llm evaluation ↗</a>
-</article>
-<article class="card">
-<span class="num">05 / 100ms · AI engineering</span>
-<h2>Reliable state across repeated calls</h2>
-<p>Stopped stale prior-call context from satisfying questions in a new Medicare Part B verification attempt.</p>
-<div class="tags">Agent state · Context freshness</div>
-<a href="/work/stateful-retries/">Explore agent state ↗</a>
-</article>
-<article class="card">
-<span class="num">06 / 100ms · AI engineering</span>
-<h2>Controlled rollout across customer programs</h2>
-<p>Made program identity authoritative for feature applicability and aligned live calls with later saved-record grading.</p>
-<div class="tags">Deployment scope · Compatibility</div>
-<a href="/work/controlled-rollout/">Explore deployment scope ↗</a>
-</article>
-<article class="card">
-<span class="num">More engineering work</span>
-<h2>One contract, two runtimes</h2>
-<p>Shared Python and TypeScript decision rules, checked against the same expected outcomes.</p>
-<a href="/work/shared-decision-engine/">Explore one contract, two runtimes ↗</a>
-</article>
-<article class="card">
-<span class="num">More engineering work</span>
-<h2>The platform around the agent</h2>
-<p>Shared schemas, case-processing services, workflows, and deployment infrastructure.</p>
-<a href="/work/agent-platform/">Explore the platform around the agent ↗</a>
-</article>
-<article class="card">
-<span class="num">More engineering work</span>
-<h2>Real-time iOS &amp; mobile SDKs</h2>
-<p>Communication APIs across iOS, Flutter, and React Native, with integration and operational experience.</p>
-<a href="/work/realtime-mobile-sdks/">Explore real-time ios &amp; mobile sdks ↗</a>
-</article>
-</div>
-     <section>
-      <h2>
-       Earlier work
-      </h2>
-      <div class="rows">
-       <div class="row">
-        <span class="eyebrow">
-         Real-time SDKs
-        </span>
-        <div>
-         <h3>
-          100ms communication SDKs
-         </h3>
-         <p>
-          Live audio, video, and streaming across mobile platforms.
-         </p>
-         <div class="actions">
-          <a href="https://github.com/100mslive/100ms-ios-sdk">
-           iOS ↗
-          </a>
-          <a href="https://github.com/100mslive/100ms-flutter">
-           Flutter ↗
-          </a>
-          <a href="https://github.com/100mslive/100ms-react-native">
-           React Native ↗
-          </a>
-         </div>
-        </div>
+    <div class="full flagship-index">
+     <nav class="topic-jumps" aria-label="Project areas">
+      <a href="#voice-workflows">01 / Voice workflows</a>
+      <a href="#reliable-data">02 / Reliable data</a>
+      <a href="#evaluation-tooling">03 / Evaluation</a>
+     </nav>
+     <article class="flagship" id="voice-workflows" aria-labelledby="work-voice-workflows">
+      <p class="eyebrow">01 / Conversation design · Agent state · Rollout</p>
+      <h2 id="work-voice-workflows"><a href="/work/healthcare-voice-agents/">Healthcare voice workflows <span aria-hidden="true">↗</span></a></h2>
+      <p class="flagship-intro">Help a benefits-verification agent follow the payer’s actual process, recover from a non-covered answer, and carry the right context into the next call.</p>
+      <dl class="flagship-facts">
+       <div><dt>My contribution</dt><dd>I implemented recovery routes, state-dependent questions, scoped retry initialization, and program-specific applicability within the 100ms voice-agent platform.</dd></div>
+       <div><dt>Key decision</dt><dd>Keep the conversation, extracted fields, completion rules, and resumed-call state aligned around the same workflow.</dd></div>
+       <div><dt>Evidence</dt><dd>Shared workflow scenarios and schema checks, with focused prompt and audio testing on specific revisions. Verification limits are documented in the supporting case studies.</dd></div>
+      </dl>
+
+       <div class="supporting-studies">
+        <h3>Supporting case studies</h3>
+        <ul>        <li><a href="/work/healthcare-voice-agents/">Recovery routes &amp; conversation design <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/stateful-retries/">Fresh evidence across repeated calls <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/controlled-rollout/">Program rollout &amp; compatibility <span aria-hidden="true">↗</span></a></li></ul>
        </div>
-       <div class="row">
-        <span class="eyebrow">
-         Open source
-        </span>
-        <div>
-         <h3>
-          Awesome SwiftUI
-         </h3>
-         <p>
-          A community-curated collection of SwiftUI resources, libraries, and learning material.
-         </p>
-         <a href="https://github.com/ygit/swiftui">
-          Explore on GitHub ↗
-         </a>
-        </div>
+      <a class="text-link" href="/work/healthcare-voice-agents/">Read the main case study ↗</a>
+     </article>
+     <article class="flagship" id="reliable-data" aria-labelledby="work-reliable-data">
+      <p class="eyebrow">02 / Structured extraction · Grounding · Python / TypeScript</p>
+      <h2 id="work-reliable-data"><a href="/work/structured-extraction/">Reliable extraction and decision systems <span aria-hidden="true">↗</span></a></h2>
+      <p class="flagship-intro">Make the saved record preserve what was actually confirmed—and keep its meaning stable as different services process it.</p>
+      <dl class="flagship-facts">
+       <div><dt>My contribution</dt><dd>I added route-aware field cleanup, corrected unsupported coverage inference, and maintained equivalent decision behavior across the live agent and Python/TypeScript engines.</dd></div>
+       <div><dt>Key decision</dt><dd>Validate relationships and evidence as well as field types; test the same saved output through repeated processing.</dd></div>
+       <div><dt>Evidence</dt><dd>In a historical offline replay of 1,346 calls, the extraction correction cleared 163 copied values across 33 calls, with no disposition-code changes in that sample.</dd></div>
+      </dl>
+
+       <div class="supporting-studies">
+        <h3>Supporting case studies</h3>
+        <ul>        <li><a href="/work/structured-extraction/">Preserving field ownership <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/grounded-output/">Preventing unsupported conclusions <span aria-hidden="true">↗</span></a></li>
+        <li><a href="/work/shared-decision-engine/">One contract across two runtimes <span aria-hidden="true">↗</span></a></li></ul>
        </div>
+      <a class="text-link" href="/work/structured-extraction/">Read the main case study ↗</a>
+     </article>
+     <article class="flagship" id="evaluation-tooling" aria-labelledby="work-evaluation-tooling">
+      <p class="eyebrow">03 / Replay · Prompt regressions · Ablation</p>
+      <h2 id="work-evaluation-tooling"><a href="/work/agent-evaluation/">Agent evaluation tooling <span aria-hidden="true">↗</span></a></h2>
+      <p class="flagship-intro">Turn an observed agent failure into a reproducible test, then establish which changes are necessary to fix it.</p>
+      <dl class="flagship-facts">
+       <div><dt>My contribution</dt><dd>I built local call-replay tooling and strengthened regression coverage across rendered prompts, model responses, extraction lag, resumed context, and grading.</dd></div>
+       <div><dt>Key decision</dt><dd>Require useful progress and the triggering state; test each layer separately and remove individual changes to check their necessity.</dd></div>
+       <div><dt>Evidence</dt><dd>Selected historical prompt replays recorded 0/240 inappropriate appeal asks on the fix versus 32/120 on the baseline. These are test runs, not a production success rate.</dd></div>
+      </dl>
+
+       <div class="supporting-studies">
+        <h3>Supporting case studies</h3>
+        <ul>        <li><a href="/work/agent-evaluation/">From failure to regression coverage <span aria-hidden="true">↗</span></a></li></ul>
+       </div>
+      <a class="text-link" href="/work/agent-evaluation/">Read the main case study ↗</a>
+     </article>
+     <section id="more-work">
+      <h2>Platform engineering &amp; earlier work</h2>
+      <div class="cards supporting-cards">
+       <article class="card"><span class="num">Platform integration</span><h3>The platform around the agent</h3><p>Shared schemas, case-processing services, backend integration, and the operational setup around voice workflows.</p><a href="/work/agent-platform/">Explore the platform work ↗</a></article>
+       <article class="card"><span class="num">Real-time &amp; mobile</span><h3>iOS, Flutter &amp; React Native SDKs</h3><p>Developer-facing communication APIs, integration support, and experience operating SDKs inside other teams’ products.</p><a href="/work/realtime-mobile-sdks/">Explore the SDK work ↗</a></article>
+       <article class="card"><span class="num">Open source</span><h3>Awesome SwiftUI</h3><p>A community-curated collection of SwiftUI resources, libraries, and learning material.</p><a href="https://github.com/ygit/swiftui">Explore Awesome SwiftUI ↗</a></article>
       </div>
      </section>
     </div>

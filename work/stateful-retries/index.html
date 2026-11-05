@@ -50,7 +50,16 @@
 <h1>Reliable state across repeated calls</h1>
 <p class="intro">Stopped stale prior-call context from satisfying questions in a new Medicare Part B verification attempt.</p>
 </div>
-<div class="article-grid">
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>A new Part B verification call could inherit stale plan identity and benefit values from another attempt.</dd></div>
+       <div><dt>My contribution</dt><dd>Scoped context initialization, plan-specific extraction guidance, and context/next-turn regressions.</dd></div>
+       <div><dt>Key decision</dt><dd>Start exact traditional Part B inputs from current-call facts while preserving other workflows’ carry-forward behavior.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Historical validation included 15 real-schema initialization tests, 70 focused tests, and 10/10 live next-turn tests across two agents. Later extraction runs still exposed empty-output and date-selection residuals.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
 <aside>
 <p>
 <b>Context</b>Healthcare AI at 100ms</p>
