@@ -28,3 +28,7 @@ CNAME and Wrangler configuration are retained. No deployment has been performed.
 ## November 2026 content update
 
 The six AI stories use the owner-supplied AI Engineering Fieldguide as the content source. Historical prompt measurements and offline replay counts retain their sample sizes and limitations; they do not claim production-wide improvement. The homepage leads with AI work and names the roles the owner is seeking. Contact uses the existing LinkedIn profile. No private implementation links, raw transcripts, customer identifiers, or invented business-impact numbers were added.
+
+## AI engineering notes
+
+The homepage includes 15 native HTML disclosures across agent architecture, voice AI, and applied AI. Introductory paragraphs and project connections stay visible; detailed explanations use keyboard-accessible `details`/`summary` elements and require no JavaScript. General design concepts and hypothetical examples are distinct from the shipped-contribution case studies. Relevant concepts link to primary documentation from Anthropic, LiveKit, OpenAI, and MCP. `writing/index.html` also links to the new section.

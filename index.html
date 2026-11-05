@@ -46,6 +46,7 @@
      <nav aria-label="Page sections" class="section-nav">
 <a href="#about" aria-current="location">About</a>
 <a href="#work">Selected AI work</a>
+<a href="#ai-engineering">AI engineering</a>
 <a href="#approach">How I work</a>
 <a href="#experience">Experience</a>
 <a href="#stack">Toolkit</a>
@@ -183,6 +184,176 @@
 <p class="note evidence-note">Results describe historical tests and offline replays on specific revisions and samples. They are not production-wide success rates.</p>
 <a class="text-link" href="/work/">All work, including platform and SDK projects ↗</a>
 </section>
+
+    <section id="ai-engineering" aria-labelledby="ai-engineering-heading">
+     <h2 class="section-label" id="ai-engineering-heading">AI engineering / ideas &amp; decisions</h2>
+     <p class="section-intro">How I think about building useful agents.</p>
+     <p>The interesting work starts when a model has to operate inside a real product: incomplete information, changing state, external systems, and users who need a dependable outcome. These notes explain the design questions I care about, with examples and connections to my project work.</p>
+     <nav class="topic-jumps" aria-label="AI engineering topics">
+      <a href="#agent-design">01 / AI agents</a>
+      <a href="#voice-ai">02 / Voice AI</a>
+      <a href="#applied-ai">03 / Applied AI</a>
+     </nav>
+
+     <article class="topic-group" id="agent-design" aria-labelledby="agent-design-heading">
+      <p class="eyebrow">01 / Agent architecture</p>
+      <h3 id="agent-design-heading">Give the model a useful job—and a clear boundary.</h3>
+      <p>An agent needs more than instructions. It needs a representation of the task, access to relevant evidence, well-defined actions, and a way to decide whether it has finished. I’m interested in the boundary between flexible language understanding and explicit control over state and actions.</p>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Workflows, agents, and bounded autonomy</summary>
+        <div class="concept-body">
+         <p>A workflow fixes the sequence in code; an agent can choose its next step from the current context. Many useful systems combine both: let a model interpret an ambiguous answer, then let explicit rules decide whether a required fact is missing or an action is permitted.</p>
+         <p><strong>The design question:</strong> which decisions benefit from model judgment, and which need a stable contract? For a verification flow, wording can be flexible while field ownership, completion requirements, and stop conditions remain explicit.</p>
+         <a class="source-link" href="https://www.anthropic.com/research/building-effective-agents">Reference: Anthropic on workflows and agents ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Context engineering, retrieval, and memory</summary>
+        <div class="concept-body">
+         <p>Context engineering is the work of choosing what the model should see at a particular step: instructions, recent dialogue, retrieved material, tool results, and current state. A longer history is not automatically a better one; stale or conflicting facts can change the next decision.</p>
+         <p><strong>Retrieval-augmented generation (RAG)</strong> supplies relevant source material. <strong>Conversation memory</strong> carries facts across turns or attempts. Neither establishes that a fact is current or applicable. A useful design records where a value came from, when it was confirmed, and what can supersede it.</p>
+         <p><strong>Example:</strong> a plan name from yesterday’s call should not silently satisfy today’s identity check. That is a freshness and attribution problem even when retrieval returns the right document.</p>
+         <a class="source-link" href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">Reference: context engineering ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Tool calling, MCP, and reliable actions</summary>
+        <div class="concept-body">
+         <p>A tool call turns a model decision into an operation on another system. Its contract should explain the inputs, result, errors, and side effects. The Model Context Protocol (MCP) standardizes discovery and exchange of tools, resources, and prompts; the application still owns its business rules and execution policy.</p>
+         <p><strong>The design question:</strong> what happens if a request times out after the operation succeeded? Retrying a read and retrying a booking are different. A booking tool needs a way to identify the same intended operation and reconcile its status before creating another booking.</p>
+         <p>Permissions, argument validation, timeouts, and required approvals belong at the execution boundary. A fluent model response is not evidence that the external action completed.</p>
+         <a class="source-link" href="https://modelcontextprotocol.io/docs/learn/architecture">Reference: MCP architecture ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>When a multi-agent design is worth it</summary>
+        <div class="concept-body">
+         <p>Separate agents can help when subtasks have distinct context or can be investigated independently. They also introduce coordination, additional model calls, and a need to reconcile conflicting results.</p>
+         <p>I would first make the single-agent baseline measurable. Then I would ask what the proposed split improves: task quality, isolation, or elapsed time. Each worker needs a bounded assignment and an explicit output contract; the final synthesis still needs verification.</p>
+         <p><strong>Useful test:</strong> does the added agent find evidence or complete work the simpler system consistently misses, after accounting for latency and cost?</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Trust boundaries, prompt injection, and human review</summary>
+        <div class="concept-body">
+         <p>A document or tool result can contain instructions, but it should not gain the authority of the user or the application. Prompt-injection resistance includes keeping untrusted content separate from control instructions and limiting what tools may do.</p>
+         <p>Human review should be attached to a specific proposed action, with the evidence and consequences visible. Escalating a conversation to a person is different from requiring approval before an external write. Privacy also needs attention across transcripts, logs, traces, and test fixtures.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/agent-builder-safety">Reference: safety in agent design ↗</a>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/stateful-retries/">fresh evidence across repeated calls</a> and <a href="/work/shared-decision-engine/">shared decision contracts</a>.</p>
+     </article>
+
+     <article class="topic-group" id="voice-ai" aria-labelledby="voice-ai-heading">
+      <p class="eyebrow">02 / Voice AI systems</p>
+      <h3 id="voice-ai-heading">The conversation has a clock.</h3>
+      <p>In voice, correctness includes when the agent speaks, what it heard, and whether it can recover from an interruption. A delayed answer, a premature response, or a stale state update can change the entire call—even when the generated sentence looks reasonable in a transcript.</p>
+      <figure class="voice-paths">
+       <div><span>Conversation</span><ol><li>Listen</li><li>Choose a response</li><li>Speak</li></ol></div>
+       <div><span>Background state</span><ol><li>Read evidence</li><li>Extract &amp; validate</li><li>Update state</li></ol></div>
+       <figcaption>Conceptual paths in a cascaded voice system. Speaking and extraction can overlap; the next response may see an earlier state.</figcaption>
+      </figure>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Speech pipelines and speech-to-speech models</summary>
+        <div class="concept-body">
+         <p>A cascaded pipeline connects speech-to-text (STT), a language model, and text-to-speech (TTS). Those boundaries make it possible to inspect the transcript, control the generated text, and choose components independently. A realtime speech-to-speech model handles audio more directly and can use information beyond a text transcript.</p>
+         <p>The architecture choice depends on the product: inspectability, voice behavior, tool integration, operational control, and measured response time. Either design still needs state management, tool validation, and a clear definition of successful completion.</p>
+         <a class="source-link" href="https://docs.livekit.io/agents/models/pipelines/">Reference: voice pipeline types ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Turn detection, endpointing, and interruptions</summary>
+        <div class="concept-body">
+         <p>Voice activity detection (VAD) helps identify speech and silence. Deciding that a person has finished a thought is a separate problem: a pause may mean they are looking up a date or spelling an identifier. Endpointing and semantic turn detection influence when the agent responds.</p>
+         <p><strong>Barge-in</strong> means the person starts speaking during the agent’s response. Good interruption handling must consider queued audio and conversation history: words generated but never heard should not be treated as delivered. Backchannels such as “mm-hmm” also need different handling from a correction.</p>
+         <p><strong>Trade-off:</strong> respond quickly enough to feel engaged without repeatedly cutting off the caller.</p>
+         <a class="source-link" href="https://docs.livekit.io/agents/logic/turns/">Reference: turn detection and interruptions ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Latency budgets and the time the caller experiences</summary>
+        <div class="concept-body">
+         <p>Model time-to-first-token is only one part of a voice response. The caller experiences the interval from finishing their turn to hearing useful audio. Transcription delay, end-of-turn detection, model generation, tool calls, synthesis, and playback can all contribute.</p>
+         <p>I would measure median and tail latency, then inspect stage-level traces to find the bottleneck. Streaming can overlap stages, so adding every component’s full duration can misrepresent the critical path.</p>
+         <p><strong>A useful optimization question:</strong> did the caller get a correct, relevant response sooner, or did the system merely start an acknowledgement sooner?</p>
+         <a class="source-link" href="https://docs.livekit.io/reference/agents/session-traces/">Reference: voice latency stages and traces ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Foreground conversation and background extraction</summary>
+        <div class="concept-body">
+         <p>The conversational model and the extractor do different jobs. One chooses what to say next; the other turns the conversation into structured state. If extraction runs asynchronously, the next prompt can render before the latest answer has landed.</p>
+         <p><strong>Synthetic example:</strong> a representative says, “No exception request was filed.” The transcript contains that answer, but the state still says Unknown. A test that immediately seeds the final field skips the timing condition that could trigger an unnecessary appeal question.</p>
+         <p>I test the intermediate state as well as the final record. Question gates, completion rules, and retry summaries need to agree about what is known at that point.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>IVRs, holds, transfers, and resumed calls</summary>
+        <div class="concept-body">
+         <p>A phone call can move between an automated menu, hold music, a representative, and another department. These are different operating states. Menu prompts should not automatically become human-confirmed benefit facts, and a transfer may require fresh identification.</p>
+         <p>A recovery design needs to say what survives a disconnect, what must be reconfirmed, and which unanswered questions remain. A human handoff should preserve the reason for escalation and useful context without claiming an uncompleted action succeeded.</p>
+         <p><strong>Test beyond the happy path:</strong> silence, repeated prompts, background speech, spelling corrections, partial answers, and a transfer after useful information has already been collected.</p>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/healthcare-voice-agents/">recovery routes in healthcare voice workflows</a> and <a href="/work/agent-evaluation/">tests that reproduce extraction lag</a>.</p>
+     </article>
+
+     <article class="topic-group" id="applied-ai" aria-labelledby="applied-ai-heading">
+      <p class="eyebrow">03 / Applied AI engineering</p>
+      <h3 id="applied-ai-heading">Make quality an observable product property.</h3>
+      <p>Applied AI engineering connects model behavior to the result a user or downstream system needs. That includes defining success, inspecting failures, choosing appropriate models, and making changes that remain understandable after deployment.</p>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Structured outputs, grounding, and semantic validation</summary>
+        <div class="concept-body">
+         <p>A schema can constrain field names, types, and allowed values. It cannot by itself establish that the answer is supported by the source. A valid date can belong to the wrong plan; a valid status can describe a different request.</p>
+         <p>I think about three checks: <strong>representation</strong>—is the output well formed; <strong>support</strong>—what evidence backs the value; and <strong>consistency</strong>—do related fields agree? Derived values need the same scrutiny because ordinary application code can also introduce an unsupported conclusion.</p>
+         <p><strong>Synthetic example:</strong> copying a prior-authorization reference into an exception record can pass type validation while inventing a second request.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/structured-outputs">Reference: structured model outputs ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Evaluation design, regression suites, and ablation</summary>
+        <div class="concept-body">
+         <p>Start with a specific behavior to measure and a dataset that includes normal cases, edge cases, and known failures. Keep holdout cases separate from examples used while tuning. For stochastic responses, repeated runs reveal variation that a single pass can hide.</p>
+         <p>Different layers answer different questions: deterministic tests check rules; prompt tests check model behavior; extraction tests check field attribution; full-flow tests check orchestration. Human review helps calibrate automated or model-based grading.</p>
+         <p><strong>Ablation</strong> removes one part of a proposed fix to see whether the result depends on it. I also look for false passes: an empty answer or a test that never reaches the failing branch should not establish success.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Reference: evaluation design and continuous testing ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Model selection, routing, and cost per useful outcome</summary>
+        <div class="concept-body">
+         <p>A model choice is a task-specific trade-off among quality, response time, context requirements, tool behavior, and operating cost. Conversation, extraction, and classification may have different needs, even inside one product.</p>
+         <p>I would compare candidates on the same representative scenarios and include timeouts, retries, fallbacks, and downstream corrections in the measurement. A cheaper request can become an expensive workflow if it causes repeated calls or more manual review.</p>
+         <p>Routing and fallback policies also need tests. Switching providers should preserve the output contract and error semantics, rather than silently turning a partial result into a successful one.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Observability, controlled rollout, and feedback loops</summary>
+        <div class="concept-body">
+         <p>A useful trace connects the input state, prompt or model version, tool activity, extracted fields, and final decision. Metrics show where a failure is growing; the trace helps explain the individual event. Sensitive values need deliberate handling in both.</p>
+         <p>For a rollout, define who receives the change, how to identify that version later, and which conditions justify expanding or rolling back. Track outcome quality alongside latency and operational errors.</p>
+         <p>I distinguish offline replay, deployed configuration, and observed live behavior. Each is evidence about a different part of the release, and newly observed failures should become candidates for the regression set.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>From a customer workflow to a product that earns trust</summary>
+        <div class="concept-body">
+         <p>Before choosing an agent architecture, map the user’s actual process: the inputs they have, the decisions they make, the systems they touch, and the exceptions that send work back to a person. The most valuable automation may be a narrow, well-integrated step.</p>
+         <p><strong>Questions I would bring to discovery:</strong> What does a correct completed task look like? Which mistakes are recoverable? Who reviews uncertainty? What happens when an integration is unavailable? How will the team distinguish saved time from work shifted into cleanup?</p>
+         <p>For a forward-deployed or product engineering role, that translation—from operating constraints to interfaces, acceptance criteria, and a feedback loop—is as important as the model call.</p>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection"><strong>Connection to my work:</strong> <a href="/work/structured-extraction/">semantic extraction fixes</a>, <a href="/work/grounded-output/">evidence-preserving validation</a>, and <a href="/work/controlled-rollout/">compatible rollout policies</a>.</p>
+     </article>
+    </section>
+
     <section id="approach">
      <h2 class="section-label">How I work</h2>
      <div class="approach-list">
@@ -516,6 +687,11 @@
       Engineering notes
      </h2>
      <div class="notes-list">
+      <a class="note-link" href="#ai-engineering">
+       <h3>Designing agents for real workflows ↗</h3>
+       <p>Fifteen concepts across agent architecture, voice systems, and applied AI—from context freshness and tool contracts to turn-taking and evaluation.</p>
+      </a>
+
       <a class="note-link" href="/writing/unknown-is-a-state/">
        <h3>
         Unknown is a state, too ↗
