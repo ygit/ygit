@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Preventing unsupported coverage conclusions — Yogesh Singh</title>
+  <meta content="Traced a false coverage conclusion through deterministic rules and persistence, then fixed the second-pass failure across two runtimes." name="description"/>
+  <link href="https://yogeshsingh.space/work/grounded-output/" rel="canonical"/>
+  <meta content="Preventing unsupported coverage conclusions — Yogesh Singh" property="og:title"/>
+  <meta content="Traced a false coverage conclusion through deterministic rules and persistence, then fixed the second-pass failure across two runtimes." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/grounded-output/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>Preventing unsupported coverage conclusions</h1>
+<p class="intro">Traced a false coverage conclusion through deterministic rules and persistence, then fixed the second-pass failure across two runtimes.</p>
+</div>
+<div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>Evidence validation · Idempotent processing</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>An Unknown coverage value could become Covered merely because a prior-authorization status was present—even “Not Applicable”—despite an explicit non-covered reason. The incorrect conclusion came from ordinary derivation code after extraction.</p>
+<h2>What I built</h2>
+<p>I diagnosed the inference and evidence-loss paths, corrected shared Python/TypeScript behavior and live call-end handling, and tested the same records through repeated derivation.</p>
+<h2>Engineering decisions</h2>
+<h3>Preserve the evidence that blocks an inference.</h3>
+<p>An initial guard stopped the false conclusion, but a later cleanup removed the non-covered reason from Unknown records. On a second pass, the guard had nothing left to inspect. The complete fix preserves that reason until the appropriate affirmative-Covered conditions apply.</p>
+<h3>Check legitimate recovery paths separately.</h3>
+<p>Blocking an unsupported inference must not block an independently established recovery. I kept those paths distinct and aligned the implementations with a shared manifest and scenario corpus.</p>
+<h3>Replay the saved output, not just the original input.</h3>
+<p>I derived each snapshot twice with a fixed context. This exposes transformations that look correct in isolation but change their answer after persistence or reprocessing.</p>
+<h2>Results &amp; verification</h2>
+<div class="table-scroll">
+<table>
+<caption>Historical offline replay · 743 calls across 259 cases</caption>
+<thead>
+<tr>
+<th scope="col">Implementation</th>
+<th scope="col">False flips, first pass</th>
+<th scope="col">False flips, second pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Original behavior</th>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<th scope="row">Inference guard alone</th>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<th scope="row">Guard + evidence preservation</th>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The complete correction produced zero disposition-code changes in this sample. Field-level accuracy and final grading were checked separately, alongside property tests and live-agent parity tests.</p>
+<p>These are offline replay results on a defined sample, not a universal guarantee or a measured production success rate.</p>
+<blockquote>
+<p>A correct first pass is not enough when the same record will be processed again.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/shared-decision-engine/">The shared decision-engine contract ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

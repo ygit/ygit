@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Structured extraction that preserves meaning — Yogesh Singh</title>
+  <meta content="Added route-aware validation to stop prior-authorization details from appearing as a separately confirmed exception request." name="description"/>
+  <link href="https://yogeshsingh.space/work/structured-extraction/" rel="canonical"/>
+  <meta content="Structured extraction that preserves meaning — Yogesh Singh" property="og:title"/>
+  <meta content="Added route-aware validation to stop prior-authorization details from appearing as a separately confirmed exception request." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/structured-extraction/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>Structured extraction that preserves meaning</h1>
+<p class="intro">Added route-aware validation to stop prior-authorization details from appearing as a separately confirmed exception request.</p>
+</div>
+<div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>LLM extraction · Data correctness</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>The extracted output was valid JSON, but it could still say something the representative never confirmed. Prior-authorization statuses, dates, and reference numbers were being copied into exception fields, making one request look like two.</p>
+<h2>What I built</h2>
+<p>I implemented a route-aware correction, integrated it into the live agent and both grading runtimes, and added regression coverage for copied values, legitimate separate exceptions, and carried state.</p>
+<h2>Engineering decisions</h2>
+<h3>Trace the complete extraction path.</h3>
+<p>Field groups were extracted in separate model calls. Instructions in one group were invisible to another. This explained why a correct conversation or a corrected coverage prompt could still produce a wrong saved record.</p>
+<h3>Make the cleanup narrow enough to preserve real evidence.</h3>
+<p>On the PA route, the correction checks matching statuses and non-conflicting references for a copied record. Where no exception status exists, it clears only exact PA twins. Different statuses or conflicting references preserve a separate exception.</p>
+<h3>Apply validation before downstream inference.</h3>
+<p>The correction runs before PA relabeling and coverage inference. I kept its behavior consistent across live lifecycle hooks and direct Python/TypeScript grading entry points.</p>
+<h2>Results &amp; verification</h2>
+<div class="result-block">
+<p class="eyebrow">Historical offline replay</p>
+<p class="result-value">1,346 calls → 33 corrected records</p>
+<p>163 copied field values cleared, with zero disposition-code changes in that sample.</p>
+</div>
+<p>Focused coverage included 29 tests per engine runtime and eight live-agent tests. Released-text extraction measurements recorded 48/50 passes; a timeout/fallback and an empty extraction remained visible in the results.</p>
+<p>The replay measures the correction on saved snapshots, not a production improvement rate. The copy detector is a scoped heuristic; separately supported values can sometimes match.</p>
+<blockquote>
+<p>Schema validation checks the shape of an answer. Semantic validation checks whether the fields tell the right story.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/grounded-output/">Keeping derived conclusions grounded ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>
