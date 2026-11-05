@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Patient scheduling across voice and EHR workflows — Yogesh Singh</title>
+  <meta content="Implemented agent-side scheduling rules, handoffs, tool coordination, and documentation within a voice-to-booking workflow." name="description"/>
+  <link href="https://yogeshsingh.space/work/patient-scheduling/" rel="canonical"/>
+  <meta content="Patient scheduling across voice and EHR workflows — Yogesh Singh" property="og:title"/>
+  <meta content="Implemented agent-side scheduling rules, handoffs, tool coordination, and documentation within a voice-to-booking workflow." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/patient-scheduling/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Engineering contribution</p>
+<h1>Patient scheduling across voice and EHR workflows</h1>
+<p class="intro">Implemented agent-side scheduling rules, handoffs, tool coordination, and documentation within a voice-to-booking workflow.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+<h2 id="case-summary-heading">At a glance</h2>
+<dl>
+<div>
+<dt>Problem</dt>
+<dd>A scheduling conversation must follow eligibility and handoff rules, then distinguish an offered slot from a confirmed external booking.</dd>
+</div>
+<div>
+<dt>My contribution</dt>
+<dd>Agent-side eligibility gates, workflow routing, booking-tool argument handling, visit-note generation, and behavior while tools run.</dd>
+</div>
+<div>
+<dt>Key decision</dt>
+<dd>Keep deterministic scheduling rules and external booking outcomes explicit, while allowing the conversation to adapt to the patient’s answers.</dd>
+</div>
+<div>
+<dt>Outcome &amp; evidence</dt>
+<dd>Historical source and regression changes establish the agent-side contributions. The wider booking system used Temporal and Playwright; no booking-success or time-saved metric is claimed here.</dd>
+</div>
+</dl>
+</section>
+<div class="article-grid">
+<aside>
+<p>
+<b>Focus</b>Voice agents · Tool integration · Workflow rules</p>
+<p>
+<b>My scope</b>Voice-agent behavior, deterministic gates, booking coordination, and generated notes; EHR execution was part of the wider platform.</p>
+<p>
+<b>Evidence</b>Implementation and contribution history reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>A patient scheduling call spans language understanding, eligibility checks, available appointments, and a separate electronic health record (EHR) system. A natural conversation is useful only if the agent also knows when it can schedule, when it should hand off, and whether the external operation actually succeeded.</p>
+<h2>My contribution</h2>
+<p>In this project at 100ms, I implemented and hardened agent-side scheduling behavior: eligibility checks, routing between workflow paths, handoff conditions, booking-tool coordination, and visit explanations and notes. My work also addressed the conversation’s behavior while a booking operation was still running.</p>
+<p>The EHR execution layer was part of the broader team platform. It used Temporal workflows and Playwright page objects to find the patient, select a slot, complete the booking, and check the returned result. My contribution described here focuses on the agent and its interaction with that layer.</p>
+<div class="diagram">
+<p class="eyebrow">Conceptual system boundary</p>
+<ol>
+<li>Collect and interpret the patient’s answers.</li>
+<li>Apply explicit scheduling and handoff rules.</li>
+<li>Prepare the tool request for the selected appointment.</li>
+<li>Run the booking through the platform’s Temporal and Playwright executor.</li>
+<li>Use the returned result to guide the next response and documentation.</li>
+</ol>
+</div>
+<h2>Engineering decisions</h2>
+<h3>Enforce prerequisites at the tool boundary.</h3>
+<p>Scheduling eligibility was represented in state and checked when a tool was invoked. My changes covered plan and pharmacy-related requirements and handoff conditions, keeping the conversation and the tool’s allowed behavior aligned.</p>
+<h3>Preserve why the agent chose a path.</h3>
+<p>I worked on routing based on information collected during the call and on carrying the trigger reason through tool handling. Visit explanations and generated notes made the decision understandable beyond the spoken response.</p>
+<h3>Handle the time spent inside a tool.</h3>
+<p>A browser-based booking can take longer than an ordinary conversational turn. I changed silence-response behavior so the agent would not interrupt an in-progress tool call with an unnecessary “Are you there?” prompt.</p>
+<h3>Treat booking as a confirmed external operation.</h3>
+<p>The platform executor returned success or failure after its booking steps. That boundary matters: selecting an appointment in conversation and completing the EHR write are separate events. The surrounding executor also managed browser capacity, credential allocation, and error handling.</p>
+<h2>Validation and result</h2>
+<p>My historical changes included prompt regressions and tests around eligibility, schema output, routing, and tool-argument handling. The broader executor repository contains its own workflow and browser-flow coverage.</p>
+<p>This is an account of implemented agent behavior and integration work. It does not attribute the whole EHR automation stack to me or imply that a historical implementation has been revalidated against the live EHR today.</p>
+<blockquote>
+<p>A scheduling agent needs to know the difference between discussing an action, requesting it, and confirming it happened.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Related work</span>
+<a href="/work/healthcare-voice-agents/">Recovery routes in benefits-verification conversations ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

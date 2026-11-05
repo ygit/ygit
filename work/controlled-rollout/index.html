@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Controlled rollout across customer programs — Yogesh Singh</title>
+  <meta content="Made program identity authoritative for feature applicability and aligned live calls with later saved-record grading." name="description"/>
+  <link href="https://yogeshsingh.space/work/controlled-rollout/" rel="canonical"/>
+  <meta content="Controlled rollout across customer programs — Yogesh Singh" property="og:title"/>
+  <meta content="Made program identity authoritative for feature applicability and aligned live calls with later saved-record grading." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/controlled-rollout/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>Controlled rollout across customer programs</h1>
+<p class="intro">Made program identity authoritative for feature applicability and aligned live calls with later saved-record grading.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>Shared agent identities and missing metadata could make live calls and later recomputation apply different feature scope.</dd></div>
+       <div><dt>My contribution</dt><dd>Program-specific applicability, compatibility fallback, cross-runtime parity, and later workflow-wide enablement.</dd></div>
+       <div><dt>Key decision</dt><dd>Make explicit program identity authoritative; use agent-group fallback only when that identity is absent.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Historical engine and build checks, plus 172 targeted regressions for the broader rollout. Live prompt verification remained pending; a Cekura specification did not establish execution.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>Deployment scope · Compatibility</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>Customer programs could share the same agent, so an agent identifier was not enough to target a feature. Live calls also carried program metadata that later saved-record recomputation might not have.</p>
+<h2>What I built</h2>
+<p>I implemented program-scoped applicability with compatibility fallback and Python/TypeScript parity. As the intended scope expanded, I removed recovery allowlists across the pharmacy benefits-verification workflow.</p>
+<h2>Engineering decisions</h2>
+<h3>Prefer explicit identity over a broad fallback.</h3>
+<p>When a program slug is present, it is authoritative. Agent-group membership is used only when that identity is missing, so a fallback does not override explicit program intent.</p>
+<h3>Follow the policy into every consumer.</h3>
+<p>The later workflow-wide change covered conversation, resume behavior, derivation, and grading. Removing one gate would leave other paths applying the old scope.</p>
+<h3>Separate implementation from release evidence.</h3>
+<p>A merged change, a deployed service, an updated consumer, and a verified live call are different milestones. I describe the evidence available at each layer.</p>
+<h2>Results &amp; verification</h2>
+<p>Historical scoping checks included Python/TypeScript engine suites and build/type checks. The later workflow-wide change recorded 172 targeted regressions alongside both engine suites.</p>
+<p>Live prompt verification remained pending for that rollout. A Cekura specification was present, but did not establish that remote evaluators had been created or run.</p>
+<blockquote>
+<p>A rollout rule needs to remain understandable even when the next system has less context.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/agent-platform/">The services and contracts around the agent ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

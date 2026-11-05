@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Reliable state across repeated calls — Yogesh Singh</title>
+  <meta content="Stopped stale prior-call context from satisfying questions in a new Medicare Part B verification attempt." name="description"/>
+  <link href="https://yogeshsingh.space/work/stateful-retries/" rel="canonical"/>
+  <meta content="Reliable state across repeated calls — Yogesh Singh" property="og:title"/>
+  <meta content="Stopped stale prior-call context from satisfying questions in a new Medicare Part B verification attempt." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/stateful-retries/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>Reliable state across repeated calls</h1>
+<p class="intro">Stopped stale prior-call context from satisfying questions in a new Medicare Part B verification attempt.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>A new Part B verification call could inherit stale plan identity and benefit values from another attempt.</dd></div>
+       <div><dt>My contribution</dt><dd>Scoped context initialization, plan-specific extraction guidance, and context/next-turn regressions.</dd></div>
+       <div><dt>Key decision</dt><dd>Start exact traditional Part B inputs from current-call facts while preserving other workflows’ carry-forward behavior.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Historical validation included 15 real-schema initialization tests, 70 focused tests, and 10/10 live next-turn tests across two agents. Later extraction runs still exposed empty-output and date-selection residuals.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>Agent state · Context freshness</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>A new Part B verification attempt could inherit another call’s Part D identity, status, dates, and benefit fields. Once those old values entered working context, they could prematurely satisfy question gates or steer the conversation into the wrong plan.</p>
+<h2>What I built</h2>
+<p>I changed context initialization for exact traditional Part B inputs, added shared extraction guidance for plan-specific evidence, and tested both the seeded context and the agent’s next response.</p>
+<h2>Engineering decisions</h2>
+<h3>Scope the reset to the workflow that needs fresh evidence.</h3>
+<p>For exact traditional Part B inputs, I discarded prior-attempt agent context and initialized from current-call facts. Other workflows retain their existing carry-forward behavior.</p>
+<h3>Anchor each answer to the requested plan.</h3>
+<p>Extraction guidance separates Part A, B, and D evidence, while allowing an explicit current-call correction to identify a different plan.</p>
+<h3>Test state and extraction independently.</h3>
+<p>Removing stale context fixes one mechanism. It does not establish that every model will select the right date or always return a populated extraction.</p>
+<h2>Results &amp; verification</h2>
+<p>Historical checks included 15 real-schema context-seeding tests, 70 focused Part B tests, and 10/10 live next-turn tests across two agents.</p>
+<p>Later repeated extraction runs still exposed empty outputs and some incorrect date selections. Those residuals remain distinct from the verified initialization behavior.</p>
+<blockquote>
+<p>Remembering a value and confirming that it applies now are different operations.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/controlled-rollout/">Keeping policy consistent across execution contexts ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

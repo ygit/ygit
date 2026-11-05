@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>From production failure to regression coverage — Yogesh Singh</title>
+  <meta content="Turned an unnecessary appeal question into a repeatable regression across prompt rendering, model responses, saved state, and grading." name="description"/>
+  <link href="https://yogeshsingh.space/work/agent-evaluation/" rel="canonical"/>
+  <meta content="From production failure to regression coverage — Yogesh Singh" property="og:title"/>
+  <meta content="Turned an unnecessary appeal question into a repeatable regression across prompt rendering, model responses, saved state, and grading." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/agent-evaluation/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>From production failure to regression coverage</h1>
+<p class="intro">Turned an unnecessary appeal question into a repeatable regression across prompt rendering, model responses, saved state, and grading.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>An agent could ask about an appeal after learning the underlying exception request had never been filed.</dd></div>
+       <div><dt>My contribution</dt><dd>Shared eligibility fixes, local call-replay tooling, repeated prompt regressions, and component ablations.</dd></div>
+       <div><dt>Key decision</dt><dd>Reproduce extraction lag and require the test to reach the failing branch while still making useful progress.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Selected historical prompt replays: 0/240 inappropriate asks on the fix versus 32/120 on the baseline. These are repeated test scenarios; final audio and Cekura verification limits remain below.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>LLM evaluation · Replay · Ablation</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>After learning that an exception request had never been filed, the agent could still ask whether its appeal had been filed. Appeal availability opened the question module, while the grading engine separately required the answer. A prompt-only correction would leave those rules inconsistent.</p>
+<h2>What I built</h2>
+<p>I changed the shared eligibility condition in the question plan and grading engines, reconstructed the triggering conversation state, and strengthened regression coverage. I also built local call-replay tooling and contributed PHI-redacted transcript access for audit reviews.</p>
+<h2>Engineering decisions</h2>
+<h3>Reproduce the actual state at the failing turn.</h3>
+<p>Tests included rendered prompts, prior-call context, and the one-turn extraction lag. Seeding every final value before the next response would miss the behavior that triggered the failure.</p>
+<h3>Require the test to exercise the failure.</h3>
+<p>A response must make useful progress. Empty output does not count as success, and a full-flow test that never reaches the triggering state is inconclusive.</p>
+<h3>Remove each part of the fix to test its necessity.</h3>
+<p>Ablations reverted the question-plan change and the engine change separately. Both produced failures, showing that the two changes were needed for the observed result.</p>
+<h2>Results &amp; verification</h2>
+<div class="result-block">
+<p class="eyebrow">Historical selected prompt replays</p>
+<p class="result-value">32 / 120 → 0 / 240</p>
+<p>Inappropriate appeal asks: baseline versus fix. Repeated scenarios are not independent production cases.</p>
+</div>
+<p>An earlier full-audio test recorded five baseline failures and five fix passes. The strengthened final audio test was not rerun, live extraction had limited repetition, and Cekura execution was not established for this change.</p>
+<p>I keep deterministic checks, real-model responses, focused regressions, full-flow tests, and scenario evaluations separate so that one green layer cannot conceal a missing one.</p>
+<blockquote>
+<p>A passing test is useful only if it reaches the changed behavior and still requires a meaningful response.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/stateful-retries/">Testing what an agent carries into the next call ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

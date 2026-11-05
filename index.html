@@ -1,440 +1,641 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yogesh Singh — Software Engineer</title>
-  <meta name="description" content="Software Engineer E5 with 12+ years of experience building products across the Apple ecosystem, mobile SDKs, and AI voice agents.">
-  <meta name="author" content="Yogesh Singh">
-  <meta property="og:title" content="Yogesh Singh — Software Engineer">
-  <meta property="og:description" content="Software Engineer building AI Voice Agents for Healthcare at 100ms. 12+ years across iOS, Flutter, React Native.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yogeshsingh.space">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:creator" content="@_yogeshsingh">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-alt: #f6f8fa;
-      --text: #1f2328;
-      --text-muted: #636c76;
-      --accent: #0969da;
-      --border: #d1d9e0;
-      --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-      --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0d1117;
-        --bg-alt: #161b22;
-        --text: #e6edf3;
-        --text-muted: #8b949e;
-        --accent: #58a6ff;
-        --border: #30363d;
-        --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
-      }
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-    }
-
-    /* ---- Header ---- */
-    .header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .header .typing-svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .social-links img { height: 30px; }
-
-    /* ---- Sections ---- */
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2.5rem 0;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    p, li {
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .about p {
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .about p + p {
-      margin-top: 0.75rem;
-    }
-
-    /* ---- Current Work ---- */
-    .current-work ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .current-work li {
-      padding: 0.4rem 0;
-      padding-left: 2rem;
-      text-indent: -1.6rem;
-    }
-
-    /* ---- Career ---- */
-    .career-box {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.85rem;
-      line-height: 1.8;
-      overflow-x: auto;
-      white-space: pre;
-    }
-
-    /* ---- Projects Grid ---- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-    }
-
-    .project-card {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .project-card:hover {
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    .project-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-card .badges {
-      display: flex;
-      justify-content: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-card .badges img { height: 24px; }
-
-    .project-card em {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-style: normal;
-    }
-
-    /* ---- Tech Stack ---- */
-    .tech-category {
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-
-    .tech-category h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .badge-row {
-      display: flex;
-      justify-content: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .badge-row img { height: 28px; }
-
-    /* ---- Community ---- */
-    .community p {
-      margin-bottom: 0.75rem;
-      line-height: 1.75;
-    }
-
-
-    /* ---- Footer ---- */
-    .footer-quote {
-      text-align: center;
-      font-style: italic;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-
-    <!-- HEADER -->
-    <header class="header">
-      <a href="https://github.com/ygit">
-        <img class="typing-svg" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=0969DA&center=true&vCenter=true&multiline=true&repeat=true&width=780&height=100&lines=Hey%2C+I'm+Yogesh+Singh+%F0%9F%91%8B;Software+Engineer+%C2%B7+SDK+Builder+%C2%B7+Community" alt="Hey, I'm Yogesh Singh - Software Engineer, SDK Builder, Community" />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Yogesh Singh — Applied AI &amp; Product Engineer</title>
+  <meta content="Production voice agents, structured extraction, LLM evaluation, and reliable AI workflows. 12+ years shipping software. Explore Yogesh Singh’s engineering work." name="description"/>
+  <link href="https://yogeshsingh.space/" rel="canonical"/>
+  <meta content="Yogesh Singh — Applied AI &amp; Product Engineer" property="og:title"/>
+  <meta content="Production voice agents, structured extraction, LLM evaluation, and reliable AI workflows. 12+ years shipping software. Explore Yogesh Singh’s engineering work." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Yogesh Singh", "url": "https://yogeshsingh.space/", "description": "Production voice agents, structured extraction, LLM evaluation, and reliable AI workflows. 12+ years shipping software. Explore Yogesh Singh’s engineering work.", "sameAs": ["https://github.com/ygit", "https://www.linkedin.com/in/yogeshsingh2810/", "https://x.com/_yogeshsingh/"]}</script>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="portfolio">
+   <header class="identity">
+    <div>
+     <p class="eyebrow">
+      Engineer · Builder · Community founder
+     </p>
+     <h1>
+      Yogesh
+      <br/>
+      Singh
+     </h1>
+     <p class="role">
+      Applied AI &amp; Product Engineering
+     </p>
+     <p class="summary">
+      Production voice agents.
+      <br/>
+      Reliable data. Useful products.
+     </p>
+     <p class="location">
+      Building at 100ms · Mumbai, India
+     </p>
+     <nav aria-label="Page sections" class="section-nav">
+<a href="#about" aria-current="location">About</a>
+<a href="#work">Selected AI work</a>
+<a href="#ai-engineering">AI engineering</a>
+<a href="#approach">How I work</a>
+<a href="#experience">Experience</a>
+<a href="#stack">Toolkit</a>
+<a href="#community">Community</a>
+<a href="#contact">Get in touch</a>
+</nav>
+    </div>
+    <div class="identity-bottom">
+     <p class="ambassador">
+      <strong>
+       Swift Mumbai founder
+      </strong>
+      <br/>
+      Core member · Swift Bengaluru &amp; Swift Bharat
+      <br/>
+      <strong>
+       Codex Ambassador
+      </strong>
+      · Since March 2026
+     </p>
+     <div class="socials">
+      <a aria-label="Yogesh Singh on X / Twitter" href="https://x.com/_yogeshsingh/">
+       X / Twitter ↗
       </a>
-      <div class="social-links">
-        <a href="https://linkedin.com/in/yogeshsingh2810"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-        <a href="https://twitter.com/_yogeshsingh"><img src="https://img.shields.io/badge/@__yogeshsingh-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)"></a>
-        <a href="https://github.com/ygit"><img src="https://img.shields.io/badge/GitHub-ygit-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
-      </div>
-    </header>
+      <a href="https://github.com/ygit">
+       GitHub ↗
+      </a>
+      <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+       LinkedIn ↗
+      </a>
+     </div>
+    </div>
+   </header>
+   <main class="content" id="main">
+    <section id="about">
+     <p class="eyebrow">Applied AI · Real-time systems · Product engineering</p>
+     <h2 class="about-lead">I build AI agents that turn conversations into reliable outcomes.</h2>
+     <p>I'm Yogesh, an engineer with 12+ years of experience shipping software. At <a href="https://www.100ms.ai/">100ms</a>, I work on production healthcare voice agents—from conversation workflows and structured extraction to evaluation, shared decision rules, and rollout.</p>
+     <p>Earlier, I built mobile SDKs at 100ms, CleverTap, WebEngage, and Haptik. That experience still shapes how I build: clear interfaces, careful state handling, and close attention to the people integrating the product.</p>
+     <div class="actions">
+<a class="button" href="#work">Explore my AI work <span aria-hidden="true">↓</span>
+</a>
+<a href="https://www.linkedin.com/in/yogeshsingh2810/">Let's talk <span aria-hidden="true">↗</span>
+</a>
+</div>
+     <div class="availability">
+<span class="status-dot" aria-hidden="true">
+</span>
+<p>
+<strong>Open to my next role.</strong> Applied AI Engineer, Forward-Deployed Engineer, Senior AI Engineer, or Product Engineer.</p>
+</div>
+    </section>
+    <section id="work">
+     <h2 class="section-label">Selected AI work / 100ms</h2>
+     <p class="section-intro">Three areas of work. One connected system.</p>
+     <p>My contributions span the conversation a person hears, the structured record it produces, and the tests that check its behavior. These three project areas bring the work together; the detailed case studies explain individual decisions and results.</p>
+     <article class="flagship" aria-labelledby="home-voice-workflows">
+      <p class="eyebrow">01 / Conversation design · Agent state · Rollout</p>
+      <h3 id="home-voice-workflows">
+<a href="/work/#voice-workflows">Healthcare voice workflows <span aria-hidden="true">↗</span>
+</a>
+</h3>
+      <p class="flagship-intro">Connect healthcare conversations to explicit workflows: benefits verification, patient scheduling, recovery routes, and handoffs.</p>
+      <dl class="flagship-facts">
+       <div>
+<dt>My contribution</dt>
+<dd>I implemented benefits-verification recovery routes and retry behavior, plus patient-scheduling eligibility gates, handoffs, booking-tool coordination, and generated notes.</dd>
+</div>
 
-    <hr class="divider">
+       <div>
+<dt>Evidence</dt>
+<dd>Shared workflow scenarios and schema checks, with focused prompt and audio testing on specific revisions. Verification limits are documented in the supporting case studies.</dd>
+</div>
+      </dl>
 
-    <!-- ABOUT -->
-    <section class="about">
-      <h2>About Me</h2>
-      <p>I'm a <strong>Software Engineer E5</strong> based in <strong>India</strong> with 12+ years of experience building products across the Apple ecosystem and mobile. Currently at <strong><a href="https://www.100ms.ai/">100ms AI</a></strong>, I'm building AI Voice Agents for Healthcare. Previously at <strong><a href="https://www.100ms.live/">100ms Live</a></strong>, I built live video conferencing &amp; streaming SDKs for <strong>iOS, Flutter, and React Native</strong> powering real-time communication for thousands of developers worldwide.</p>
-      <p>I have also built production grade popular Mobile SDKs at my previous companies like CleverTap, WebEngage &amp; Jio-Haptik.</p>
-      <p>I also started <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong>, one of India's most active Apple developer communities, and am a regular speaker at conferences and meetups across the country.</p>
+      <a class="text-link" href="/work/#voice-workflows">Explore this project ↗</a>
+     </article>
+     <article class="flagship" aria-labelledby="home-reliable-data">
+      <p class="eyebrow">02 / Structured extraction · Grounding · Python / TypeScript</p>
+      <h3 id="home-reliable-data">
+<a href="/work/#reliable-data">Reliable extraction and decision systems <span aria-hidden="true">↗</span>
+</a>
+</h3>
+      <p class="flagship-intro">Turn conversations and medical documents into structured records, with evidence-aware validation and inspectable model disagreement.</p>
+      <dl class="flagship-facts">
+       <div>
+<dt>My contribution</dt>
+<dd>I built a Go fax-extraction service with independent model review, and implemented benefits-field cleanup and evidence-preserving decision logic across Python and TypeScript.</dd>
+</div>
+
+       <div>
+<dt>Evidence</dt>
+<dd>For benefits-call cleanup, a historical offline replay of 1,346 calls cleared 163 copied values across 33 calls, with no disposition-code changes. The fax project has separate implementation and test evidence.</dd>
+</div>
+      </dl>
+
+      <a class="text-link" href="/work/#reliable-data">Explore this project ↗</a>
+     </article>
+     <article class="flagship" aria-labelledby="home-evaluation-tooling">
+      <p class="eyebrow">03 / Replay · Prompt regressions · Ablation</p>
+      <h3 id="home-evaluation-tooling">
+<a href="/work/#evaluation-tooling">Agent evaluation tooling <span aria-hidden="true">↗</span>
+</a>
+</h3>
+      <p class="flagship-intro">Turn an observed agent failure into a reproducible test, then establish which changes are necessary to fix it.</p>
+      <dl class="flagship-facts">
+       <div>
+<dt>My contribution</dt>
+<dd>I built local call-replay tooling and strengthened regression coverage across rendered prompts, model responses, extraction lag, resumed context, and grading.</dd>
+</div>
+
+       <div>
+<dt>Evidence</dt>
+<dd>Selected historical prompt replays recorded 0/240 inappropriate appeal asks on the fix versus 32/120 on the baseline. These are test runs, not a production success rate.</dd>
+</div>
+      </dl>
+
+      <a class="text-link" href="/work/#evaluation-tooling">Explore this project ↗</a>
+     </article>
+     <p class="note evidence-note">Evidence describes historical tests and offline replays on specific revisions and samples. It does not establish production-wide success rates or sole ownership of the platform.</p>
+     <a class="text-link" href="/work/#more-work">Platform engineering &amp; mobile SDK work ↗</a>
     </section>
 
-    <hr class="divider">
+    <section id="ai-engineering" aria-labelledby="ai-engineering-heading">
+     <h2 class="section-label" id="ai-engineering-heading">AI engineering / ideas &amp; decisions</h2>
+     <p class="section-intro">How I think about building useful agents.</p>
+     <p>The interesting work starts when a model has to operate inside a real product: incomplete information, changing state, external systems, and users who need a dependable outcome. These notes explain the design questions I care about, with examples and connections to my project work.</p>
+     <nav class="topic-jumps" aria-label="AI engineering topics">
+      <a href="#agent-design">01 / AI agents</a>
+      <a href="#voice-ai">02 / Voice AI</a>
+      <a href="#applied-ai">03 / Applied AI</a>
+     </nav>
 
-    <!-- CURRENT WORK -->
-    <section class="current-work">
-      <h2>What I'm Currently Working On</h2>
-      <ul>
-        <li>&#x1F916;&nbsp; Building production <strong>voice AI agents for healthcare</strong> at <a href="https://www.100ms.ai/">100ms AI</a> &mdash; powering automated patient outreach, appointment scheduling, and clinical triage over phone calls.</li>
-        <li>&#x1F6E0;&#xFE0F;&nbsp; Built <strong>live video/audio conferencing &amp; streaming SDKs</strong> at <a href="https://www.100ms.live/">100ms</a> across iOS, Android, Flutter &amp; React Native</li>
-        <li>&#x1F34E;&nbsp; Built <strong><a href="https://github.com/ygit/swiftui">Awesome SwiftUI</a></strong> &mdash; 1,300+ star resource collection</li>
-        <li>&#x1F3A4;&nbsp; Organising meetups &amp; workshops through <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong>, <strong><a href="https://www.linkedin.com/company/swiftbengaluru/">Swift Bengaluru</a></strong> &amp; <strong><a href="https://www.swiftbharat.org/">Swift Bharat</a></strong> &mdash; Apple platforms developers communities</li>
-      </ul>
+     <article class="topic-group" id="agent-design" aria-labelledby="agent-design-heading">
+      <p class="eyebrow">01 / Agent architecture</p>
+      <h3 id="agent-design-heading">Give the model a useful job—and a clear boundary.</h3>
+      <p>An agent needs more than instructions. It needs a representation of the task, access to relevant evidence, well-defined actions, and a way to decide whether it has finished. I’m interested in the boundary between flexible language understanding and explicit control over state and actions.</p>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Workflows, agents, and bounded autonomy</summary>
+        <div class="concept-body">
+         <p>A workflow fixes the sequence in code; an agent can choose its next step from the current context. Many useful systems combine both: let a model interpret an ambiguous answer, then let explicit rules decide whether a required fact is missing or an action is permitted.</p>
+         <p>
+<strong>The design question:</strong> which decisions benefit from model judgment, and which need a stable contract? For a verification flow, wording can be flexible while field ownership, completion requirements, and stop conditions remain explicit.</p>
+         <a class="source-link" href="https://www.anthropic.com/research/building-effective-agents">Reference: Anthropic on workflows and agents ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Context engineering, retrieval, and memory</summary>
+        <div class="concept-body">
+         <p>Context engineering is the work of choosing what the model should see at a particular step: instructions, recent dialogue, retrieved material, tool results, and current state. A longer history is not automatically a better one; stale or conflicting facts can change the next decision.</p>
+         <p>
+<strong>Retrieval-augmented generation (RAG)</strong> supplies relevant source material. <strong>Conversation memory</strong> carries facts across turns or attempts. Neither establishes that a fact is current or applicable. A useful design records where a value came from, when it was confirmed, and what can supersede it.</p>
+         <p>
+<strong>Example:</strong> a plan name from yesterday’s call should not silently satisfy today’s identity check. That is a freshness and attribution problem even when retrieval returns the right document.</p>
+         <a class="source-link" href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">Reference: context engineering ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Tool calling, MCP, and reliable actions</summary>
+        <div class="concept-body">
+         <p>A tool call turns a model decision into an operation on another system. Its contract should explain the inputs, result, errors, and side effects. The Model Context Protocol (MCP) standardizes discovery and exchange of tools, resources, and prompts; the application still owns its business rules and execution policy.</p>
+         <p>
+<strong>The design question:</strong> what happens if a request times out after the operation succeeded? Retrying a read and retrying a booking are different. A booking tool needs a way to identify the same intended operation and reconcile its status before creating another booking.</p>
+         <p>Permissions, argument validation, timeouts, and required approvals belong at the execution boundary. A fluent model response is not evidence that the external action completed.</p>
+         <a class="source-link" href="https://modelcontextprotocol.io/docs/learn/architecture">Reference: MCP architecture ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>When a multi-agent design is worth it</summary>
+        <div class="concept-body">
+         <p>Separate agents can help when subtasks have distinct context or can be investigated independently. They also introduce coordination, additional model calls, and a need to reconcile conflicting results.</p>
+         <p>I would first make the single-agent baseline measurable. Then I would ask what the proposed split improves: task quality, isolation, or elapsed time. Each worker needs a bounded assignment and an explicit output contract; the final synthesis still needs verification.</p>
+         <p>
+<strong>Useful test:</strong> does the added agent find evidence or complete work the simpler system consistently misses, after accounting for latency and cost?</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Trust boundaries, prompt injection, and human review</summary>
+        <div class="concept-body">
+         <p>A document or tool result can contain instructions, but it should not gain the authority of the user or the application. Prompt-injection resistance includes keeping untrusted content separate from control instructions and limiting what tools may do.</p>
+         <p>Human review should be attached to a specific proposed action, with the evidence and consequences visible. Escalating a conversation to a person is different from requiring approval before an external write. Privacy also needs attention across transcripts, logs, traces, and test fixtures.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/agent-builder-safety">Reference: safety in agent design ↗</a>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/stateful-retries/">fresh evidence across repeated calls</a> and <a href="/work/shared-decision-engine/">shared decision contracts</a>.</p>
+     </article>
+
+     <article class="topic-group" id="voice-ai" aria-labelledby="voice-ai-heading">
+      <p class="eyebrow">02 / Voice AI systems</p>
+      <h3 id="voice-ai-heading">The conversation has a clock.</h3>
+      <p>In voice, correctness includes when the agent speaks, what it heard, and whether it can recover from an interruption. A delayed answer, a premature response, or a stale state update can change the entire call—even when the generated sentence looks reasonable in a transcript.</p>
+      <figure class="voice-paths">
+       <div>
+<span>Conversation</span>
+<ol>
+<li>Listen</li>
+<li>Choose a response</li>
+<li>Speak</li>
+</ol>
+</div>
+       <div>
+<span>Background state</span>
+<ol>
+<li>Read evidence</li>
+<li>Extract &amp; validate</li>
+<li>Update state</li>
+</ol>
+</div>
+       <figcaption>Conceptual paths in a cascaded voice system. Speaking and extraction can overlap; the next response may see an earlier state.</figcaption>
+      </figure>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Speech pipelines and speech-to-speech models</summary>
+        <div class="concept-body">
+         <p>A cascaded pipeline connects speech-to-text (STT), a language model, and text-to-speech (TTS). Those boundaries make it possible to inspect the transcript, control the generated text, and choose components independently. A realtime speech-to-speech model handles audio more directly and can use information beyond a text transcript.</p>
+         <p>The architecture choice depends on the product: inspectability, voice behavior, tool integration, operational control, and measured response time. Either design still needs state management, tool validation, and a clear definition of successful completion.</p>
+         <a class="source-link" href="https://docs.livekit.io/agents/models/pipelines/">Reference: voice pipeline types ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Turn detection, endpointing, and interruptions</summary>
+        <div class="concept-body">
+         <p>Voice activity detection (VAD) helps identify speech and silence. Deciding that a person has finished a thought is a separate problem: a pause may mean they are looking up a date or spelling an identifier. Endpointing and semantic turn detection influence when the agent responds.</p>
+         <p>
+<strong>Barge-in</strong> means the person starts speaking during the agent’s response. Good interruption handling must consider queued audio and conversation history: words generated but never heard should not be treated as delivered. Backchannels such as “mm-hmm” also need different handling from a correction.</p>
+         <p>
+<strong>Trade-off:</strong> respond quickly enough to feel engaged without repeatedly cutting off the caller.</p>
+         <a class="source-link" href="https://docs.livekit.io/agents/logic/turns/">Reference: turn detection and interruptions ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Latency budgets and the time the caller experiences</summary>
+        <div class="concept-body">
+         <p>Model time-to-first-token is only one part of a voice response. The caller experiences the interval from finishing their turn to hearing useful audio. Transcription delay, end-of-turn detection, model generation, tool calls, synthesis, and playback can all contribute.</p>
+         <p>I would measure median and tail latency, then inspect stage-level traces to find the bottleneck. Streaming can overlap stages, so adding every component’s full duration can misrepresent the critical path.</p>
+         <p>
+<strong>A useful optimization question:</strong> did the caller get a correct, relevant response sooner, or did the system merely start an acknowledgement sooner?</p>
+         <a class="source-link" href="https://docs.livekit.io/reference/agents/session-traces/">Reference: voice latency stages and traces ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Foreground conversation and background extraction</summary>
+        <div class="concept-body">
+         <p>The conversational model and the extractor do different jobs. One chooses what to say next; the other turns the conversation into structured state. If extraction runs asynchronously, the next prompt can render before the latest answer has landed.</p>
+         <p>
+<strong>Synthetic example:</strong> a representative says, “No exception request was filed.” The transcript contains that answer, but the state still says Unknown. A test that immediately seeds the final field skips the timing condition that could trigger an unnecessary appeal question.</p>
+         <p>I test the intermediate state as well as the final record. Question gates, completion rules, and retry summaries need to agree about what is known at that point.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>IVRs, holds, transfers, and resumed calls</summary>
+        <div class="concept-body">
+         <p>A phone call can move between an automated menu, hold music, a representative, and another department. These are different operating states. Menu prompts should not automatically become human-confirmed benefit facts, and a transfer may require fresh identification.</p>
+         <p>A recovery design needs to say what survives a disconnect, what must be reconfirmed, and which unanswered questions remain. A human handoff should preserve the reason for escalation and useful context without claiming an uncompleted action succeeded.</p>
+         <p>
+<strong>Test beyond the happy path:</strong> silence, repeated prompts, background speech, spelling corrections, partial answers, and a transfer after useful information has already been collected.</p>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/healthcare-voice-agents/">recovery routes in healthcare voice workflows</a> and <a href="/work/agent-evaluation/">tests that reproduce extraction lag</a>.</p>
+     </article>
+
+     <article class="topic-group" id="applied-ai" aria-labelledby="applied-ai-heading">
+      <p class="eyebrow">03 / Applied AI engineering</p>
+      <h3 id="applied-ai-heading">Make quality an observable product property.</h3>
+      <p>Applied AI engineering connects model behavior to the result a user or downstream system needs. That includes defining success, inspecting failures, choosing appropriate models, and making changes that remain understandable after deployment.</p>
+      <div class="concept-list">
+       <details class="concept">
+        <summary>Structured outputs, grounding, and semantic validation</summary>
+        <div class="concept-body">
+         <p>A schema can constrain field names, types, and allowed values. It cannot by itself establish that the answer is supported by the source. A valid date can belong to the wrong plan; a valid status can describe a different request.</p>
+         <p>I think about three checks: <strong>representation</strong>—is the output well formed; <strong>support</strong>—what evidence backs the value; and <strong>consistency</strong>—do related fields agree? Derived values need the same scrutiny because ordinary application code can also introduce an unsupported conclusion.</p>
+         <p>
+<strong>Synthetic example:</strong> copying a prior-authorization reference into an exception record can pass type validation while inventing a second request.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/structured-outputs">Reference: structured model outputs ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Evaluation design, regression suites, and ablation</summary>
+        <div class="concept-body">
+         <p>Start with a specific behavior to measure and a dataset that includes normal cases, edge cases, and known failures. Keep holdout cases separate from examples used while tuning. For stochastic responses, repeated runs reveal variation that a single pass can hide.</p>
+         <p>Different layers answer different questions: deterministic tests check rules; prompt tests check model behavior; extraction tests check field attribution; full-flow tests check orchestration. Human review helps calibrate automated or model-based grading.</p>
+         <p>
+<strong>Ablation</strong> removes one part of a proposed fix to see whether the result depends on it. I also look for false passes: an empty answer or a test that never reaches the failing branch should not establish success.</p>
+         <a class="source-link" href="https://developers.openai.com/api/docs/guides/evaluation-best-practices">Reference: evaluation design and continuous testing ↗</a>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Model selection, routing, and cost per useful outcome</summary>
+        <div class="concept-body">
+         <p>A model choice is a task-specific trade-off among quality, response time, context requirements, tool behavior, and operating cost. Conversation, extraction, and classification may have different needs, even inside one product.</p>
+         <p>I would compare candidates on the same representative scenarios and include timeouts, retries, fallbacks, and downstream corrections in the measurement. A cheaper request can become an expensive workflow if it causes repeated calls or more manual review.</p>
+         <p>Routing and fallback policies also need tests. Switching providers should preserve the output contract and error semantics, rather than silently turning a partial result into a successful one.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>Observability, controlled rollout, and feedback loops</summary>
+        <div class="concept-body">
+         <p>A useful trace connects the input state, prompt or model version, tool activity, extracted fields, and final decision. Metrics show where a failure is growing; the trace helps explain the individual event. Sensitive values need deliberate handling in both.</p>
+         <p>For a rollout, define who receives the change, how to identify that version later, and which conditions justify expanding or rolling back. Track outcome quality alongside latency and operational errors.</p>
+         <p>I distinguish offline replay, deployed configuration, and observed live behavior. Each is evidence about a different part of the release, and newly observed failures should become candidates for the regression set.</p>
+        </div>
+       </details>
+       <details class="concept">
+        <summary>From a customer workflow to a product that earns trust</summary>
+        <div class="concept-body">
+         <p>Before choosing an agent architecture, map the user’s actual process: the inputs they have, the decisions they make, the systems they touch, and the exceptions that send work back to a person. The most valuable automation may be a narrow, well-integrated step.</p>
+         <p>
+<strong>Questions I would bring to discovery:</strong> What does a correct completed task look like? Which mistakes are recoverable? Who reviews uncertainty? What happens when an integration is unavailable? How will the team distinguish saved time from work shifted into cleanup?</p>
+         <p>For a forward-deployed or product engineering role, that translation—from operating constraints to interfaces, acceptance criteria, and a feedback loop—is as important as the model call.</p>
+        </div>
+       </details>
+      </div>
+      <p class="topic-connection">
+<strong>Connection to my work:</strong> <a href="/work/structured-extraction/">semantic extraction fixes</a>, <a href="/work/grounded-output/">evidence-preserving validation</a>, and <a href="/work/controlled-rollout/">compatible rollout policies</a>.</p>
+     </article>
     </section>
 
-    <hr class="divider">
-
-    <!-- CAREER -->
-    <section>
-      <h2>Career Journey</h2>
-      <div class="career-box">2021 &ndash; Present    <strong>100ms</strong>
-                    iOS Frameworks Engineer / RN &amp; Flutter EM
-                    &rarr; Building Voice AI Agents for Healthcare
-                    &rarr; Built live video SDKs powering real-time apps
-
-2020 &ndash; 2021       <strong>CleverTap</strong>
-                    Lead iOS Engineer
-                    &rarr; Customer engagement platform, mobile SDK work
-
-2018 &ndash; 2020       <strong>WebEngage</strong>
-                    Lead: Mobile Technology (iOS)
-                    &rarr; Multi-channel user engagement, iOS SDK development
-
-2017 &ndash; 2018       <strong>Jio-Haptik</strong>
-                    iOS Engineer
-                    &rarr; Built commercial iOS SDKs for B2B clients
-                    &rarr; Real-time chat with MQTT, Core Data architecture
-
-2014 &ndash; 2016       <strong>Panasonic / Inspeero Technologies</strong>
-                    iOS Developer
-                    &rarr; Electrocompaniet Remote iOS app (showcased at CES)</div>
+    <section id="approach">
+     <h2 class="section-label">How I work</h2>
+     <div class="approach-list">
+      <article>
+<span class="eyebrow">01 / Understand the workflow</span>
+<h3>Start with the real operating constraints.</h3>
+<p>I translate payer processes, incomplete answers, and corrections into explicit questions, field definitions, and completion rules. My SDK background also includes working directly with engineers integrating software into their products.</p>
+</article>
+      <article>
+<span class="eyebrow">02 / Follow the data</span>
+<h3>Own the behavior across boundaries.</h3>
+<p>I trace a change through the conversation, extraction, shared Python/TypeScript logic, and saved output. This is where a locally correct fix can still produce the wrong product outcome.</p>
+</article>
+      <article>
+<span class="eyebrow">03 / Make the evidence useful</span>
+<h3>Reproduce, test, and explain the result.</h3>
+<p>I build replay tools and regressions, compare against the baseline, and use ablation when a fix spans components. I separate what a test proves from what still needs live verification.</p>
+</article>
+     </div>
     </section>
-
-    <hr class="divider">
-
-    <!-- PROJECTS -->
-    <section>
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>100ms iOS SDK</h3>
-          <div class="badges">
-            <a href="https://github.com/100mslive/100ms-ios-sdk"><img src="https://img.shields.io/github/stars/100mslive/100ms-ios-sdk?style=for-the-badge&color=yellow" alt="Stars"></a>
-            <a href="https://github.com/100mslive/100ms-ios-sdk"><img src="https://img.shields.io/github/forks/100mslive/100ms-ios-sdk?style=for-the-badge&color=blue" alt="Forks"></a>
-          </div>
-          <em>The 100ms iOS SDK for adding real-time audio, video, and live streaming to native iOS apps. Offers both a core SDK and a prebuilt RoomKit for drop-in conferencing.</em>
-        </div>
-        <div class="project-card">
-          <h3>Awesome SwiftUI</h3>
-          <div class="badges">
-            <a href="https://github.com/ygit/swiftui"><img src="https://img.shields.io/github/stars/ygit/swiftui?style=for-the-badge&color=yellow" alt="Stars"></a>
-            <a href="https://github.com/ygit/swiftui"><img src="https://img.shields.io/github/forks/ygit/swiftui?style=for-the-badge&color=blue" alt="Forks"></a>
-          </div>
-          <em>A collaborative, community-driven list of awesome SwiftUI resources &mdash; tutorials, libraries, videos, and tools. One of the top SwiftUI collections on GitHub.</em>
-        </div>
-        <div class="project-card">
-          <h3>100ms Flutter SDK</h3>
-          <div class="badges">
-            <a href="https://github.com/100mslive/100ms-flutter"><img src="https://img.shields.io/github/stars/100mslive/100ms-flutter?style=for-the-badge&color=yellow" alt="Stars"></a>
-            <a href="https://github.com/100mslive/100ms-flutter"><img src="https://img.shields.io/github/forks/100mslive/100ms-flutter?style=for-the-badge&color=blue" alt="Forks"></a>
-          </div>
-          <em>Flutter SDK for live video conferencing and interactive live streaming. Published on pub.dev, with apps on App Store &amp; Play Store.</em>
-        </div>
-        <div class="project-card">
-          <h3>100ms React Native SDK</h3>
-          <div class="badges">
-            <a href="https://github.com/100mslive/100ms-react-native"><img src="https://img.shields.io/github/stars/100mslive/100ms-react-native?style=for-the-badge&color=yellow" alt="Stars"></a>
-            <a href="https://github.com/100mslive/100ms-react-native"><img src="https://img.shields.io/github/forks/100mslive/100ms-react-native?style=for-the-badge&color=blue" alt="Forks"></a>
-          </div>
-          <em>React Native SDK for 100ms &mdash; enabling live video conferencing &amp; streaming in cross-platform mobile apps.</em>
-        </div>
-      </div>
+    <section id="experience">
+<h2 class="section-label">Experience</h2>
+<article class="experience">
+<div class="period">Feb 2021–Present</div>
+<div>
+<h3>
+<a href="https://www.100ms.ai/">100ms ↗</a>
+</h3>
+<p class="job-role">Software Engineer E5 · Voice AI; previously iOS frameworks and cross-platform engineering management</p>
+<p>I work across production voice-agent behavior, shared schemas, backend integration, evaluation, and operations. My contributions connect what an agent asks to what the system extracts, saves, and grades.</p>
+<p>My scheduling work included eligibility gates, handoffs, booking-tool coordination, and generated visit notes. I also built a Go fax-extraction service and added independent model review and confidence handling.</p>
+<p>I also set up AI-assisted engineering workflows: shared skills and instructions for Claude Code and Codex, review automation, release workflows, and PHI guards for coding sessions.</p>
+<p>Earlier, I built the WebRTC-based iOS SDK in a two-person team, then started the Flutter and React Native SDKs while managing three engineers and contributing across iOS and Android.</p>
+<div class="tags">
+<span>Voice AI</span>
+<span>Python</span>
+<span>TypeScript</span>
+<span>Evaluation</span>
+<span>WebRTC</span>
+<span>Engineering leadership</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Mar 2020–Feb 2021</div>
+<div>
+<h3>CleverTap</h3>
+<p class="job-role">Lead iOS Engineer</p>
+<p>Built the iOS geofencing module from scratch using Apple’s Core Location framework. Introduced unit and behavioral tests with Quick, Nimble, and OCMock, and led Bitrise and CodeBeat integration.</p>
+<p>Added features to native and hybrid SDKs, built demonstration apps, and supported engineers integrating the SDKs into their products.</p>
+<div class="tags">
+<span>Core Location</span>
+<span>Geofencing</span>
+<span>SDK testing</span>
+<span>Flutter</span>
+<span>React Native</span>
+<span>Unity</span>
+</div>
+<a class="text-link" href="https://github.com/CleverTap/clevertap-geofence-ios">Explore the geofencing SDK ↗</a>
+</div>
+</article>
+<article class="experience">
+<div class="period">Sep 2018–Mar 2020</div>
+<div>
+<h3>WebEngage</h3>
+<p class="job-role">Lead, Mobile Technology (iOS)</p>
+<p>Built asynchronous SDK initialization using Grand Central Dispatch and the “Doctor” app for debugging SDK behavior. Standardized native and hybrid integration documentation and built demo apps covering the SDK APIs.</p>
+<p>Automated SDK deployment with Fastlane and Bitrise, alongside release delivery, monitoring, and integration support.</p>
+<div class="tags">
+<span>SDK diagnostics</span>
+<span>GCD</span>
+<span>Developer experience</span>
+<span>Fastlane</span>
+<span>Bitrise</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Feb 2016–Sep 2018</div>
+<div>
+<h3>Haptik</h3>
+<p class="job-role">iOS Engineer · Team leadership</p>
+<p>Led the iOS team working on the consumer app and commercial SDK. Built the SDK from scratch and made the original app a client of it, with shared MVVM architecture, Core Data persistence, and MQTT messaging.</p>
+<p>Built configurable chat components and reusable networking, and led integrations for payments, cab booking, analytics, referrals, and deep linking.</p>
+<div class="tags">
+<span>SDK architecture</span>
+<span>MVVM</span>
+<span>Core Data</span>
+<span>MQTT</span>
+<span>Product integrations</span>
+</div>
+</div>
+</article>
+<article class="experience">
+<div class="period">Jul 2014–Feb 2016</div>
+<div>
+<h3>Inspeero Technologies</h3>
+<p class="job-role">iOS Developer</p>
+<p>Built music-player and connected-device applications, including Electrocompaniet Remote. Implemented multi-context Core Data and background library synchronization using GCD, alongside device communication and custom interactions.</p>
+<div class="tags">
+<span>Connected devices</span>
+<span>Core Data</span>
+<span>Background sync</span>
+<span>GCD</span>
+<span>UIKit</span>
+</div>
+</div>
+</article>
+<a class="text-link" href="/work/realtime-mobile-sdks/">SDK architecture, diagnostics &amp; integration work ↗</a>
+</section>
+    <section id="stack">
+<h2 class="section-label">Technical toolkit</h2>
+<p>The tools behind the work. The <a href="/work/agent-platform/">platform overview</a> explains how the surrounding services fit together.</p>
+<div class="toolkit">
+<div class="tool-row">
+<h3>AI &amp; evaluation</h3>
+<div>
+<p>Conversation workflows, structured extraction, prompt regressions, and repeated model evaluations.</p>
+<p class="tools">OpenAI · Gemini · Gemma · pytest · Cekura · Langfuse</p>
+</div>
+</div>
+<div class="tool-row">
+<h3>Services &amp; contracts</h3>
+<div>
+<p>Typed interfaces and shared rules across agents and backend consumers.</p>
+<p class="tools">Python · FastAPI · asyncio · Pydantic · TypeScript · Go · Protobuf · gRPC · Temporal</p>
+</div>
+</div>
+<div class="tool-row">
+<h3>Voice &amp; real-time</h3>
+<div>
+<p>Speech and telephony integrations around the agent; real-time media APIs for mobile applications.</p>
+<p class="tools">Twilio · Deepgram · ElevenLabs · Cartesia · WebRTC</p>
+</div>
+</div>
+<div class="tool-row">
+<h3>Operations &amp; diagnosis</h3>
+<div>
+<p>Release configuration, production investigation, replay, and PHI-aware review tooling.</p>
+<p class="tools">Docker · Kubernetes · GCP · Argo CD · GitHub Actions · Grafana · Prometheus · OpenTelemetry</p>
+</div>
+</div>
+<div class="tool-row">
+<h3>Mobile &amp; product</h3>
+<div>
+<p>Developer-facing SDKs, native application behavior, and cross-platform integrations.</p>
+<p class="tools">Swift · Objective-C · UIKit · SwiftUI · Flutter · React Native</p>
+</div>
+</div>
+</div>
+</section>
+    <section id="community">
+     <h2 class="section-label">
+      Community &amp; speaking
+     </h2>
+     <p>
+      Community building is a core part of my work. I bring developers together for talks, workshops, and practical conversations about how software is built.
+     </p>
+     <div class="communities">
+      <article class="community-item">
+       <p class="eyebrow">
+        Founder
+       </p>
+       <h3>
+        <a href="https://swiftmumbai.in/">
+         Swift Mumbai ↗
+        </a>
+       </h3>
+       <p>
+        I started the Apple developer community in Mumbai.
+       </p>
+       <a class="text-link" href="https://x.com/swift_mumbai">
+        @swift_mumbai ↗
+       </a>
+      </article>
+      <article class="community-item">
+       <p class="eyebrow">
+        Core member
+       </p>
+       <h3>
+        <a href="https://www.linkedin.com/company/swiftbengaluru/">
+         Swift Bengaluru ↗
+        </a>
+       </h3>
+       <p>
+        A core part of the Bangalore Apple developer community.
+       </p>
+       <a class="text-link" href="https://x.com/SwiftBengaluru">
+        @SwiftBengaluru ↗
+       </a>
+      </article>
+      <article class="community-item">
+       <p class="eyebrow">
+        Core member
+       </p>
+       <h3>
+        <a href="https://www.swiftbharat.org/">
+         Swift Bharat ↗
+        </a>
+       </h3>
+       <p>
+        Contributing to the wider Swift community through conferences and shared learning.
+       </p>
+      </article>
+      <article class="community-item">
+       <p class="eyebrow">
+        Since March 2026
+       </p>
+       <h3>
+        Codex Ambassador
+       </h3>
+       <p>
+        Connecting with AI builders and sharing practical development experiences.
+       </p>
+       <a class="text-link" href="https://x.com/_yogeshsingh/status/2083448596310130893">
+        Codex Mumbai meetup recap ↗
+       </a>
+      </article>
+     </div>
+     <a class="text-link" href="/speaking/">
+      Talks, workshops &amp; community highlights ↗
+     </a>
     </section>
+    <section id="writing">
+     <h2 class="section-label">
+      Engineering notes
+     </h2>
+     <div class="notes-list">
+      <a class="note-link" href="#ai-engineering">
+       <h3>Designing agents for real workflows ↗</h3>
+       <p>Fifteen concepts across agent architecture, voice systems, and applied AI—from context freshness and tool contracts to turn-taking and evaluation.</p>
+      </a>
 
-    <hr class="divider">
-
-    <!-- TECH STACK -->
-    <section>
-      <h2>Tech Stack</h2>
-
-      <div class="tech-category">
-        <h3>Languages</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/Objective--C-438EFF?style=for-the-badge&logo=apple&logoColor=white" alt="Objective-C">
-          <img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white" alt="Swift">
-          <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin">
-          <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-          <img src="https://img.shields.io/badge/Go-007D9C?style=for-the-badge&logo=go&logoColor=white" alt="Go">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Real-Time</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white" alt="WebRTC">
-          <img src="https://img.shields.io/badge/MQTT-660066?style=for-the-badge&logo=eclipsemosquitto&logoColor=white" alt="MQTT">
-          <img src="https://img.shields.io/badge/HLS_Streaming-FA8072?style=for-the-badge&logo=apple&logoColor=white" alt="HLS">
-          <img src="https://img.shields.io/badge/RTMP-FF0000?style=for-the-badge&logo=adobeflash&logoColor=white" alt="RTMP">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Mobile Frameworks</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/UIKit-2396F3?style=for-the-badge&logo=apple&logoColor=white" alt="UIKit">
-          <img src="https://img.shields.io/badge/SwiftUI-0071E3?style=for-the-badge&logo=swift&logoColor=white" alt="SwiftUI">
-          <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
-          <img src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Native">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Backend Frameworks</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-          <img src="https://img.shields.io/badge/Uvicorn-2F4F4F?style=for-the-badge&logo=uvicorn&logoColor=white" alt="Uvicorn">
-          <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="Pytest">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>AI &amp; Voice</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI">
-          <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini">
-          <img src="https://img.shields.io/badge/ElevenLabs-000000?style=for-the-badge&logo=elevenlabs&logoColor=white" alt="ElevenLabs">
-          <img src="https://img.shields.io/badge/Deepgram-13EF93?style=for-the-badge&logo=deepgram&logoColor=black" alt="Deepgram">
-          <img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Observability</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/OpenTelemetry-000000?style=for-the-badge&logo=opentelemetry&logoColor=white" alt="OpenTelemetry">
-          <img src="https://img.shields.io/badge/New_Relic-1CE783?style=for-the-badge&logo=newrelic&logoColor=white" alt="New Relic">
-          <img src="https://img.shields.io/badge/Langfuse-000000?style=for-the-badge&logo=langfuse&logoColor=white" alt="Langfuse">
-          <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" alt="Prometheus">
-          <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Infrastructure</h3>
-        <div class="badge-row">
-          <img src="https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" alt="Kafka">
-          <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-          <img src="https://img.shields.io/badge/Redis-FF4438?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
-          <img src="https://img.shields.io/badge/Temporal-000000?style=for-the-badge&logo=temporal&logoColor=white" alt="Temporal">
-          <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-          <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes">
-          <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
-          <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="GCP">
-          <img src="https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white" alt="Argo CD">
-        </div>
-      </div>
+      <a class="note-link" href="/writing/unknown-is-a-state/">
+       <h3>
+        Unknown is a state, too ↗
+       </h3>
+       <p>
+        Why an unanswered question and an explicit “no” need different representations.
+       </p>
+      </a>
+      <a class="note-link" href="/writing/conversation-to-regression/">
+       <h3>
+        From a failed conversation to a regression test ↗
+       </h3>
+       <p>
+        Separating a prompt issue from extraction, state, and decision-rule failures.
+       </p>
+      </a>
+     </div>
     </section>
-
-    <hr class="divider">
-
-    <!-- COMMUNITY -->
-    <section class="community">
-      <h2>Community &amp; Speaking</h2>
-      <p>I believe great software is built by strong communities. Here's how I give back:</p>
-      <p>&#x1F34E; <strong><a href="https://swiftmumbai.in/">Swift Mumbai</a></strong> &mdash; Originator of Mumbai's Apple developer community. Hosted meetups at <strong>BookMyShow, Dream11, Jio-Haptik, Eros Now, Directi, WeWork</strong> and more. Built a network of 2,000+ iOS developers.</p>
-      <p>&#x1F1EE;&#x1F1F3; <strong><a href="https://www.swiftbharat.org/">Swift Bharat Conference</a></strong> &mdash; Host &amp; Speaker at India's premier Swift conferences, sharing my journey from doodles to production SDKs.</p>
-    </section>
-
-    <hr class="divider">
-
-    <footer class="footer-quote">
-      "Build apps, build communities, build things that outlast you."
-    </footer>
-
+    <section id="contact" class="contact-section">
+<p class="eyebrow">Let's build something useful</p>
+<h2>Looking for an engineer who connects AI behavior to the product?</h2>
+<p>I'm exploring Applied AI, Forward-Deployed, Senior AI, and Product Engineering roles. I'd love to talk about the workflow you're building, the users it serves, and the engineering challenges behind it.</p>
+<div class="actions">
+<a class="button" href="https://www.linkedin.com/in/yogeshsingh2810/">Connect on LinkedIn ↗</a>
+<a href="/about/">Career &amp; background ↗</a>
+<a href="https://github.com/ygit">GitHub ↗</a>
+</div>
+</section>
+<footer class="content-footer">Yogesh Singh · Applied AI, real-time systems &amp; developer communities · India</footer>
+   </main>
   </div>
-</body>
+  <script defer="" src="/navigation.js">
+  </script>
+  <script defer="" src="/spotlight.js">
+  </script>
+ </body>
 </html>

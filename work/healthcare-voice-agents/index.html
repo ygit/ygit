@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Voice agents for complex healthcare workflows — Yogesh Singh</title>
+  <meta content="Built recovery paths for benefits-verification calls, keeping the next question, extracted answer, and completion rule in sync." name="description"/>
+  <link href="https://yogeshsingh.space/work/healthcare-voice-agents/" rel="canonical"/>
+  <meta content="Voice agents for complex healthcare workflows — Yogesh Singh" property="og:title"/>
+  <meta content="Built recovery paths for benefits-verification calls, keeping the next question, extracted answer, and completion rule in sync." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/healthcare-voice-agents/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+<div class="page-head">
+<a class="back" href="/work/">← All work</a>
+<p class="eyebrow case-eyebrow">100ms · Selected contribution</p>
+<h1>Voice agents for complex healthcare workflows</h1>
+<p class="intro">Built recovery paths for benefits-verification calls, keeping the next question, extracted answer, and completion rule in sync.</p>
+</div>
+<section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div><dt>Problem</dt><dd>A non-covered answer could end useful collection or blur prior authorization, exceptions, and their appeals.</dd></div>
+       <div><dt>My contribution</dt><dd>Recovery routes, shared appeal questions, state-dependent gates, and aligned completion and resume behavior.</dd></div>
+       <div><dt>Key decision</dt><dd>Make the question plan and downstream grading follow the same pathway-specific rules.</dd></div>
+       <div><dt>Outcome &amp; evidence</dt><dd>Explicit recovery paths supported by schema and shared-engine checks. Prompt and audio coverage applies to specific revisions; remaining verification limits are detailed below.</dd></div>
+     </dl>
+    </section>
+    <div class="article-grid">
+<aside>
+<p>
+<b>Context</b>Healthcare AI at 100ms</p>
+<p>
+<b>Focus</b>Conversation design · Workflow engineering</p>
+<p>
+<b>My scope</b>Specific workflow, correctness, and reliability contributions within the team's platform.</p>
+<p>
+<b>Evidence</b>Historical implementation and test results, reviewed November 2026.</p>
+<a href="/#contact">Discuss this work ↗</a>
+</aside>
+<article class="prose">
+<h2>The problem</h2>
+<p>A “not covered” answer was not always the end of a useful benefits-verification call. A payer representative might offer prior authorization, an exception request, or an appeal. A linear script could miss that route—or mix two different processes together.</p>
+<h2>What I built</h2>
+<p>At 100ms, I implemented benefits-verification behavior within the team’s production voice-agent platform. I connected the spoken workflow to structured extraction, question planning, completion rules, and resumed-call summaries.</p>
+<h2>Engineering decisions</h2>
+<h3>Follow the process the payer actually describes.</h3>
+<p>I implemented a recovery cascade for non-covered drugs, keeping prior authorization (PA), exception requests, and their appeals in separate paths. When valid recovery establishes coverage, the agent returns to the remaining benefit questions.</p>
+<h3>Share the rule behind the question.</h3>
+<p>Shared appeal modules and explicit field mappings keep the conversational path aligned with Python and TypeScript grading. A question should stop being required for the same reason that the agent stops asking it.</p>
+<h3>Design for answers that arrive asynchronously.</h3>
+<p>The foreground model can render the next turn before background extraction commits the latest answer. I account for that lag in gates, replay scenarios, and resumed-call behavior.</p>
+<h2>Results &amp; verification</h2>
+<p>The original recovery change was checked with question-to-schema validation, shared scenarios, and Python/TypeScript engine suites. Later appeal work added repeated prompt replays and audio-flow tests.</p>
+<p>These checks cover different revisions. Live verification and Cekura remeasurement were not established for every rollout, and the final strengthened audio revision still needed a rerun.</p>
+<blockquote>
+<p>A voice workflow is complete only when the conversation and the saved record follow the same rules.</p>
+</blockquote>
+<div class="case-next">
+<span class="eyebrow">Continue exploring</span>
+<a href="/work/agent-evaluation/">How I tested the conversation ↗</a>
+</div>
+</article>
+</div>
+</main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer>
+</script>
+ </body>
+</html>

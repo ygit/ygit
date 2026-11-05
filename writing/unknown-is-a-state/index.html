@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Unknown is a state, too — Yogesh Singh
+  </title>
+  <meta content="Why unanswered, negative, and confirmed values need different meanings in an agent workflow." name="description"/>
+  <link href="https://yogeshsingh.space/writing/unknown-is-a-state/" rel="canonical"/>
+  <meta content="Unknown is a state, too — Yogesh Singh" property="og:title"/>
+  <meta content="Why unanswered, negative, and confirmed values need different meanings in an agent workflow." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/writing/unknown-is-a-state/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a href="/work/">
+      Work
+     </a>
+     <a aria-current="page" href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/writing/">
+      ← Engineering notes
+     </a>
+     <h1>
+      Unknown is a state, too
+     </h1>
+     <p class="intro">
+      Why unanswered, negative, and confirmed values need different meanings in an agent workflow.
+     </p>
+    </div>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        By Yogesh Singh
+       </b>
+       Engineering notes
+      </p>
+      <p>
+       Synthetic examples.
+       <br/>
+       No patient information.
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>
+       A small distinction with a large effect
+      </h2>
+      <p>
+       Consider a synthetic benefits conversation. An agent asks whether a requirement applies. The representative has not answered yet. Encoding that state as “no” changes its meaning: the workflow may skip questions that still need to be asked.
+      </p>
+      <h2>
+       Preserve three states
+      </h2>
+      <ul>
+       <li>
+        <strong>
+         Unknown:
+        </strong>
+        the system has not established an answer.
+       </li>
+       <li>
+        <strong>
+         Negative:
+        </strong>
+        the representative explicitly says the condition does not apply.
+       </li>
+       <li>
+        <strong>
+         Affirmative:
+        </strong>
+        the representative confirms that it does.
+       </li>
+      </ul>
+      <p>
+       These distinctions need to survive extraction, validation, persistence, and rendering. A correct prompt cannot compensate for a downstream layer that treats a missing value as a confirmed negative.
+      </p>
+      <h2>
+       Test the boundaries
+      </h2>
+      <p>
+       Useful regression cases include an unanswered question, a volunteered answer, an explicit negative, and a correction to an earlier answer. Check which question comes next and what the resulting data means.
+      </p>
+      <blockquote>
+       <p>
+        Missing information is information about the state of the conversation.
+       </p>
+      </blockquote>
+      <a class="back" href="/writing/">
+       ← More notes
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script src="/spotlight.js" defer></script>
+ </body>
+</html>

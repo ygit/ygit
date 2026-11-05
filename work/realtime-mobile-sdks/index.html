@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Real-Time iOS &amp; Mobile SDKs — Yogesh Singh
+  </title>
+  <meta content="Yogesh Singh’s work on iOS, Flutter, and React Native communication SDKs at 100ms, with public examples and talks." name="description"/>
+  <link href="https://yogeshsingh.space/work/realtime-mobile-sdks/" rel="canonical"/>
+  <meta content="Real-Time iOS &amp; Mobile SDKs — Yogesh Singh" property="og:title"/>
+  <meta content="Yogesh Singh’s work on iOS, Flutter, and React Native communication SDKs at 100ms, with public examples and talks." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://yogeshsingh.space/work/realtime-mobile-sdks/" property="og:url"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="#0e182b" name="theme-color"/>
+  <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="/styles.css" rel="stylesheet"/>
+  <meta content="@_yogeshsingh" name="twitter:creator"/>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <div class="wrap">
+   <header class="header">
+    <a class="brand" href="/">
+     Yogesh Singh
+     <span>
+      .
+     </span>
+    </a>
+    <nav aria-label="Main navigation">
+     <a aria-current="page" href="/work/">
+      Work
+     </a>
+     <a href="/writing/">
+      Writing
+     </a>
+     <a href="/about/">
+      About
+     </a>
+     <a href="/speaking/">
+      Community &amp; Speaking
+     </a>
+    </nav>
+   </header>
+   <main id="main">
+    <div class="page-head">
+     <a class="back" href="/work/">
+      ← All work
+     </a>
+     <h1>
+      Real-time iOS
+      <br/>
+      &amp; mobile SDKs
+     </h1>
+     <p class="intro">
+      Communication software that other developers embed in their applications.
+     </p>
+    </div>
+    <section class="case-summary" aria-labelledby="case-summary-heading">
+     <h2 id="case-summary-heading">At a glance</h2>
+     <dl>
+       <div>
+<dt>Problem</dt>
+<dd>Product teams need communication APIs that fit their application lifecycle and remain understandable when an integration fails.</dd>
+</div>
+       <div>
+<dt>My contribution</dt>
+<dd>Built the 100ms iOS SDK in a two-person team; started Flutter/React Native SDKs while managing three engineers; earlier geofencing, diagnostics, and commercial SDK work.</dd>
+</div>
+       <div>
+<dt>Key decision</dt>
+<dd>Treat API behavior, application state, release delivery, and integrator diagnostics as parts of the same developer experience.</dd>
+</div>
+       <div>
+<dt>Outcome &amp; evidence</dt>
+<dd>Public iOS, Flutter, and React Native SDKs and integration examples are linked below, alongside related framework and messaging talks.</dd>
+</div>
+     </dl>
+    </section>
+    <div class="article-grid">
+     <aside>
+      <p>
+       <b>
+        Context
+       </b>
+       100ms communication SDKs
+      </p>
+      <p>
+       <b>
+        My role
+       </b>
+       iOS frameworks engineering; React Native / Flutter engineering management
+      </p>
+      <p>
+       <b>
+        Tools &amp; platforms
+       </b>
+       Swift · iOS · WebRTC · Flutter · React Native
+      </p>
+     </aside>
+     <article class="prose">
+      <h2>Building the 100ms SDKs</h2>
+      <p>I built the WebRTC-based iOS SDK from scratch as part of a two-person team. The product covered live audio/video, HLS and RTMP streaming, chat, screen sharing, and interactive features such as whiteboards, polls, and quizzes, with call-reliability and analytics capabilities.</p>
+      <p>I then started the Flutter and React Native SDKs while managing three engineers and contributing to the iOS and Android SDKs. This combined hands-on framework work with responsibility for delivering developer-facing APIs across platforms.</p>
+      <picture>
+<source media="(max-width: 600px)" srcset="/assets/sdk-layers-mobile.svg"/>
+<img alt="Conceptual application, SDK, and media/platform boundaries." class="plate" height="270" src="/assets/sdk-layers.svg" width="760"/>
+</picture>
+      <h2>CleverTap: geofencing and SDK quality</h2>
+      <p>At CleverTap, I built the geofencing module using Apple’s Core Location framework. It gave the iOS SDK a reusable location-based capability that application teams could integrate into their own products.</p>
+      <p>I introduced unit and behavioral testing with Quick, Nimble, and OCMock, led integration of Bitrise and CodeBeat, and worked on features across Flutter, React Native, Unity, Cordova, Segment, and mParticle integrations. I also built demo applications for native and hybrid SDK capabilities.</p>
+      <p>
+<a href="https://github.com/CleverTap/clevertap-geofence-ios">Public geofencing SDK, examples, and tests ↗</a>
+</p>
+      <h2>WebEngage: tools for the engineers using the SDK</h2>
+      <p>I implemented asynchronous initialization with Grand Central Dispatch and built the “Doctor” application to help debug SDK behavior. I standardized integration documentation for native and hybrid SDKs and created demo apps showing how to use the APIs.</p>
+      <p>I also automated SDK deployment with Fastlane and Bitrise. The work connected runtime behavior, integration support, and release delivery: a developer needed to understand the API, observe what happened inside their app, and adopt a new version reliably.</p>
+      <h2>Haptik: turn a product into a reusable SDK</h2>
+      <p>I led the iOS team responsible for the consumer application and commercial framework. I built the SDK from scratch and converted the original application into a client of it, so shared capabilities served both the product and external integrators.</p>
+      <p>I led the MVVM architecture work and implemented the Core Data stack, MQTT-based messaging improvements, a reusable JSON-driven customization layer, and chat components configurable from a product dashboard.</p>
+      <p>My work also included a reusable networking client, SSL pinning, payments and cab-booking integrations, analytics, referrals, deep linking, and internal build distribution through Buddybuild and Bitrise.</p>
+      <h2>Inspeero: connected devices and background synchronization</h2>
+      <p>For Electrocompaniet Remote, a mobile interface to a home media system, I implemented multi-context Core Data and background synchronization for a library of more than 10,000 music tracks. The synchronization used GCD and a parent/child context structure to handle library changes alongside the app’s local state.</p>
+      <p>The application also involved local device discovery, socket communication, gesture-driven interactions, and custom drawing. These were early examples of the asynchronous state and integration problems that later became central to my SDK and voice-AI work.</p>
+      <h2>The common engineering thread</h2>
+      <p>Across these products, the useful work went beyond implementing an API. It included making behavior observable, giving integrators practical examples, keeping application and library state consistent, and building a release process that other teams could use.</p>
+      <h2>
+       Explore the public work
+      </h2>
+      <ul>
+       <li>
+        <a href="https://github.com/100mslive/100ms-ios-sdk">
+         100ms iOS SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/100mslive/100ms-flutter">
+         100ms Flutter SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/100mslive/100ms-react-native">
+         100ms React Native SDK
+        </a>
+       </li>
+       <li>
+        <a href="https://www.100ms.live/docs/ios/v2/quickstart/quickstart">
+         100ms iOS quickstart
+        </a>
+       </li>
+       <li>
+        <a href="https://www.youtube.com/watch?v=NqG5Io3LHnI">
+         Building Commercial Frameworks — talk
+        </a>
+       </li>
+       <li>
+        <a href="https://www.youtube.com/watch?v=jusArrC88JM">
+         Using MQTT in Real-Time Chat Applications — talk
+        </a>
+       </li>
+      </ul>
+      <a class="back" href="/work/">
+       ← Explore other work
+      </a>
+     </article>
+    </div>
+   </main>
+   <footer class="footer">
+    <span>
+     Yogesh Singh · Engineer &amp; community builder · India
+    </span>
+    <div>
+     <a href="https://github.com/ygit">
+      GitHub
+     </a>
+     <a href="https://www.linkedin.com/in/yogeshsingh2810/">
+      LinkedIn
+     </a>
+     <a href="https://x.com/_yogeshsingh/">
+      X / Twitter
+     </a>
+    </div>
+   </footer>
+  </div>
+  <script defer="" src="/spotlight.js">
+  </script>
+ </body>
+</html>
